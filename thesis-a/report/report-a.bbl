@@ -1,0 +1,56 @@
+\begin{thebibliography}{HLK05}
+
+\bibitem[Coo64]{Coo64}
+Bruce~M. Cooper.
+\newblock {\em Writing Technical Reports}.
+\newblock Penguin Books, Middlesex, 1964.
+
+\bibitem[GRS14]{GRS14}
+GRS.
+\newblock Thesis format guide: A guide for candidates preparing to submit their
+  thesis for examination.
+\newblock https://\hspace{0cm}\relax research.unsw.edu.au/\hspace{0cm}\relax
+  document/\hspace{0cm}\relax thesis\_format\_guide.pdf\hspace{0cm}\relax,
+  accessed 14/04/2015, 2014.
+\newblock Graduate Research School, UNSW.
+
+\bibitem[HLK05]{HasLehKwo05}
+Tawfique Hasan, Torsten Lehmann, and Chee~Yee Kwok.
+\newblock A 5{V} charge pump in a standard 1.8{V} 0.8{$\mu$m} {CMOS} process.
+\newblock In {\em {IEEE} International Symposium on Circuits and Systems},
+  pages 1899--1902, Kobe, Japan, 2005.
+
+\bibitem[NL03]{NieLeh03}
+Jannik~Hammel Nielsen and Torsten Lehmann.
+\newblock An implantable {CMOS} amplifier for nerve signals.
+\newblock {\em Analog Integrated Circuits and Signal Processing},
+  36(1--2):153--164, July-August 2003.
+
+\bibitem[Noo05]{Noo05}
+Saeid Nooshabadi.
+\newblock Bachelor of engineering thesis and project: timetable and notes for
+  students.
+\newblock http://\hspace{0cm}\relax
+  scoff.ee.unsw.edu.au/\hspace{0cm}document/\hspace{0cm}\relax
+  thesis/\hspace{0cm}thnotes2.pdf, accessed 14/11/2005, 2005.
+\newblock School of El.\ Eng.\ and Telecom., UNSW.
+
+\bibitem[She05]{She05}
+John Shepherd.
+\newblock Doing a cse thesis.
+\newblock http://\hspace{0cm}\relax
+  www.cse.unsw.edu.au/\hspace{0cm}\~{}jas/talks/\hspace{0cm}\relax thesis/,
+  accessed 14/11/2005, 2005.
+\newblock School of Comp.\ Sci.\ and Eng., UNSW.
+
+\bibitem[Sid99]{Sid99}
+Charles~H. Sides.
+\newblock {\em How to Write \& Present Technical Information}.
+\newblock Cambridge University Press, Cambridge, 3rd edition, 1999.
+
+\bibitem[SJW79]{StrWhi79}
+William Strunk~Jr. and E.~B. White.
+\newblock {\em The Elements of Style}.
+\newblock Macmillan Publishing Co., New York, 3rd edition, 1979.
+
+\end{thebibliography}
