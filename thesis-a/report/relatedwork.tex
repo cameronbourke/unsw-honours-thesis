@@ -1,0 +1,146 @@
+\chapter{Related Work}\label{ch:relatedwork}
+
+[TODO: Tie in the background chapter and describe how it relates to this chapter]
+
+\section{seL4 Benchmarking}
+
+\subsection{Benchmarking}
+
+The aim of benchmarking is twofold: (1) to detect performance regressions and (2) to identify opportunities for improvement. Benchmarking often takes the form as a suite of tests that are able to measure the performance of a given system. Benchmarking can be divided into standard and ad-hoc benchmarks. Standard benchmarks are designed by experts in the industry and tend to be based on macro-benchmarks, which attempt to represent real-world performance. The benefit of standardised benchmarks is that it provides a common standard, such that results can be compared. One example of a standardised benchmark is SPEC CPU 2017, which is designed to measure compute-intensive performance on a CPU \cite{SPECCPU2017}.
+
+\subsection{sel4bench}
+
+The repo sel4bench provides multiple applications for benchmarking different paths in the kernel \cite{GithubSel4bench}. Most notably it contains an application that benchmarks the Inter-process Communication (IPC) mechanism in seL4. The benchmarks are ad-hoc, since seL4 is an experimental system and therefore none of the standardised benchmarks are compatible\footnote{Most benchmarking suites designed for operating systems target UNIX/POSIX like systems.}.
+
+\subsection{libsel4bench Overview}
+
+Interfacing with the PMU directly via platform dependent assembly instructions sand MSRs (see Section \ref{sect:programming_pmu}), while illuminating, requires further layers of abstraction before it can be useful to developers on seL4. 
+
+The seL4 benchmarks require access to the PMU counters, specifically to count the number of CPU cycles required to perform a particular operation. How CPU cycles, or any other PMU event is counted, depends on the underlying platform (e.g x86, ARM, RISC-V), as well as the specific architecture (e.g for ARM, this could be ARMv6, ARMv7, ARMv8 etc.) The libsel4bench library is designed to abstract over the performance monitoring counters (PMCs) \cite{github_libsel4bench_sel4bench_header}.
+
+\subsection{libsel4bench Limitations [TODO: Change title]}
+
+In order for libsel4bench to also support benchmarking and profiling on seL4, support for additional PMU functionality will be required. 
+
+\subsubsection{PMU Sampling Support}
+Earlier, in section \ref{sect:sampling_counting}, we defined the difference between sampling and counting to be [TODO: Fill this out]. While libsel4bench provides extensive support for counting, it does not provide any support for sampling the performance counters. Sampling is not necessarily required for benchmarking in seL4, since often it is suffice to sample the counter value directly before and after the operation to be benchmarked. However, for a statistical profiler, sampling support is fundamental since it is the mechanism that switches control back to the profiler such that it can snapshot the running threads state (i.e PC, call stack, register set).
+
+\subsubsection{[TODO: Find another requirement for libsel4bench]}
+
+\section{Performance Counters for Linux (PCL)}
+
+[TODO: Motivate why need to review how Linux solves this]
+
+The PCL is a kernel-based subsystem that provides a framework for collecting and analysing performance data \cite{DocsRedHatPCL}. It is also commonly known in the open source community as Linux perf events (LPE), or perf\_events \cite{BlogBrendandGreggPerf}. The subsystem was merged into the Linux kernel in version 2.6.31 \cite{DocsUnofficialLinxPerfEvents} (most recent version is 5.17.4, released 20 April 2022). 
+
+\subsection{The perf utility}
+
+The perf utility is the Command Line Interface (CLI) to the PCL subsystem \cite{ManPerfCLI}. It is a high level interface that acts as an entry point for a number of commands, such as:
+
+\ssp
+\begin{itemize}
+    \item perf stat - instruments and summarises key CPU counters (PMCs)
+    \item perf record - records PMU events (to perf.data) which can be later reported
+    \item perf report - breaks down events by process, function, etc and allows user to filter events
+    \item perf annotate - annotate assembly or source code with event counts
+    \item perf top - view live event count (in realtime)
+    \item perf bench - run benchmarks for different kernel subsystems
+\end{itemize}
+\dsp
+
+\subsection{perf record}
+
+The perf record command invokes the statistical profiler (see Section \ref{sect:statistical_profiling} for an overview of statistical profiling). 
+
+\subsubsection{Example Usage}
+
+To familiarise ourself with the perf API, we will sample the CPU every 10000 instructions, such that we include the call stack in the sample, and filter out samples that were taken while the CPU was executing in kernel mode. We can specify this with the perf command as so:
+
+\lstset{language=bash}
+\begin{lstlisting}
+$ perf record -g -e cycles:u -c 10000
+\end{lstlisting}
+
+where the arguments:
+\ssp
+\begin{itemize}
+    \item \textit{-g} specifies that call stack should be included.
+    \item \textit{-e} specifies the sampling event. 
+    \item \textit{-c} specifies the count at which a sample occurs. 
+\end{itemize}
+\dsp
+
+However, when CPU cycles is the sampling event, it is often more convenient to sample based on a frequency (in Hz):
+
+\lstset{language=bash}
+\begin{lstlisting}
+$ perf record -g -F 99 -all-user
+\end{lstlisting}
+
+where the arguments:
+
+\ssp
+\begin{itemize}
+    \item \textit{-F} specifies the frequency to sample.
+    \item \textit{-all-user} specifies that to sample whilst CPU is in user-mode.
+\end{itemize}
+\dsp
+
+Note, the term \textit{profile} refers to the data generated by the profiler. In the case of a statistical profiler, a profile is a sequence of samples.
+
+\subsection{perf report}
+
+The perf report command is responsible displaying the profile data generated by perf record.
+
+\subsubsection{Example Report}
+
+[Todo: Create simpl\_prog.c in the appendix and link back here]
+
+To help illustrate how perf report presents the profile data, we will profile a small C program [TODO: link here] that has a sufficiently complex call stack to demonstrate the nature of sampling. We can run perf record, with the same arguments as before, but we also pass the program to profile (i.e simple\_prog). 
+
+\lstset{language=bash}
+\begin{lstlisting}
+$ perf record -g -e cycles:u -c 10000 simple_prog
+\end{lstlisting}
+
+\subsubsection{Interpreting the Report}
+
+Once the program has finished executing, we can run perf report.
+
+\lstset{language=bash}
+\begin{lstlisting}
+$ perf report
+\end{lstlisting}
+
+This displays the following output:
+
+[TODO: Insert output from perf report]
+
+By default, the table is separated into 5 columns:
+
+\ssp
+\begin{itemize}
+    \item \textit{Children} is the percentage of overall samples that were collected exclusively within a descendant function.
+    \item \textit{Self} is the percentage of overall samples that were collected within the function itself (i.e ignoring descendant functions).
+    \item \textit{Command} which process the samples were collected from.
+    \item \textit{Shared Object} displays the name of the Executable and Linkable Format (ELF) image where the samples same from.
+    \item \textit{Symbol} displays the name of the function that was executing when the sample was taken.
+\end{itemize}
+\dsp
+
+In the example report, there are a number of notable points:
+\ssp
+\begin{enumerate}
+    \item The ``Children" and ``Self" columns are percentage values, and do not represent time, but rather percentage of overall samples. If the total execution time for the profile is known, the cumulative execution time for a given function can be approximated using the number of samples where the function appears. 
+    \item The ``Shared Object" column refers to ELF images other than simple\_prog. This is because there are calls to libc functions, namely \textit{time}, \textit{srand}, \textit{getpid} and \textit{printf} which are still executing within the simple\_prog process.
+    \item Instances where the value for ``Shared Object'' show [unknown] refer to dynamic shared objects (DSO), where the object name could not be resolved.
+    \item The cases where the value for ``Shared Object'' is simple\_prog, but the corresponding symbol is a raw address, is due to the profiler not being able to find an entry in the ELF image for that particular address.
+    \item Lastly, if we were to count all cycles, instead of only user cycles, we would expect to see kernel symbols also appearing in the report.
+\end{enumerate}
+\dsp
+
+\subsection{The perf\_events\_open syscall}
+
+\subsection{The perf File Format}
+
+The perf record command, by default, will write the profile data out to file called perf.data, which is then consumed by other perf tools (e.g perf report). In order to ensure interoperability, there is a perf file format which specifies the layout within a perf.data file.

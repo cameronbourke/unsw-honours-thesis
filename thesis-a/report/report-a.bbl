@@ -1,11 +1,79 @@
-\begin{thebibliography}{HLK05}
+\begin{thebibliography}{10}
 
-\bibitem[Coo64]{Coo64}
+\bibitem{TutHowToUsePMU}
+Resource Allocation and Scheduling Group~(RASG) @SCI-Pitt.
+\newblock How to use arm performance monitoring units(pmu) in armv7.
+
+\bibitem{DocsArmCortexA15PMU}
+ARM.
+\newblock About the pmu.
+
+\bibitem{DocsArmCortexR52PMUCtrs}
+ARM.
+\newblock About the pmu.
+
+\bibitem{DocsArmCortexM55PMUCtrs}
+ARM.
+\newblock About the pmu.
+
+\bibitem{DocsArmArchProfiles}
+ARM.
+\newblock Arm architecture profiles.
+
+\bibitem{DocsArvm7}
+ARM.
+\newblock Arm architecture reference manual armv7-a and armv7-r edition.
+
+\bibitem{DocsArmv8PMU}
+ARM.
+\newblock Armv8.1-m performance monitoring user guide.
+
+\bibitem{GlossArmISA}
+ARM.
+\newblock Instruction set architecture (isa).
+
+\bibitem{DocsArmMCR}
+ARM.
+\newblock Mcr, mcr2, mcrr, and mcrr2.
+
+\bibitem{DocsArmMRC}
+ARM.
+\newblock Mrc, mrc2, mrrc and mrrc2.
+
+\bibitem{DocsArmv7PMURegs}
+ARM.
+\newblock Performance monitor registers.
+
+\bibitem{ManGprof}
+BSD.
+\newblock gprof man pages.
+
+\bibitem{Coo64}
 Bruce~M. Cooper.
 \newblock {\em Writing Technical Reports}.
 \newblock Penguin Books, Middlesex, 1964.
 
-\bibitem[GRS14]{GRS14}
+\bibitem{DocsOProfileInter}
+die.net.
+\newblock setitimer(2) - linux man page.
+
+\bibitem{DocsGProfImpl}
+Jay Fenlason.
+\newblock Implementation of profiling.
+
+\bibitem{DocsRISVISAPerfCounters}
+RISC-V Foundation.
+\newblock Counters.
+
+\bibitem{DocsRISCVISANaming}
+RISC-V Foundation.
+\newblock Isa extension naming conventions.
+
+\bibitem{BlogBrendandGreggPerf}
+Brendan Gregg.
+\newblock perf examples.
+
+\bibitem{GRS14}
 GRS.
 \newblock Thesis format guide: A guide for candidates preparing to submit their
   thesis for examination.
@@ -14,19 +82,31 @@ GRS.
   accessed 14/04/2015, 2014.
 \newblock Graduate Research School, UNSW.
 
-\bibitem[HLK05]{HasLehKwo05}
+\bibitem{HasLehKwo05}
 Tawfique Hasan, Torsten Lehmann, and Chee~Yee Kwok.
 \newblock A 5{V} charge pump in a standard 1.8{V} 0.8{$\mu$m} {CMOS} process.
 \newblock In {\em {IEEE} International Symposium on Circuits and Systems},
   pages 1899--1902, Kobe, Japan, 2005.
 
-\bibitem[NL03]{NieLeh03}
+\bibitem{DocsRedHatPCL}
+Red Hat.
+\newblock Performance counters for linux (pcl) tools and perf.
+
+\bibitem{DocsIntel64IA32Vol3B}
+Intel.
+\newblock Intel® 64 and ia-32 architectures developer's manual: Vol. 3b.
+
+\bibitem{ManPerfCLI}
+Linux.
+\newblock perf(1) - linux manual page.
+
+\bibitem{NieLeh03}
 Jannik~Hammel Nielsen and Torsten Lehmann.
 \newblock An implantable {CMOS} amplifier for nerve signals.
 \newblock {\em Analog Integrated Circuits and Signal Processing},
   36(1--2):153--164, July-August 2003.
 
-\bibitem[Noo05]{Noo05}
+\bibitem{Noo05}
 Saeid Nooshabadi.
 \newblock Bachelor of engineering thesis and project: timetable and notes for
   students.
@@ -35,22 +115,47 @@ Saeid Nooshabadi.
   thesis/\hspace{0cm}thnotes2.pdf, accessed 14/11/2005, 2005.
 \newblock School of El.\ Eng.\ and Telecom., UNSW.
 
-\bibitem[She05]{She05}
-John Shepherd.
-\newblock Doing a cse thesis.
-\newblock http://\hspace{0cm}\relax
-  www.cse.unsw.edu.au/\hspace{0cm}\~{}jas/talks/\hspace{0cm}\relax thesis/,
-  accessed 14/11/2005, 2005.
-\newblock School of Comp.\ Sci.\ and Eng., UNSW.
+\bibitem{DocsGCCExtendedAsm}
+GCC project.
+\newblock 6.47.2 extended asm - assembler instructions with c expression
+  operands.
 
-\bibitem[Sid99]{Sid99}
+\bibitem{ManGCC}
+GCC project.
+\newblock gcc man pages.
+
+\bibitem{GithubSel4bench}
+seL4.
+\newblock sel4bench.
+
+\bibitem{github_libsel4bench_sel4bench_header}
+seL4.
+\newblock sel4bench.h.
+
+\bibitem{DocsSeL4Hardware}
+seL4.
+\newblock Supported platforms.
+
+\bibitem{Sid99}
 Charles~H. Sides.
 \newblock {\em How to Write \& Present Technical Information}.
 \newblock Cambridge University Press, Cambridge, 3rd edition, 1999.
 
-\bibitem[SJW79]{StrWhi79}
+\bibitem{SPECCPU2017}
+spec.
+\newblock Spec cpu® 2017.
+
+\bibitem{StrWhi79}
 William Strunk~Jr. and E.~B. White.
 \newblock {\em The Elements of Style}.
 \newblock Macmillan Publishing Co., New York, 3rd edition, 1979.
+
+\bibitem{ArticleEmbeddedTwoPercSol}
+Jim Turley.
+\newblock The two percent solution.
+
+\bibitem{DocsUnofficialLinxPerfEvents}
+Vince Weaver.
+\newblock The unofficial linux perf events web-page.
 
 \end{thebibliography}

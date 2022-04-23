@@ -14,6 +14,9 @@
 %  oneside (default for hdr)
 %  twoside (default for undergrad)
 
+\usepackage{multicol}
+\usepackage{listings}
+
 
 %% Thesis details
 \thesistitle{Profiling framework for seL4}
@@ -50,6 +53,7 @@
 
 \include{introduction}
 \include{background}
+\include{relatedwork}
 \include{mywork}
 \include{evaluation}
 \include{conclusion}
@@ -57,7 +61,7 @@
 %% chapters in the ``backmatter'' section do not have chapter numbering
 %% text in the ``backmatter'' is single spaced
 \backmatter
-\bibliographystyle{alpha}
+\bibliographystyle{plain}
 \bibliography{pubs}
 
 \include{appendix1}

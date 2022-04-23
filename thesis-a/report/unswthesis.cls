@@ -131,7 +131,7 @@
     \def\baselinestretch{1}%
     \normalsize\selectfont}
 \newcommand{\dsp}{%
-    \def\baselinestretch{1.5}%{1.21}%
+    \def\baselinestretch{1.35}
     \normalsize\selectfont}
 
 % Define conditional:
