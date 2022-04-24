@@ -10,7 +10,7 @@ In the most general sense, we profile a program or system to gain a deeper insig
 
 In software systems, a large class of performance issues come down to understanding how and where execution time is being spent on the Central Processing Unit (CPU). Without that insight, it can be quite difficult to diagnose exactly where in the program the performance bottlenecks lie.
 
-An example of a CPU profiler that has long been available on UNIX systems (in the case of BSD, since 1983 \cite{ManGprof}) is \textit{gprof}.
+An example of a CPU profiler that has long been available on UNIX systems (in the case of BSD, since 1983 \cite{ManGprof}) is \texttt{gprof}.
 
 \subsection{Types of CPU Profilers}\label{sect:cpu_profiler_types}
 
@@ -20,7 +20,7 @@ CPU profiling is an umbrella term which encompasses a number of different types 
 
 Instrumentation is a profiling technique where trace functions are executed at the start (prologue) and end (epilogue) of each function call. The trace functions are able to collect precise timings during each call, creating a detailed summary of how much time was spent in each function in the program.
 
-With GCC for example, the \textit{-pg} flag will generate trace functions that automatically collect timing information, which by default, is written to a file called \textit{gmon.out}. The tool \textit{gprof} can then be used to view the data. Alternatively, user defined trace functions can be called instead via the GCC flag \textit{-finstrument-functions} \cite{ManGCC}. 
+With GCC for example, the \texttt{-pg} flag will generate trace functions that automatically collect timing information, which by default, is written to a file called gmon.out. The tool \texttt{gprof} can then be used to view the data. Alternatively, user defined trace functions can be called instead via the GCC flag \texttt{-finstrument-functions} \cite{ManGCC}. 
 
 \subsubsection{Statistical}\label{sect:statistical}
 
@@ -47,7 +47,7 @@ Following from the brief overview of statistical profiling in \ref{sect:statisti
 
 [TODO: Add diagram of sampling a thread]
 
-A statistical profiler needs to employ some mechanism in order to probe the CPU state at regular intervals. This is referred to as the profiling interrupt. In the case of \textit{gprof}, initially on Linux (v2.0 and earlier) it used the syscall {\textit{setitimer} \cite{DocsGProfImpl}, which permitted it access to the underlying hardware timers. Then later it migrated to the more efficient \textit{profil} syscall where the kernel could perform the probe on behalf of the user program, and therefore did not require two mode switches when the timer interrupt occurred. While hardware timers are still extensively used in modern processors, there is now dedicated hardware for performance profiling, which we will cover shortly. [TODO: Add link]
+A statistical profiler needs to employ some mechanism in order to probe the CPU state at regular intervals. This is referred to as the profiling interrupt. In the case of \texttt{gprof}, initially on Linux (v2.0 and earlier) it used the syscall {\texttt{setitimer} \cite{DocsGProfImpl}, which permitted it access to the underlying hardware timers. Then later it migrated to the more efficient \texttt{profil} syscall where the kernel could perform the probe on behalf of the user program, and therefore did not require two mode switches when the timer interrupt occurred. While hardware timers are still extensively used in modern processors, there is now dedicated hardware for performance profiling, which we will cover shortly. [TODO: Add link]
 
 \subsection{Statistical Profiling Limitations}
 
@@ -118,7 +118,7 @@ To help illustrate how to interface with the PMU, we will demonstrate how to pro
 
 \subsubsection{Cortex-A15}
 
-The Cortex-A15 is a 32-bit multi-core processor, which implements the ARMv7-A architecture, and is well supported by seL4 \cite{DocsSeL4Hardware}. The PMU on the Cortex-A15 provides implements the PMUv2 architecture and provides six programmable counters \cite{DocsArmCortexA15PMU} and one clock cycle counter (PMCCNTR). The ARMv7-A architecture defines 12 performance monitor registers (MSRs) which are used to configure the behaviour of the PMU \cite{DocsArmv7PMURegs}. The PMU registers reside on Coprocessor 15 (CP15). For this example, inspired by a similar example from the Resource Allocation and Scheduling Group \cite{TutHowToUsePMU}, only requires the following six registers:
+The Cortex-A15 is a 32-bit multi-core processor, which implements the ARMv7-A architecture, and is well supported by seL4 \cite{DocsSeL4Hardware}. The PMU on the Cortex-A15 provides implements the PMUv2 architecture and provides six programmable counters \cite{DocsArmCortexA15PMU} and one clock cycle counter (PMCCNTR). The ARMv7-A architecture defines 12 performance monitor registers (MSRs) which are used to configure the behaviour of the PMU \cite{DocsArmv7PMURegs}. The PMU registers reside on Coprocessor 15 (CP15). For this example, inspired by a similar example from the Resource Allocation and Scheduling Group \cite{TutHowToUsePMU}, only the following six registers are required:
 
 \ssp
 
@@ -135,73 +135,83 @@ The Cortex-A15 is a 32-bit multi-core processor, which implements the ARMv7-A ar
 
 To begin, we will define a series of \#defines to provide greater clarity regarding to the value being written to a particular PMU register. Note, the constants are directly from each respective PMU register section in the ARM Architecture Reference Manual ARMv7-A and ARMv7-R edition \cite{DocsArvm7}.
 
-\lstset{language=C}
-\begin{lstlisting}
-#define PMU_SOFTWARE_INC_EVT_ID         0x00
+\begin{listing}
+    \begin{minted}{C}
+    #define PMU_SOFTWARE_INC_EVT_ID         0x00
 
-#define PMCR_EN_CTRS                   (0x1 << 0)
-#define PMCR_EN_RESET_CTRS             (0x1 << 1)
-#define PMCR_EN_RESET_CLK_CTR          (0x1 << 2)
-#define PMCR_EN_CLK_DIV                (0x1 << 3)
-#define PMCR_EN_EXPORT_EVTS            (0x1 << 4)
-#define PMCR_DD_CLK_CTR_PROB_REG       (0x1 << 5)
+    #define PMCR_EN_CTRS                   (0x1 << 0)
+    #define PMCR_EN_RESET_CTRS             (0x1 << 1)
+    #define PMCR_EN_RESET_CLK_CTR          (0x1 << 2)
+    #define PMCR_EN_CLK_DIV                (0x1 << 3)
+    #define PMCR_EN_EXPORT_EVTS            (0x1 << 4)
+    #define PMCR_DD_CLK_CTR_PROB_REG       (0x1 << 5)
 
-#define PMCNTENSET_EN_PMCCNTR          (0x1 << 31)
-#define PMCNTENSET_EN_CTRS              0x3F
+    #define PMCNTENSET_EN_PMCCNTR          (0x1 << 31)
+    #define PMCNTENSET_EN_CTRS              0x3F
 
-#define PMOVSR_EN_PMCCNTR              (0x1 << 31)
-#define PMOVSR_EN_CTRS                  0x3F
-\end{lstlisting}
+    #define PMOVSR_EN_PMCCNTR              (0x1 << 31)
+    #define PMOVSR_EN_CTRS                  0x3F
+    \end{minted}
+    \caption{Flags for PMU MSRs on ARMv7.}
+\end{listing}
 
 \subsubsection{Initialising the PMU}
 
 When the processor is first powered on, we have to assume that the PMU registers are in an undefined state and therefore reinitialise them. This involves enabling counters, resetting them to 0, as well as the clock counter. To write to one of the PMU registers on ARMv7, we use the Move to Coprocessor (MCR) instruction \cite{DocsArmMCR}. Often, we want to use performance counters within a C program, and therefore we are using inline assembly, in particular Extended Asm \cite{DocsGCCExtendedAsm}.
 
-\lstset{language=C}
-\begin{lstlisting}
-uint32_t pmcr_config = PMCR_EN_CTRS | PMCR_EN_RESET_CTRS | PMCR_EN_RESET_CLK_CTR;
-asm volatile ("MCR p15, 0, %0, c9, c12, 0\t\n" :: "r"(pmrc_config));
-\end{lstlisting}
+\begin{listing}
+    \begin{minted}{C}
+    uint32_t pmcr_config = PMCR_EN_CTRS
+                         | PMCR_EN_RESET_CTRS
+                         | PMCR_EN_RESET_CLK_CTR;
+    asm volatile ("MCR p15, 0, %0, c9, c12, 0\t\n" :: "r"(pmrc_config));
+    \end{minted}
+    \caption{Writing to the PMCR.}
+\end{listing}
 
 Now that counters are enabled, we need to enable the specific counters that we want to use. In this case, we will enable counter 0, as well as the clock counter.
 
-\lstset{language=C}
-\begin{lstlisting}
-uint32_t pmcntenset_config = PMCNTENSET_EN_CTRS | PMCNTENSET_EN_PMCCNTR;
-asm volatile ("MCR p15, 0, %0, c9, c12, 1\t\n" :: "r"(pmcntenset_config));
-\end{lstlisting}
+\begin{listing}
+    \begin{minted}{C}
+    uint32_t pmcntenset_config = PMCNTENSET_EN_CTRS
+                               | PMCNTENSET_EN_PMCCNTR;
+    asm volatile ("MCR p15, 0, %0, c9, c12, 1\t\n" :: "r"(pmcntenset_config));
+    \end{minted}
+\end{listing}
 
 Finally, we need to clear the overflow bit for both of the counters.
 
-\lstset{language=C}
-\begin{lstlisting}
-uint32_t pmovsr_config = PMOVSR_EN_CTRS | PMOVSR_EN_PMCCNTR;
-asm volatile ("MCR p15, 0, %0, c9, c12, 3\t\n" :: "r"(pmovsr_config));
-\end{lstlisting}
+\begin{listing}
+    \begin{minted}{C}
+    uint32_t pmovsr_config = PMOVSR_EN_CTRS | PMOVSR_EN_PMCCNTR;
+    asm volatile ("MCR p15, 0, %0, c9, c12, 3\t\n" :: "r"(pmovsr_config));
+    \end{minted}
+\end{listing}
 
 \subsubsection{Counting an event on the PMU}
 
 Once we have initialised the PMU, we can assign the software increment event to counter 0. This is a two step process. First we specify which counter (via PMSELR), and then we specify which event (via PMXEVTYPER).
 
-\lstset{language=C}
-\begin{lstlisting}
-asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(0x00));
-asm volatile ("MCR p15, 0, %0, C9, C13, 1" :: "r"(PMU_SOFTWARE_INC_EVT_ID));
-\end{lstlisting}
+\begin{listing}
+    \begin{minted}{C}
+    asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(0x00));
+    asm volatile ("MCR p15, 0, %0, C9, C13, 1" :: "r"(PMU_SOFTWARE_INC_EVT_ID));
+    \end{minted}
+\end{listing}
 
 \subsubsection{Reading an event count on the PMU}
 
 The PMU will begin to count the number of software increment events as the program continues to execute on the CPU. At any stage, the current count can be obtained from the PMU register PMXEVCNTR. In this case, we use the Move to ARM Register \cite{DocsArmMRC} instruction to move the value from a Coprocessor register to a core (CPU) register.
 
-\lstset{language=C}
-\begin{lstlisting}
-uint32_t counter_value;
-asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(config.counter));
-asm volatile ("MRC p15, 0, %0, C9, C13, 2" : "=r"(counter_value));
-\end{lstlisting}
+\begin{listing}
+    \begin{minted}{C}
+    uint32_t counter_value;
+    asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(config.counter));
+    asm volatile ("MRC p15, 0, %0, C9, C13, 2" : "=r"(counter_value));
+    \end{minted}
+\end{listing}
 
 The current number of software increment events will now be in the variable counter\_value.
-
 
 \section{Platform Support}
 

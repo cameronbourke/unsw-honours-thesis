@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{asm}\PYG{+w}{ }\PYG{k}{volatile}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}MCR p15, 0, \PYGZpc{}0, C9, C12, 5\PYGZdq{}}\PYG{+w}{ }\PYG{o}{::}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}r\PYGZdq{}}\PYG{p}{(}\PYG{l+m+mh}{0x00}\PYG{p}{));}
+\PYG{+w}{    }\PYG{k}{asm}\PYG{+w}{ }\PYG{k}{volatile}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}MCR p15, 0, \PYGZpc{}0, C9, C13, 1\PYGZdq{}}\PYG{+w}{ }\PYG{o}{::}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}r\PYGZdq{}}\PYG{p}{(}\PYG{n}{PMU\PYGZus{}SOFTWARE\PYGZus{}INC\PYGZus{}EVT\PYGZus{}ID}\PYG{p}{));}
+\end{Verbatim}

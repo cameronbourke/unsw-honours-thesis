@@ -20,8 +20,8 @@
 \contentsline {subsection}{\numberline {2.2.4}Sampling vs Counting}{7}%
 \contentsline {subsection}{\numberline {2.2.5}Programming the PMU}{7}%
 \contentsline {subsubsection}{Cortex-A15}{8}%
-\contentsline {subsubsection}{Initialising the PMU}{9}%
-\contentsline {subsubsection}{Counting an event on the PMU}{9}%
+\contentsline {subsubsection}{Initialising the PMU}{8}%
+\contentsline {subsubsection}{Counting an event on the PMU}{10}%
 \contentsline {subsubsection}{Reading an event count on the PMU}{10}%
 \contentsline {section}{\numberline {2.3}Platform Support}{10}%
 \contentsline {subsection}{\numberline {2.3.1}x86 Systems}{10}%
@@ -40,10 +40,10 @@
 \contentsline {subsection}{\numberline {3.2.2}perf record}{15}%
 \contentsline {subsubsection}{Example Usage}{16}%
 \contentsline {subsection}{\numberline {3.2.3}perf report}{16}%
-\contentsline {subsubsection}{Example Report}{17}%
-\contentsline {subsubsection}{Interpreting the Report}{17}%
-\contentsline {subsection}{\numberline {3.2.4}The perf\_events\_open syscall}{18}%
-\contentsline {subsection}{\numberline {3.2.5}The perf File Format}{18}%
+\contentsline {subsubsection}{Example Report}{16}%
+\contentsline {subsubsection}{Interpreting the Report}{16}%
+\contentsline {subsection}{\numberline {3.2.4}The perf\_events\_open syscall}{17}%
+\contentsline {subsection}{\numberline {3.2.5}The perf File Format}{17}%
 \contentsline {chapter}{\numberline {4}Style and Submission Requirements}{19}%
 \contentsline {section}{\numberline {4.1}Format}{19}%
 \contentsline {section}{\numberline {4.2}Other physical appearance}{20}%
