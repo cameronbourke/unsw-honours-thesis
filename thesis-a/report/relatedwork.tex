@@ -27,7 +27,7 @@ Earlier, in section \ref{sect:sampling_counting}, we defined the difference betw
 
 \subsubsection{[TODO: Find another requirement for libsel4bench]}
 
-\section{Performance Counters for Linux (PCL)}
+\section{Performance Counters for Linux (PCL)}\label{sect:pcl}
 
 [TODO: Motivate why need to review how Linux solves this]
 
@@ -110,6 +110,7 @@ The PCL subsystem allows events to be grouped. A group of events are atomically 
 
 \subsection{PCL User-level Interface}
 
+
 On Linux, the \texttt{perf} utility somehow needs to interact with the PCL subsystem, which it does so via the \texttt{perf\_events\_open} syscall in \ref{lst:perf_events_open_syscall}[TODO: Fix referencing]
 
 \begin{listing}\label{lst:perf_events_open_syscall}
@@ -150,7 +151,7 @@ struct read_format {
 
 \subsubsection{Sampling Events}
 
-Sampling an event differs from counting an event, in that the kernel will notify userspace every N events, where N is determined by the sampling frequency. Instead of reading directly from the file descriptor, the kernel will write records to a shared ring-buffer, which can then be accessed in userspace via calls to \texttt{mmap}. A record, which is perhaps confusingly referred to as an asynchronous event in the man pages, can be one of 21 types. Four common record types are defined below:
+Sampling an event differs from counting an event, in that the kernel will notify userspace every N events, where N is determined by the sampling frequency. The mechanism for notifying is via either a signal sent to the user process or by polling the file descriptor (e.g using \texttt{epoll}). Instead of reading directly from the file descriptor, the kernel will write records to a shared ring-buffer, which can then be accessed in userspace via calls to \texttt{mmap}. A record, which is perhaps confusingly referred to as an asynchronous event in the man pages, can be one of 21 types. Four common record types are defined below:
 
 \ssp
 \begin{itemize}
@@ -161,7 +162,7 @@ Sampling an event differs from counting an event, in that the kernel will notify
 \end{itemize}
 \dsp
 
-\subsection{The perf File Format}
+\subsection{The perf File Format}\label{sect:perf_file_format}
 
 The \shellcmd{perf record} command, by default, will write the profile data out to file called \texttt{perf.data}, which is then consumed by other perf tools (e.g \shellcmd{perf report}). In order to ensure interoperability, there is a perf file format which specifies the layout of data within the \texttt{perf.data} file, and is designed in such a way that it provides forwards and backwards compatibility \cite{GithubPerfFileFormat}.
 

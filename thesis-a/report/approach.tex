@@ -1,0 +1,53 @@
+\chapter{Approach}\label{ch:approach}
+
+[TODO: Tie in the background chapter and related how it relates to this chapter]
+
+\section{Statistical Profiling Limitations}
+
+Statistical profiling offers a low overhead approach to profiling, however there are a number of limitations or scenarios where it is not suitable:
+
+\begin{itemize}
+    \item When 100\% instruction accurate profiles are required. Due to the latency of the polling interrupts, the address read from the PC may refer to a more recently executed instruction. An illuminating example of this mis-attribution can be seen in a loop where the last instruction is relatively expensive, but the time is attributed to incrementing the loop variable \cite{DocsOProfileInter}.
+    \item When the function being profiled is called infrequently. If there are not a sufficient number samples, the profiler may not be able to provide any useful insight into its runtime behaviour.
+    \item When no disturbances to the system whatsoever can be tolerated. Sampling requires hardware interrupts to be handled, which may not be suitable for real time applications.
+    \item When an interstitial profiling API is required. Due to the nature of sampling, it is imperative that work performed during each profiling interrupt is minimal, to reduce the overhead on the system, and therefore calling user-defined functions during the interrupt handling would not feasible.
+\end{itemize}
+
+\section{Design Goals}
+
+%% Add Lockstep Sampling as a requirement
+
+\ssp\begin{enumerate}
+    \item \textbf{Performance}. The profiler should not impose a significant overhead on the system. Further, the overhead should be directly proportional to the sampling frequency selected by the user.
+    \item \textbf{Extensible}. The design should be open for extension, such that new PMU events or configuration options can be added without refactoring the existing codebase. 
+    \item \textbf{Portable}. The implementation should not be dependent on any platform and architecture specific details.
+    \item \textbf{Configurable}. The design should provide an expressive API to userspace, such that the profiler can be configured to sample select events. 
+    \item \textbf{Verification}. seL4 is a formally verified microkernel and so any extension to the kernel, requires that it be verifiable. While full verification is outside the scope of this thesis, the implementation footprint should be as minimal as possible, and amenable to verification.
+\end{enumerate}\dsp
+
+\section{Requirements}
+
+Following on from the design goals, we can now list concrete requirements for the implementation of a statistical profiler.
+
+\textbf{Requirement 1}. Supports both statistical and event-based profiling.\\
+The additional expressivity that arises when supporting both statistical and event-based profiling, is evident with the PCL subsystem (see Section \ref{sect:pcl}), as it allows the user to configure sampling based on (microarchitecture) events. This means that users are not constrained to only sampling based on CPU cycles.
+
+\textbf{Requirement 2}. Supports non-destructive profiling.\\
+The term \textit{non-destructive} refers to a type of profiling which does not require the program to be recompiled in order to be profiled. 
+
+\textbf{Requirement 3}. Symbol resolution.\\
+The profiler should resolve raw addresses, obtained as part of the sample, to their corresponding symbol, as it is critical to the usability of the tool. This includes resolving symbols for the kernel, shared libraries, and userspace programs.
+
+\textbf{Requirement 4}. Supports system-wide profiling.\\
+The ability to monitor the whole system allows mode switches between kernel-mode and user-mode to be observed. To profile IPC for example, requires system-wide profiling be supported. 
+
+\textbf{Requirement 5}. Transport independent.\\
+Unlike the \texttt{perf} utility on Linux, we cannot assume a filesystem will be present to write the profile data to disk. Therefore, where the profile data is written should be provided by the user. This decouples the responsibility of collecting the data from storing the data.
+
+\textbf{Requirement 6}. Addresses lockstep sampling.\\
+Lockstep sampling occurs when the profiling samples occur at the same frequency as a loop in the program. The result is that each sample is taken at a similar location in the loop, therefore giving the appearance that it is the most common operating, and possibly a performance bottleneck.
+
+\textbf{Requirement 7}. Interoperability with \shellcmd{perf report}.\\
+We should not reinvent the wheel, but instead look to leverage the existing ecosystem of tooling built around the PCL subsystem. 
+
+\section{Design}

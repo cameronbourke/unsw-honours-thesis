@@ -49,17 +49,6 @@ Following from the brief overview of statistical profiling in \ref{sect:statisti
 
 A statistical profiler needs to employ some mechanism in order to probe the CPU state at regular intervals. This is referred to as the profiling interrupt. In the case of \texttt{gprof}, initially on Linux (v2.0 and earlier) it used the syscall {\texttt{setitimer} \cite{DocsGProfImpl}, which permitted it access to the underlying hardware timers. Then later it migrated to the more efficient \texttt{profil} syscall where the kernel could perform the probe on behalf of the user program, and therefore did not require two mode switches when the timer interrupt occurred. While hardware timers are still extensively used in modern processors, there is now dedicated hardware for performance profiling, which we will cover shortly. [TODO: Add link]
 
-\subsection{Statistical Profiling Limitations}
-
-Statistical profiling offers a low overhead approach to profiling, however there are a number of limitations or scenarios where it is not suitable:
-
-\begin{itemize}
-    \item When 100\% instruction accurate profiles are required. Due to the latency of the polling interrupts, the address read from the PC may refer to a more recently executed instruction. An illuminating example of this mis-attribution can be seen in a loop where the last instruction is relatively expensive, but the time is attributed to incrementing the loop variable \cite{DocsOProfileInter}.
-    \item When the function being profiled is called infrequently. If there are not a sufficient number samples, the profiler may not be able to provide any useful insight into its runtime behaviour.
-    \item When no disturbances to the system whatsoever can be tolerated. Sampling requires hardware interrupts to be handled, which may not be suitable for real time applications.
-    \item When an interstitial profiling API is required. Due to the nature of sampling, it is imperative that work performed during each profiling interrupt is minimal, to reduce the overhead on the system, and therefore calling user-defined functions during the interrupt handling would not feasible.
-\end{itemize}
-
 \section{Performance Monitoring}
 
 [TODO: Introduce this section]

@@ -7,9 +7,8 @@ A level-1 auxiliary file: abbreviations.aux
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: background.aux
 A level-1 auxiliary file: relatedwork.aux
-A level-1 auxiliary file: mywork.aux
-A level-1 auxiliary file: evaluation.aux
-A level-1 auxiliary file: conclusion.aux
+A level-1 auxiliary file: approach.aux
+A level-1 auxiliary file: plan.aux
 The style file: plain.bst
 A level-1 auxiliary file: appendix1.aux
 A level-1 auxiliary file: appendix2.aux
@@ -72,45 +71,45 @@ Warning--entry type for "GlossArmISA" isn't style-file defined
 --line 258 of file pubs.bib
 Warning--entry type for "ArticleEmbeddedTwoPercSol" isn't style-file defined
 --line 264 of file pubs.bib
-You've used 36 entries,
+You've used 29 entries,
             2118 wiz_defined-function locations,
-            662 strings with 7347 characters,
-and the built_in function-call counts, 7656 in all, are:
-= -- 667
-> -- 281
-< -- 1
-+ -- 123
-- -- 82
-* -- 257
-:= -- 1241
-add.period$ -- 81
-call.type$ -- 36
-change.case$ -- 148
+            608 strings with 6053 characters,
+and the built_in function-call counts, 5659 in all, are:
+= -- 467
+> -- 209
+< -- 0
++ -- 91
+- -- 60
+* -- 151
+:= -- 916
+add.period$ -- 58
+call.type$ -- 29
+change.case$ -- 117
 chr.to.int$ -- 0
-cite$ -- 36
-duplicate$ -- 289
-empty$ -- 818
-format.name$ -- 82
-if$ -- 1664
+cite$ -- 29
+duplicate$ -- 203
+empty$ -- 639
+format.name$ -- 60
+if$ -- 1226
 int.to.chr$ -- 0
-int.to.str$ -- 36
-missing$ -- 8
-newline$ -- 156
-num.names$ -- 72
-pop$ -- 281
+int.to.str$ -- 29
+missing$ -- 0
+newline$ -- 119
+num.names$ -- 58
+pop$ -- 233
 preamble$ -- 1
-purify$ -- 113
+purify$ -- 88
 quote$ -- 0
-skip$ -- 350
+skip$ -- 290
 stack$ -- 0
-substring$ -- 246
-swap$ -- 47
-text.length$ -- 1
+substring$ -- 147
+swap$ -- 29
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 138
+type$ -- 116
 warning$ -- 0
-while$ -- 76
-width$ -- 38
-write$ -- 287
+while$ -- 58
+width$ -- 31
+write$ -- 205
 (There were 29 warnings)
