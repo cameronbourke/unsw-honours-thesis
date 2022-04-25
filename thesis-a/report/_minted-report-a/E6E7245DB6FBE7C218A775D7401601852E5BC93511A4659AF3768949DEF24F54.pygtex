@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{syscall}\PYG{p}{(}\PYG{n}{SYS\PYGZus{}perf\PYGZus{}event\PYGZus{}open}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{perf\PYGZus{}event\PYGZus{}attr}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{attr}\PYG{p}{,}
+\PYG{+w}{            }\PYG{k+kt}{pid\PYGZus{}t}\PYG{+w}{ }\PYG{n}{pid}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{cpu}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{group\PYGZus{}fd}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{n}{flags}\PYG{p}{);}
+\end{Verbatim}

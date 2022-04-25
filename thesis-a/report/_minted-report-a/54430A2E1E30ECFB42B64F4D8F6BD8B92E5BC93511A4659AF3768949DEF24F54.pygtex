@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{read\PYGZus{}format}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{u64}\PYG{+w}{ }\PYG{n}{value}\PYG{p}{;}\PYG{+w}{         }\PYG{c+cm}{/* The value of the event */}
+\PYG{+w}{    }\PYG{n}{u64}\PYG{+w}{ }\PYG{n}{time\PYGZus{}enabled}\PYG{p}{;}\PYG{+w}{  }\PYG{c+cm}{/* if PERF\PYGZus{}FORMAT\PYGZus{}TOTAL\PYGZus{}TIME\PYGZus{}ENABLED */}
+\PYG{+w}{    }\PYG{n}{u64}\PYG{+w}{ }\PYG{n}{time\PYGZus{}running}\PYG{p}{;}\PYG{+w}{  }\PYG{c+cm}{/* if PERF\PYGZus{}FORMAT\PYGZus{}TOTAL\PYGZus{}TIME\PYGZus{}RUNNING */}
+\PYG{+w}{    }\PYG{n}{u64}\PYG{+w}{ }\PYG{n}{id}\PYG{p}{;}\PYG{+w}{            }\PYG{c+cm}{/* if PERF\PYGZus{}FORMAT\PYGZus{}ID */}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

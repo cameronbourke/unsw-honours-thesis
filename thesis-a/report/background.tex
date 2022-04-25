@@ -137,20 +137,20 @@ To begin, we will define a series of \#defines to provide greater clarity regard
 
 \begin{listing}
     \begin{minted}{C}
-    #define PMU_SOFTWARE_INC_EVT_ID         0x00
+#define PMU_SOFTWARE_INC_EVT_ID         0x00
 
-    #define PMCR_EN_CTRS                   (0x1 << 0)
-    #define PMCR_EN_RESET_CTRS             (0x1 << 1)
-    #define PMCR_EN_RESET_CLK_CTR          (0x1 << 2)
-    #define PMCR_EN_CLK_DIV                (0x1 << 3)
-    #define PMCR_EN_EXPORT_EVTS            (0x1 << 4)
-    #define PMCR_DD_CLK_CTR_PROB_REG       (0x1 << 5)
+#define PMCR_EN_CTRS                   (0x1 << 0)
+#define PMCR_EN_RESET_CTRS             (0x1 << 1)
+#define PMCR_EN_RESET_CLK_CTR          (0x1 << 2)
+#define PMCR_EN_CLK_DIV                (0x1 << 3)
+#define PMCR_EN_EXPORT_EVTS            (0x1 << 4)
+#define PMCR_DD_CLK_CTR_PROB_REG       (0x1 << 5)
 
-    #define PMCNTENSET_EN_PMCCNTR          (0x1 << 31)
-    #define PMCNTENSET_EN_CTRS              0x3F
+#define PMCNTENSET_EN_PMCCNTR          (0x1 << 31)
+#define PMCNTENSET_EN_CTRS              0x3F
 
-    #define PMOVSR_EN_PMCCNTR              (0x1 << 31)
-    #define PMOVSR_EN_CTRS                  0x3F
+#define PMOVSR_EN_PMCCNTR              (0x1 << 31)
+#define PMOVSR_EN_CTRS                  0x3F
     \end{minted}
     \caption{Flags for PMU MSRs on ARMv7.}
 \end{listing}
@@ -161,10 +161,10 @@ When the processor is first powered on, we have to assume that the PMU registers
 
 \begin{listing}
     \begin{minted}{C}
-    uint32_t pmcr_config = PMCR_EN_CTRS
-                         | PMCR_EN_RESET_CTRS
-                         | PMCR_EN_RESET_CLK_CTR;
-    asm volatile ("MCR p15, 0, %0, c9, c12, 0\t\n" :: "r"(pmrc_config));
+uint32_t pmcr_config = PMCR_EN_CTRS
+                        | PMCR_EN_RESET_CTRS
+                        | PMCR_EN_RESET_CLK_CTR;
+asm volatile ("MCR p15, 0, %0, c9, c12, 0\t\n" :: "r"(pmrc_config));
     \end{minted}
     \caption{Writing to the PMCR.}
 \end{listing}
@@ -173,9 +173,8 @@ Now that counters are enabled, we need to enable the specific counters that we w
 
 \begin{listing}
     \begin{minted}{C}
-    uint32_t pmcntenset_config = PMCNTENSET_EN_CTRS
-                               | PMCNTENSET_EN_PMCCNTR;
-    asm volatile ("MCR p15, 0, %0, c9, c12, 1\t\n" :: "r"(pmcntenset_config));
+uint32_t pmcntenset_config = PMCNTENSET_EN_CTRS | PMCNTENSET_EN_PMCCNTR;
+asm volatile ("MCR p15, 0, %0, c9, c12, 1\t\n" :: "r"(pmcntenset_config));
     \end{minted}
 \end{listing}
 
@@ -183,8 +182,8 @@ Finally, we need to clear the overflow bit for both of the counters.
 
 \begin{listing}
     \begin{minted}{C}
-    uint32_t pmovsr_config = PMOVSR_EN_CTRS | PMOVSR_EN_PMCCNTR;
-    asm volatile ("MCR p15, 0, %0, c9, c12, 3\t\n" :: "r"(pmovsr_config));
+uint32_t pmovsr_config = PMOVSR_EN_CTRS | PMOVSR_EN_PMCCNTR;
+asm volatile ("MCR p15, 0, %0, c9, c12, 3\t\n" :: "r"(pmovsr_config));
     \end{minted}
 \end{listing}
 
@@ -194,8 +193,8 @@ Once we have initialised the PMU, we can assign the software increment event to 
 
 \begin{listing}
     \begin{minted}{C}
-    asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(0x00));
-    asm volatile ("MCR p15, 0, %0, C9, C13, 1" :: "r"(PMU_SOFTWARE_INC_EVT_ID));
+asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(0x00));
+asm volatile ("MCR p15, 0, %0, C9, C13, 1" :: "r"(PMU_SOFTWARE_INC_EVT_ID));
     \end{minted}
 \end{listing}
 
@@ -205,9 +204,9 @@ The PMU will begin to count the number of software increment events as the progr
 
 \begin{listing}
     \begin{minted}{C}
-    uint32_t counter_value;
-    asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(config.counter));
-    asm volatile ("MRC p15, 0, %0, C9, C13, 2" : "=r"(counter_value));
+uint32_t counter_value;
+asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(config.counter));
+asm volatile ("MRC p15, 0, %0, C9, C13, 2" : "=r"(counter_value));
     \end{minted}
 \end{listing}
 
@@ -244,14 +243,6 @@ The ARMv8 architecture (most recent is ARMv9, announced March 2021) supports up 
 
 RISC-V is royalty free, open-source ISA and processor specification for a Reduced Instruction Set Computer (RISC) architecture. Historically, RISC-V was prominently used in academia, since researches are able to change and experiment with the architecture. However, in recent years, there has been a sharp rise in the commerical viability of RISC-V processors, replacing systems that were traditionally dominated by ARM [TODO: Find a citation].
 
-The RISC-V uses a standard naming convention to describe the ISAs supported in a given implementation. The ISA name format is RV[\#\#\#][abc...xyz] \cite{DocsRISCVISANaming}, where:
-
-\begin{itemize}
-    \item RV - Indicates a RISC-V architecture.
-    \item \#\#\# - \{32, 64, 128\} indicate the width of the integer register file and the size of the user address space.
-    \item abc..xyz - Indicates the set of extensions support by an implementation.
-\end{itemize}
-
-The RISC-V ISA specification defines three fixed performance counters (hpmcounter0 to hpmcounter2) which are dedicated for cycle count, real-time clock and instructions-retired respectively. It also supports up to 29 programmable performance counters (hpmcounter3-hpmcounter31) \cite{DocsRISVISAPerfCounters}.
+The RISC-V ISA specification defines three fixed performance counters (\texttt{hpmcounter0} to \texttt{hpmcounter2}) which are dedicated for cycle count, real-time clock and instructions-retired respectively. It also supports up to 29 programmable performance counters (\texttt{hpmcounter3}-\texttt{hpmcounter31}) \cite{DocsRISVISAPerfCounters}.
 
 

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{uint32\PYGZus{}t}\PYG{+w}{ }\PYG{n}{counter\PYGZus{}value}\PYG{p}{;}
+\PYG{k}{asm}\PYG{+w}{ }\PYG{k}{volatile}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}MCR p15, 0, \PYGZpc{}0, C9, C12, 5\PYGZdq{}}\PYG{+w}{ }\PYG{o}{::}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}r\PYGZdq{}}\PYG{p}{(}\PYG{n}{config}\PYG{p}{.}\PYG{n}{counter}\PYG{p}{));}
+\PYG{k}{asm}\PYG{+w}{ }\PYG{k}{volatile}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}MRC p15, 0, \PYGZpc{}0, C9, C13, 2\PYGZdq{}}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}=r\PYGZdq{}}\PYG{p}{(}\PYG{n}{counter\PYGZus{}value}\PYG{p}{));}
+\end{Verbatim}

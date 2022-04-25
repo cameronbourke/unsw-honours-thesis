@@ -57,6 +57,10 @@ Bruce~M. Cooper.
 die.net.
 \newblock setitimer(2) - linux man page.
 
+\bibitem{CERN_openlab_perf_file_format}
+Urs Fassler.
+\newblock perf file format.
+
 \bibitem{DocsGProfImpl}
 Jay Fenlason.
 \newblock Implementation of profiling.
@@ -64,10 +68,6 @@ Jay Fenlason.
 \bibitem{DocsRISVISAPerfCounters}
 RISC-V Foundation.
 \newblock Counters.
-
-\bibitem{DocsRISCVISANaming}
-RISC-V Foundation.
-\newblock Isa extension naming conventions.
 
 \bibitem{BlogBrendandGreggPerf}
 Brendan Gregg.
@@ -99,6 +99,10 @@ Intel.
 \bibitem{ManPerfCLI}
 Linux.
 \newblock perf(1) - linux manual page.
+
+\bibitem{GithubPerfFileFormat}
+linux.
+\newblock perf.data format.
 
 \bibitem{NieLeh03}
 Jannik~Hammel Nielsen and Torsten Lehmann.

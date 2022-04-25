@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}define PMU\PYGZus{}SOFTWARE\PYGZus{}INC\PYGZus{}EVT\PYGZus{}ID         0x00}
+
+\PYG{c+cp}{\PYGZsh{}define PMCR\PYGZus{}EN\PYGZus{}CTRS                   (0x1 \PYGZlt{}\PYGZlt{} 0)}
+\PYG{c+cp}{\PYGZsh{}define PMCR\PYGZus{}EN\PYGZus{}RESET\PYGZus{}CTRS             (0x1 \PYGZlt{}\PYGZlt{} 1)}
+\PYG{c+cp}{\PYGZsh{}define PMCR\PYGZus{}EN\PYGZus{}RESET\PYGZus{}CLK\PYGZus{}CTR          (0x1 \PYGZlt{}\PYGZlt{} 2)}
+\PYG{c+cp}{\PYGZsh{}define PMCR\PYGZus{}EN\PYGZus{}CLK\PYGZus{}DIV                (0x1 \PYGZlt{}\PYGZlt{} 3)}
+\PYG{c+cp}{\PYGZsh{}define PMCR\PYGZus{}EN\PYGZus{}EXPORT\PYGZus{}EVTS            (0x1 \PYGZlt{}\PYGZlt{} 4)}
+\PYG{c+cp}{\PYGZsh{}define PMCR\PYGZus{}DD\PYGZus{}CLK\PYGZus{}CTR\PYGZus{}PROB\PYGZus{}REG       (0x1 \PYGZlt{}\PYGZlt{} 5)}
+
+\PYG{c+cp}{\PYGZsh{}define PMCNTENSET\PYGZus{}EN\PYGZus{}PMCCNTR          (0x1 \PYGZlt{}\PYGZlt{} 31)}
+\PYG{c+cp}{\PYGZsh{}define PMCNTENSET\PYGZus{}EN\PYGZus{}CTRS              0x3F}
+
+\PYG{c+cp}{\PYGZsh{}define PMOVSR\PYGZus{}EN\PYGZus{}PMCCNTR              (0x1 \PYGZlt{}\PYGZlt{} 31)}
+\PYG{c+cp}{\PYGZsh{}define PMOVSR\PYGZus{}EN\PYGZus{}CTRS                  0x3F}
+\end{Verbatim}

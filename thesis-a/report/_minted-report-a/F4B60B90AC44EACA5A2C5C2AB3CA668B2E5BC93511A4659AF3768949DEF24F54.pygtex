@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{uint32\PYGZus{}t}\PYG{+w}{ }\PYG{n}{pmcr\PYGZus{}config}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PMCR\PYGZus{}EN\PYGZus{}CTRS}
+\PYG{+w}{                        }\PYG{o}{|}\PYG{+w}{ }\PYG{n}{PMCR\PYGZus{}EN\PYGZus{}RESET\PYGZus{}CTRS}
+\PYG{+w}{                        }\PYG{o}{|}\PYG{+w}{ }\PYG{n}{PMCR\PYGZus{}EN\PYGZus{}RESET\PYGZus{}CLK\PYGZus{}CTR}\PYG{p}{;}
+\PYG{k}{asm}\PYG{+w}{ }\PYG{k}{volatile}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}MCR p15, 0, \PYGZpc{}0, c9, c12, 0}\PYG{l+s+se}{\PYGZbs{}t\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{::}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}r\PYGZdq{}}\PYG{p}{(}\PYG{n}{pmrc\PYGZus{}config}\PYG{p}{));}
+\end{Verbatim}

@@ -42,30 +42,33 @@
 \contentsline {subsection}{\numberline {3.2.3}perf report}{16}%
 \contentsline {subsubsection}{Example Report}{16}%
 \contentsline {subsubsection}{Interpreting the Report}{16}%
-\contentsline {subsection}{\numberline {3.2.4}The perf\_events\_open syscall}{17}%
-\contentsline {subsection}{\numberline {3.2.5}The perf File Format}{17}%
-\contentsline {chapter}{\numberline {4}Style and Submission Requirements}{19}%
-\contentsline {section}{\numberline {4.1}Format}{19}%
-\contentsline {section}{\numberline {4.2}Other physical appearance}{20}%
-\contentsline {section}{\numberline {4.3}Submission}{20}%
-\contentsline {chapter}{\numberline {5}Content Requirements}{22}%
-\contentsline {section}{\numberline {5.1}Structure}{22}%
-\contentsline {section}{\numberline {5.2}Style of writing}{22}%
-\contentsline {section}{\numberline {5.3}Documentation}{23}%
-\contentsline {chapter}{\numberline {6}Evaluation}{24}%
-\contentsline {section}{\numberline {6.1}Results}{24}%
-\contentsline {section}{\numberline {6.2}Discussion}{24}%
-\contentsline {chapter}{\numberline {7}Conclusion}{25}%
-\contentsline {section}{\numberline {7.1}Future Work}{25}%
-\contentsline {chapter}{Bibliography}{26}%
-\contentsline {chapter}{Appendix 1}{28}%
-\contentsline {section}{\numberline {A.1}Options}{28}%
-\contentsline {section}{\numberline {A.2}Margins}{28}%
-\contentsline {section}{\numberline {A.3}Page Headers}{29}%
-\contentsline {subsection}{\numberline {A.3.1}Undergraduate Theses}{29}%
-\contentsline {subsection}{\numberline {A.3.2}Higher Degree Research Theses}{29}%
-\contentsline {section}{\numberline {A.4}Page Footers}{29}%
-\contentsline {section}{\numberline {A.5}Double Spacing}{30}%
-\contentsline {section}{\numberline {A.6}Files}{30}%
-\contentsline {chapter}{Appendix 2}{32}%
-\contentsline {section}{\numberline {B.1}Data}{32}%
+\contentsline {subsection}{\numberline {3.2.4}Event Groupings}{17}%
+\contentsline {subsection}{\numberline {3.2.5}PCL User-level Interface}{18}%
+\contentsline {subsubsection}{Counting Events}{18}%
+\contentsline {subsubsection}{Sampling Events}{19}%
+\contentsline {subsection}{\numberline {3.2.6}The perf File Format}{19}%
+\contentsline {chapter}{\numberline {4}Style and Submission Requirements}{21}%
+\contentsline {section}{\numberline {4.1}Format}{21}%
+\contentsline {section}{\numberline {4.2}Other physical appearance}{22}%
+\contentsline {section}{\numberline {4.3}Submission}{22}%
+\contentsline {chapter}{\numberline {5}Content Requirements}{24}%
+\contentsline {section}{\numberline {5.1}Structure}{24}%
+\contentsline {section}{\numberline {5.2}Style of writing}{24}%
+\contentsline {section}{\numberline {5.3}Documentation}{25}%
+\contentsline {chapter}{\numberline {6}Evaluation}{26}%
+\contentsline {section}{\numberline {6.1}Results}{26}%
+\contentsline {section}{\numberline {6.2}Discussion}{26}%
+\contentsline {chapter}{\numberline {7}Conclusion}{27}%
+\contentsline {section}{\numberline {7.1}Future Work}{27}%
+\contentsline {chapter}{Bibliography}{28}%
+\contentsline {chapter}{Appendix 1}{30}%
+\contentsline {section}{\numberline {A.1}Options}{30}%
+\contentsline {section}{\numberline {A.2}Margins}{30}%
+\contentsline {section}{\numberline {A.3}Page Headers}{31}%
+\contentsline {subsection}{\numberline {A.3.1}Undergraduate Theses}{31}%
+\contentsline {subsection}{\numberline {A.3.2}Higher Degree Research Theses}{31}%
+\contentsline {section}{\numberline {A.4}Page Footers}{31}%
+\contentsline {section}{\numberline {A.5}Double Spacing}{32}%
+\contentsline {section}{\numberline {A.6}Files}{32}%
+\contentsline {chapter}{Appendix 2}{34}%
+\contentsline {section}{\numberline {B.1}Data}{34}%
