@@ -52,7 +52,7 @@
 \ProvidesClass{unswthesis}%
     [2015/04/30 v2.0.1 Faculty of Engineering, University of NSW Thesis Class]
 \RequirePackage{fancyhdr}
-\RequirePackage{graphics}
+\RequirePackage{graphicx}
 \RequirePackage{units}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%

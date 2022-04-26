@@ -50,4 +50,49 @@ Lockstep sampling occurs when the profiling samples occur at the same frequency 
 \textbf{Requirement 7}. Interoperability with \shellcmd{perf report}.\\
 We should not reinvent the wheel, but instead look to leverage the existing ecosystem of tooling built around the PCL subsystem. 
 
+\section{Targeted Platform}
+
+[TODO: Fill this section out]
+
 \section{Design}
+
+At a conceptual level, the PCL subsystem is a suitable reference approach for abstracting over the PMU counters. It is also an example of a working implementation. However, there are a number of implementation specific details that limit its usefulness in the context of seL4:
+
+\ssp\begin{itemize}
+    \item \textbf{Requires a filesystem}. The \shellcmd{perf record} command assumes that the output will be written to a file. There is no requirement for an seL4 system to have a mounted filesystem, and therefore we cannot make this assumption. However, the \texttt{perf\_event\_open} Linux syscall (see Section \ref{sect:perf_event_open}) writes sample data to a shared memory, which is only possible on seL4.
+    \item \textbf{Inherit complexity}. Linux is deployed everywhere, and therefore the PCL subsystem was designed and built to support all possible uses cases, since it could not predict how users might want use the subsystem. For seL4, we can limit the inherit complexity by focusing only on the use cases relevant to seL4 users.
+    \item \textbf{Interrupt handling}. The PCL subsystem will handle the interrupt and generate a sample within the kernel itself. For seL4, there is no evidence that this needs to be happen with the kernel, and therefore should be moved to userspace. As a consequence, the shared ring-buffer between the user thread and the kernel not required for seL4.
+    \item \textbf{POSIX/Linux APIs}. The PCL subsystem depends on either POSIX or Linux specific APIs. seL4 does not implement a POSIX/UNIX like interface and therefore either syscalls in the PCL subsystem need to be mapped to corresponding syscalls in seL4, or another approach needs to be devised where no mapping exists.
+\end{itemize}\dsp
+
+Thus our proposed design looks to borrow concepts from PLC where possible, but is congruent with an seL4 environment. The design is comprised of the following components:
+
+\ssp\begin{itemize}
+    \item \textit{Profiling server} is responsible for configuring the PMU counters, handling interrupts from the PMU and generating samples. If a thread wants to start or stop profiling, it does so by sending a request to the profiling server.
+    \item \textit{Sample ring-buffer} is a ring-buffer that stores the sample generated during each PMU interrupt.
+    \item \textit{Debug seL4 kernel} is required since on ARM, user-mode access to PMU counters must be enabled in kernel-mode. Note, there already exists the ability to compile a debug version of seL4.
+\end{itemize}\dsp
+
+When the ring-buffer within the profiling server reaches capacity, the buffer needs to be flushed. The server does not make any assumptions as to where the data in the buffer should be written, and instead invokes a capability supplied from the requesting thread to flush the buffer. To help illustrate how this would work in practice, we will walk through an scenario where the profiler is running on an embedded device, and the profile data is being sent to a Linux machine via the network. 
+
+\includegraphics[width=\linewidth]{thesis_a_design_overview.drawio}
+
+%%\begin{figure}[htp]
+%%    \centering
+%%    \caption{An image of a galaxy}
+%%    \label{fig:galaxy}
+%%\end{figure}
+
+\ssp\begin{enumerate}
+    \item The debug seL4 kernel enables user-mode access to the PMU counters.
+    \item The profiling server is provided a capability in order to service interrupts from the PMU.
+    \item The user application that would like to start profiling sends a request to the server (via IPC).
+    \item The profiling server then configures the PMU via MSRs (see Section \ref{sect:programming_pmu}).
+    \item Once the PMU counter overflows, sends an interrupt, which is ultimately handled by the profiling server.
+    \item The profiling server reads the appropriate PMU counter and generates a sample which is stored in the ring-buffer.
+    \item when the ring-buffer reaches capacity, the capability provided by the user application was a capability to send a packet via the networking server. the profiling server then invokes the capability, which results in the samples in the buffer being transferred across the network.
+    \item A network application on the Linux machine receives the profile data, which conforms to the perf file format (see Section \ref{sect:perf_file_format}), and is written out to a file on disk.
+    \item Lastly, the \shellcmd{perf record} command on Linux is used at a later stage to display the profile data.
+\end{enumerate}\dsp
+
+[TODO: Summarise design features and discuss briefly Thesis B]

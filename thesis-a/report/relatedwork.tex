@@ -108,8 +108,7 @@ In the example report, there are a number of notable points:
 
 The PCL subsystem allows events to be grouped. A group of events are atomically assigned to PMU counters, in that at any given point in time, either they are all actively being counted by the PMU, or none are. This ensures that each event in the group was active for the identical number of CPU instructions, which is required in order to correctly compute ratios being two events. For example, number of L1 cache misses per instruction software increment.
 
-\subsection{PCL User-level Interface}
-
+\subsection{PCL User-level Interface}\label{sect:perf_event_open}
 
 On Linux, the \texttt{perf} utility somehow needs to interact with the PCL subsystem, which it does so via the \texttt{perf\_events\_open} syscall in \ref{lst:perf_events_open_syscall}[TODO: Fix referencing]
 

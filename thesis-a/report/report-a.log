@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.4.18)  25 APR 2022 19:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.4.18)  26 APR 2022 13:10
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -19,6 +19,11 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 \f@nch@O@erf=\skip53
 \f@nch@O@olf=\skip54
 \f@nch@O@orf=\skip55
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
@@ -29,7 +34,10 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: pdftex.def on input line 105.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
-)) (/usr/share/texlive/texmf-dist/tex/latex/units/units.sty
+))
+\Gin@req@height=\dimen134
+\Gin@req@width=\dimen135
+) (/usr/share/texlive/texmf-dist/tex/latex/units/units.sty
 Package: units 1998/08/04 v0.9b Typesetting units
  (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
@@ -54,7 +62,7 @@ File: bk11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \c@table=\count175
 \abovecaptionskip=\skip59
 \belowcaptionskip=\skip60
-\bibindent=\dimen134
+\bibindent=\dimen136
 ) (/usr/share/texlive/texmf-dist/tex/latex/sauerj/collect.sty
 Package: collect 2004/09/12 v0.9 collect the contents of an environment
 \CE@tmp@out=\write3
@@ -62,10 +70,7 @@ Package: collect 2004/09/12 v0.9 collect the contents of an environment
 \CE@@@bstract@out=\write4
  (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks14
-) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2019/11/07 v1.0c TeX engine tests
@@ -73,14 +78,14 @@ Package: iftex 2019/11/07 v1.0c TeX engine tests
 \Gm@cnth=\count176
 \Gm@cntv=\count177
 \c@Gm@tempcnt=\count178
-\Gm@bindingoffset=\dimen135
-\Gm@wd@mp=\dimen136
-\Gm@odd@mp=\dimen137
-\Gm@even@mp=\dimen138
-\Gm@layoutwidth=\dimen139
-\Gm@layoutheight=\dimen140
-\Gm@layouthoffset=\dimen141
-\Gm@layoutvoffset=\dimen142
+\Gm@bindingoffset=\dimen137
+\Gm@wd@mp=\dimen138
+\Gm@odd@mp=\dimen139
+\Gm@even@mp=\dimen140
+\Gm@layoutwidth=\dimen141
+\Gm@layoutheight=\dimen142
+\Gm@layouthoffset=\dimen143
+\Gm@layoutvoffset=\dimen144
 \Gm@dimlist=\toks15
 )
 \botmargin=\skip61
@@ -112,16 +117,16 @@ Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count183
 \output=\toks16
 \linenoprevgraf=\count184
-\linenumbersep=\dimen143
-\linenumberwidth=\dimen144
+\linenumbersep=\dimen145
+\linenumberwidth=\dimen146
 \c@linenumber=\count185
 \c@pagewiselinenumber=\count186
 \c@LN@truepage=\count187
 \c@internallinenumber=\count188
 \c@internallinenumbers=\count189
-\quotelinenumbersep=\dimen145
-\bframerule=\dimen146
-\bframesep=\dimen147
+\quotelinenumbersep=\dimen147
+\bframerule=\dimen148
+\bframesep=\dimen149
 \bframebox=\box46
 LaTeX Info: Redefining \\ on input line 3056.
 )
@@ -133,26 +138,26 @@ LaTeX Info: Redefining \\ on input line 3056.
 \c@FV@HighlightLinesStop=\count193
 \FV@LoopCount=\count194
 \FV@NCharsBox=\box48
-\FV@BreakIndent=\dimen148
+\FV@BreakIndent=\dimen150
 \FV@BreakIndentNChars=\count195
-\FV@BreakSymbolSepLeft=\dimen149
+\FV@BreakSymbolSepLeft=\dimen151
 \FV@BreakSymbolSepLeftNChars=\count196
-\FV@BreakSymbolSepRight=\dimen150
+\FV@BreakSymbolSepRight=\dimen152
 \FV@BreakSymbolSepRightNChars=\count197
-\FV@BreakSymbolIndentLeft=\dimen151
+\FV@BreakSymbolIndentLeft=\dimen153
 \FV@BreakSymbolIndentLeftNChars=\count198
-\FV@BreakSymbolIndentRight=\dimen152
+\FV@BreakSymbolIndentRight=\dimen154
 \FV@BreakSymbolIndentRightNChars=\count199
 \c@FancyVerbLineBreakLast=\count266
 \FV@LineBox=\box49
 \FV@LineIndentBox=\box50
-\FV@LineWidth=\dimen153
+\FV@LineWidth=\dimen155
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count267
 \calc@Bcount=\count268
-\calc@Adimen=\dimen154
-\calc@Bdimen=\dimen155
+\calc@Adimen=\dimen156
+\calc@Bdimen=\dimen157
 \calc@Askip=\skip63
 \calc@Bskip=\skip64
 LaTeX Info: Redefining \setlength on input line 80.
@@ -192,10 +197,10 @@ Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 ) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip66
-\fb@frw=\dimen156
-\fb@frh=\dimen157
-\FrameRule=\dimen158
-\FrameSep=\dimen159
+\fb@frw=\dimen158
+\fb@frh=\dimen159
+\FrameRule=\dimen160
+\FrameSep=\dimen161
 ) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count272
@@ -218,21 +223,21 @@ runsystem(mkdir -p _minted-report-a)...executed.
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \c@tracingmulticols=\count276
 \mult@box=\box54
-\multicol@leftmargin=\dimen160
+\multicol@leftmargin=\dimen162
 \c@unbalance=\count277
 \c@collectmore=\count278
 \doublecol@number=\count279
 \multicoltolerance=\count280
 \multicolpretolerance=\count281
-\full@width=\dimen161
-\page@free=\dimen162
-\premulticols=\dimen163
-\postmulticols=\dimen164
+\full@width=\dimen163
+\page@free=\dimen164
+\premulticols=\dimen165
+\postmulticols=\dimen166
 \multicolsep=\skip67
 \multicolbaselineskip=\skip68
 \partial@page=\box55
 \last@line=\box56
-\maxbalancingoverflow=\dimen165
+\maxbalancingoverflow=\dimen167
 \mult@rightbox=\box57
 \mult@grightbox=\box58
 \mult@gfirstbox=\box59
@@ -277,9 +282,9 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \c@minrows=\count282
 \c@columnbadness=\count283
 \c@finalcolumnbadness=\count284
-\last@try=\dimen166
-\multicolovershoot=\dimen167
-\multicolundershoot=\dimen168
+\last@try=\dimen168
+\multicolovershoot=\dimen169
+\multicolundershoot=\dimen170
 \mult@nat@firstbox=\box98
 \colbreak@box=\box99
 \mc@col@check@num=\count285
@@ -288,14 +293,14 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \lst@gtempboxa=\box100
 \lst@token=\toks20
 \lst@length=\count287
-\lst@currlwidth=\dimen169
+\lst@currlwidth=\dimen171
 \lst@column=\count288
 \lst@pos=\count289
-\lst@lostspace=\dimen170
-\lst@width=\dimen171
+\lst@lostspace=\dimen172
+\lst@width=\dimen173
 \lst@newlines=\count290
 \lst@lineno=\count291
-\lst@maxwidth=\dimen172
+\lst@maxwidth=\dimen174
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
 \c@lstnumber=\count292
@@ -353,13 +358,13 @@ LaTeX Font Info:    ... okay on input line 40.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count295
-\scratchdimen=\dimen173
+\scratchdimen=\dimen175
 \scratchbox=\box103
 \nofMPsegments=\count296
 \nofMParguments=\count297
 \everyMPshowfont=\toks21
 \MPscratchCnt=\count298
-\MPscratchDim=\dimen174
+\MPscratchDim=\dimen176
 \MPnumerator=\count299
 \makeMPintoPDFobject=\count300
 \everyMPtoPDFconversion=\toks22
@@ -404,7 +409,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \@tmpb@x=\box104
-\@titlewidth=\dimen175
+\@titlewidth=\dimen177
 (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
@@ -472,18 +477,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/introduction.tex
 Chapter 1.
-
-LaTeX Warning: Reference `ch:style' on page 1 undefined on input line 12.
-
-
-LaTeX Warning: Reference `ch:content' on page 1 undefined on input line 14.
-
-
-LaTeX Warning: Reference `ch:eval' on page 1 undefined on input line 15.
-
-
-LaTeX Warning: Reference `ch:conclusion' on page 1 undefined on input line 16.
-
 ) [1
 
 
@@ -552,20 +545,26 @@ Chapter 4.
 
 
 
-] [21]) [22]
+] [21] [22] [23]
+<thesis_a_design_overview.drawio.png, id=152, 905.3825pt x 494.84875pt>
+File: thesis_a_design_overview.drawio.png Graphic file (type png)
+<use thesis_a_design_overview.drawio.png>
+Package pdftex.def Info: thesis_a_design_overview.drawio.png  used on input line 78.
+(pdftex.def)             Requested size: 412.56497pt x 225.48877pt.
+ [24 </home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/thesis_a_design_overview.drawio.png>]) [25]
 \openout2 = `plan.aux'.
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.tex
 Chapter 5.
-) [23
+) [26
 
 
 
-] (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.bbl [24
+] (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.bbl [27
 
 
 
-]) [25]
+]) [28]
 \openout2 = `appendix1.aux'.
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.tex
@@ -576,20 +575,17 @@ Overfull \hbox (2.16803pt too wide) in paragraph at lines 10--23
 
 Underfull \vbox (badness 5637) has occurred while \output is active []
 
- [26
+ [29
 
 
-] [27] [28]) [29]
+] [30] [31]) [32]
 \openout2 = `appendix2.aux'.
 
- (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.tex [30
+ (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.tex [33
 
 
 
-]) [31] (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.aux (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abstract.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abbreviations.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/introduction.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/background.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/relatedwork.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/approach.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux))
-
-LaTeX Warning: There were undefined references.
-
+]) [34] (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.aux (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abstract.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abbreviations.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/introduction.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/background.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/relatedwork.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/approach.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux))
 runsystem(rm report-a.pyg)...executed.
 
  )
@@ -598,18 +594,18 @@ runsystem(rm report-a.pyg)...executed.
 ### simple group (level 1) entered at line 50 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 7748 strings out of 481239
- 137582 string characters out of 5920377
- 434965 words of memory out of 5000000
- 22785 multiletter control sequences out of 15000+600000
+ 7820 strings out of 481239
+ 138862 string characters out of 5920377
+ 436186 words of memory out of 5000000
+ 22851 multiletter control sequences out of 15000+600000
  546839 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,14n,49p,935b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.pdf (39 pages, 356789 bytes).
+Output written on /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.pdf (42 pages, 375915 bytes).
 PDF statistics:
- 218 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
+ 230 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

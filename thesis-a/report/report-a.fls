@@ -9,6 +9,10 @@ INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/unswthesis.cl
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/unswthesis.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
@@ -33,8 +37,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/sauerj/collect.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/sauerj/collect.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
@@ -258,6 +260,9 @@ INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-repor
 OUTPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/approach.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/approach.tex
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/approach.tex
+INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/thesis_a_design_overview.drawio.png
+INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/thesis_a_design_overview.drawio.png
+INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/thesis_a_design_overview.drawio.png
 OUTPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.tex
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.tex
