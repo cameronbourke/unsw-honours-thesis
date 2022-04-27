@@ -3,142 +3,237 @@
 \bibitem{SiteTop500Project}
 Top 500.
 \newblock November 2021.
+\newblock \url{https://www.top500.org/lists/top500/2021/11/}, 2021.
+\newblock [Online; accessed 23 April 2022].
 
 \bibitem{TutHowToUsePMU}
 Resource Allocation and Scheduling Group~(RASG) @SCI-Pitt.
 \newblock How to use arm performance monitoring units(pmu) in armv7.
-
-\bibitem{DocsArmCortexA15PMU}
-ARM.
-\newblock About the pmu.
-
-\bibitem{DocsArmCortexR52PMUCtrs}
-ARM.
-\newblock About the pmu.
-
-\bibitem{DocsArmCortexM55PMUCtrs}
-ARM.
-\newblock About the pmu.
+\newblock \url{https://pittrasg.github.io/blog/2020/pmusarm/}, 2020.
+\newblock [Online; accessed 18 April 2022].
 
 \bibitem{DocsArmArchProfiles}
 ARM.
 \newblock Arm architecture profiles.
+\newblock
+  \url{https://developer.arm.com/documentation/dui0471/i/key-features-of-arm-architecture-versions/arm-architecture-profiles}.
+\newblock [Online; accessed 24 April 2022].
 
 \bibitem{DocsArvm7}
 ARM.
 \newblock Arm architecture reference manual armv7-a and armv7-r edition.
+\newblock
+  \url{https://developer.arm.com/documentation/ddi0406/b/Debug-Architecture}.
+\newblock Version 1.186. [Online; accessed 20 April 2022].
 
-\bibitem{DocsArmv8PMU}
+\bibitem{DocsArmCortexA15PMU}
 ARM.
-\newblock Armv8.1-m performance monitoring user guide.
+\newblock Cortexa15 - about the pmu.
+\newblock
+  \url{https://developer.arm.com/documentation/ddi0438/h/Performance-Monitor-Unit/About-the-PMU?lang=en}.
+\newblock [Online; accessed 20 April 2022].
+
+\bibitem{DocsArmCortexM55PMUCtrs}
+ARM.
+\newblock Cortexm55 - about the pmu.
+\newblock
+  \url{https://developer.arm.com/documentation/100026/0101/performance-monitor-unit/about-the-pmu?lang=en}.
+\newblock [Online; accessed 20 April 2022].
+
+\bibitem{DocsArmCortexR52PMUCtrs}
+ARM.
+\newblock Cortexr52 - about the pmu.
+\newblock
+  \url{https://developer.arm.com/documentation/100026/0101/performance-monitor-unit/about-the-pmu?lang=en}.
+\newblock [Online; accessed 18 April 2022].
 
 \bibitem{GlossArmISA}
 ARM.
-\newblock Instruction set architecture (isa).
+\newblock Glossary - instruction set architecture (isa).
+\newblock \url{https://www.arm.com/glossary/isa}.
+\newblock [Online; accessed 20 April 2022].
 
 \bibitem{DocsArmMCR}
 ARM.
 \newblock Mcr, mcr2, mcrr, and mcrr2.
+\newblock
+  \url{https://developer.arm.com/documentation/dui0489/c/arm-and-thumb-instructions/coprocessor-instructions/mcr--mcr2--mcrr--and-mcrr2?lang=en}.
+\newblock [Online; accessed 22 April 2022].
 
 \bibitem{DocsArmMRC}
 ARM.
 \newblock Mrc, mrc2, mrrc and mrrc2.
+\newblock
+  \url{https://developer.arm.com/documentation/dui0489/c/arm-and-thumb-instructions/coprocessor-instructions/mrc--mrc2--mrrc-and-mrrc2?lang=en}.
+\newblock [Online; accessed 22 April 2022].
 
 \bibitem{DocsArmv7PMURegs}
 ARM.
 \newblock Performance monitor registers.
+\newblock
+  \url{https://developer.arm.com/documentation/ddi0406/b/Debug-Architecture/Debug-Registers-Reference/Performance-monitor-registers?lang=en}.
+\newblock [Online; accessed 21 April 2022].
+
+\bibitem{DocsArmv8PMU}
+ARM.
+\newblock Armv8.1-m performance monitoring user guide.
+\newblock
+  \url{https://documentation-service.arm.com/static/5f33dafc60a93e65927c47a9},
+  2010.
+\newblock [Online; accessed 20 April 2022].
 
 \bibitem{BlogRedHatCPU}
 David Both.
 \newblock The central processing unit (cpu): Its components and functionality.
+\newblock \url{https://www.redhat.com/sysadmin/cpu-components-functionality},
+  2020.
+\newblock [Online; accessed 21 April 2022].
 
 \bibitem{ManGprof}
 BSD.
-\newblock gprof man pages.
+\newblock gprof(1) [freebsd man page].
+\newblock \url{https://www.unix.com/man-page/FreeBSD/1/gprof}, 2008.
+\newblock [Online; accessed 14 April 2022].
 
-\bibitem{DocsOProfileInter}
-die.net.
-\newblock setitimer(2) - linux man page.
+\bibitem{SPECCPU2017}
+Standard Performance~Evaluation Corporation.
+\newblock Spec cpu® 2017.
+\newblock \url{https://www.spec.org/cpu2017/}, 2021.
+\newblock [Online; accessed 20 April 2022].
 
 \bibitem{CERN_openlab_perf_file_format}
 Urs Fassler.
 \newblock perf file format.
+\newblock
+  \url{https://openlab-mu-internal.web.cern.ch/03_Documents/3_Technical_Documents/Technical_Reports/2011/Urs_Fassler_report.pdf},
+  2011.
+\newblock [Online; accessed 24 April 2022].
 
 \bibitem{DocsGProfImpl}
 Jay Fenlason.
 \newblock Implementation of profiling.
+\newblock
+  \url{https://sourceware.org/binutils/docs/gprof/Implementation.html#Implementation}.
+\newblock [Online; accessed 18 April 2022].
 
 \bibitem{DocsRISVISAPerfCounters}
 RISC-V Foundation.
 \newblock Counters.
+\newblock
+  \url{https://five-embeddev.com/riscv-isa-manual/latest/counters.html}, 2019.
+\newblock Version: 5.03 [Online; accessed 20 April 2022].
+
+\bibitem{ManGCC}
+Inc Free Software~Foundation.
+\newblock gcc(1) — linux manual page.
+\newblock \url{https://man7.org/linux/man-pages/man1/gcc.1.html}, 2021.
+\newblock [Online; accessed 14 April 2022].
 
 \bibitem{BlogBrendandGreggPerf}
 Brendan Gregg.
 \newblock perf examples.
+\newblock \url{https://www.brendangregg.com/perf.html}.
+\newblock [Online; accessed 23 April 2022].
 
 \bibitem{DocsRedHatPCL}
 Red Hat.
 \newblock Performance counters for linux (pcl) tools and perf.
+\newblock
+  \url{https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/developer_guide/perf}.
+\newblock [Online; accessed 22 April 2022].
 
 \bibitem{AOSMicrokernelSlide}
 Germot Heiser.
 \newblock Microkernels: Reducing the trusted computing base.
+\newblock \url{https://www.cse.unsw.edu.au/~cs9242/20/lectures/01a-intro.pdf},
+  2020.
+\newblock [Online; accessed 18 April 2022].
 
 \bibitem{DocsIntel64IA32Vol3B}
 Intel.
 \newblock Intel® 64 and ia-32 architectures developer's manual: Vol. 3b.
+\newblock
+  \url{https://www.intel.la/content/www/xl/es/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3b-part-2-manual.html},
+  2016.
+\newblock [Online; accessed 20 April 2022].
 
 \bibitem{ManPerfCLI}
 Linux.
 \newblock perf(1) - linux manual page.
+\newblock \url{https://man7.org/linux/man-pages/man1/perf.1.html}, 2021.
+\newblock [Online; accessed 14 April 2022].
 
 \bibitem{GithubPerfFileFormat}
 linux.
 \newblock perf.data format.
+\newblock
+  \url{https://github.com/torvalds/linux/blob/master/tools/perf/Documentation/perf.data-file-format.txt},
+  2021.
+\newblock [Online; accessed 24 April 2022].
+
+\bibitem{DocsOProfileInter}
+linux.die.net.
+\newblock setitimer(2) - linux man page.
+\newblock \url{https://linux.die.net/man/2/setitimer}.
+\newblock [Online; accessed 19 April 2022].
 
 \bibitem{DocsGCCExtendedAsm}
 GCC project.
 \newblock 6.47.2 extended asm - assembler instructions with c expression
   operands.
-
-\bibitem{ManGCC}
-GCC project.
-\newblock gcc man pages.
+\newblock \url{https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html}.
+\newblock [Online; accessed 14 April 2022].
 
 \bibitem{SiteAboutSeL4}
 seL4.
 \newblock About sel4.
-
-\bibitem{GithubSel4bench}
-seL4.
-\newblock sel4bench.
+\newblock \url{https://sel4.systems/About/}, 2010.
+\newblock [Online; accessed 19 April 2022].
 
 \bibitem{github_libsel4bench_sel4bench_header}
 seL4.
-\newblock sel4bench.h.
+\newblock sel4_libs - libsel4bench - sel4bench.h.
+\newblock
+  \url{https://github.com/seL4/seL4_libs/blob/14d3c94f5164c993033a35a5d9e23ba6dcf12f5f/libsel4bench/include/sel4bench/sel4bench.h},
+  2010.
+\newblock [Online; accessed 20 April 2022].
+
+\bibitem{GithubSel4bench}
+seL4.
+\newblock sel4_libs - sel4bench.
+\newblock \url{https://github.com/seL4/sel4bench/#readme}, 2022.
+\newblock [Online; accessed 23 April 2022].
 
 \bibitem{DocsSeL4Hardware}
 seL4.
 \newblock Supported platforms.
+\newblock \url{https://docs.sel4.systems/Hardware/}, 2022.
+\newblock [Online; accessed 18 April 2022].
 
 \bibitem{YouTubeDotnetosCPUProfling}
 Sebastian Solnica.
 \newblock Cpu profiling inside out.
-
-\bibitem{SPECCPU2017}
-spec.
-\newblock Spec cpu® 2017.
+\newblock \url{https://www.youtube.com/watch?v=Oww5YO33w0w}, 2021.
+\newblock [Online; accessed 18 April 2022].
 
 \bibitem{BlogVentureBeat}
 Dean Takahashi.
 \newblock Risc-v grows globally as an alternative to arm and its license fees.
+\newblock
+  \url{https://venturebeat.com/2019/12/11/risc-v-grows-globally-as-an-alternative-to-arm-and-its-license-fees/},
+  2019.
+\newblock [Online; accessed 22 April 2022].
 
 \bibitem{ArticleEmbeddedTwoPercSol}
 Jim Turley.
 \newblock The two percent solution.
+\newblock \url{https://www.embedded.com/the-two-percent-solution}, 2002.
+\newblock [Online; accessed 24 April 2022].
 
 \bibitem{DocsUnofficialLinxPerfEvents}
 Vince Weaver.
 \newblock The unofficial linux perf events web-page.
+\newblock \url{https://web.eece.maine.edu/~vweaver/projects/perf_events}.
+\newblock [Online; accessed 17 April 2022].
 
 \end{thebibliography}

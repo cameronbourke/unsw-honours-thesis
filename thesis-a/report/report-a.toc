@@ -22,7 +22,7 @@
 \contentsline {subsection}{\numberline {2.2.5}Programming the PMU}{10}%
 \contentsline {subsubsection}{Cortex-A15}{10}%
 \contentsline {subsubsection}{Initialising the PMU}{11}%
-\contentsline {subsubsection}{Counting an event on the PMU}{13}%
+\contentsline {subsubsection}{Counting an event on the PMU}{12}%
 \contentsline {subsubsection}{Reading an event count on the PMU}{13}%
 \contentsline {section}{\numberline {2.3}Platform Support}{13}%
 \contentsline {subsection}{\numberline {2.3.1}x86 Systems}{13}%
@@ -59,12 +59,3 @@
 \contentsline {subsection}{\numberline {5.2.1}Thesis B}{32}%
 \contentsline {subsection}{\numberline {5.2.2}Thesis C}{32}%
 \contentsline {chapter}{Bibliography}{33}%
-\contentsline {chapter}{Appendix}{35}%
-\contentsline {section}{\numberline {A.1}Options}{35}%
-\contentsline {section}{\numberline {A.2}Margins}{35}%
-\contentsline {section}{\numberline {A.3}Page Headers}{36}%
-\contentsline {subsection}{\numberline {A.3.1}Undergraduate Theses}{36}%
-\contentsline {subsection}{\numberline {A.3.2}Higher Degree Research Theses}{36}%
-\contentsline {section}{\numberline {A.4}Page Footers}{36}%
-\contentsline {section}{\numberline {A.5}Double Spacing}{37}%
-\contentsline {section}{\numberline {A.6}Files}{37}%

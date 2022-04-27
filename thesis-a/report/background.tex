@@ -4,7 +4,7 @@ First, we will need to explore the various types of CPU profiling commonly in us
 
 \section{Profiling}
 
-We profile a program or system to gain a deeper insight into its runtime behaviour, often in response to a performance issue. The systems that we may want to profile can range from hardware, operating systems, networks, cloud infrastructure, etc. Profiling differs from debugging, in that often we debug a program or system whenever it does not meet its functional requirements, compared to non-functional requirements.
+We profile a program or system to gain a deeper insight into its runtime behaviour, often in response to a performance issue. The systems we may want to profile can range from hardware, operating systems, networks, cloud infrastructure, etc. Profiling differs from debugging, in that often we debug a program or system whenever it does not meet its functional requirements, compared to non-functional requirements.
 
 \subsection{CPU Profiling}
 
@@ -40,7 +40,7 @@ In this discussion on code execution, we refer to a thread as the basic unit of 
 
 Following from the brief overview of statistical profiling in \ref{sect:statistical}, a statistical profiler will sample the PC at each interval. Over time, a number of samples will be collected, which can then be processed to generate an execution profile. 
 
-\begin{figure}[h!]
+\begin{figure}[!h]
     \includegraphics[width=\linewidth]{report-a_sampling_timeline}
     \caption{Sampling the CPU every 1ms. In this example, profiling begins at 0ms, where the first sample is recorded with thread A on the CPU executing method 1. The second sample occurs at 1ms, where there is no activity on the CPU. At 2ms, thread B is active and the call stack contains methods 2 and 3. The fourth sample at 3ms, records only method 4 executing within the kernel. This example was adapted from the one presented at the Dotnetos conference talk ``CPU profiling inside out" \cite{YouTubeDotnetosCPUProfling}.}
     \label{fig:sel4_microkernel}
@@ -54,7 +54,7 @@ A statistical profiler needs to employ some mechanism in order to probe the CPU 
 
 The Instruction Set Architecture (ISA) is the interface between software and hardware. It is part of the abstract model of a computer, and defines how the CPU is controlled by software \cite{GlossArmISA}. The term microarchitecture refers to how a given ISA is implemented in a particular processor. A processor (CPU) consists of a number of components with different responsibilities, that harmoniously coordinate to execute each instruction. To help illustrate how these components fit together, Figure \ref{fig:cpu_vis} shows a hypothetical processor, where the RAM and system clock are not part of the CPU, but rather shared with the rest of the system.
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.5\linewidth]{redhat_cpu_vis}
     \caption{A simplified conceptual diagram of a typical CPU. The reality is much more complex than this, however a typical CPU will have: multiple layers of caching (L1, L2, etc), distinct L1 cache for instructions (L1i) and memory (L1d), a Memory Management Unit (MMU) to support virtual addressing, a control unit to coordinate the data-path and pipelining, and an Arithmetic Logic Unit (ALU) to execute arithmetic and logical instructions. Taken from a Red Hat blog post titled ``The central processing unit (CPU): Its components and functionality" \cite{BlogRedHatCPU} } 
@@ -126,9 +126,9 @@ The Cortex-A15 is a 32-bit multi-core processor, which implements the ARMv7-A ar
 
 \dsp
 
-To begin, we will define a series of \#defines to provide greater clarity regarding to the value being written to a particular PMU register (defined in Listing \ref{lst:pmu_flags}). Note, the constants are directly from each respective PMU register section in the ARM Architecture Reference Manual ARMv7-A and ARMv7-R edition \cite{DocsArvm7}.
+To begin, we will define a series of \#defines to provide greater clarity regarding the value being written to a particular PMU register (defined in Listing \ref{lst:pmu_flags}). Note, the constants are directly from each respective PMU register section in the ARM Architecture Reference Manual ARMv7-A and ARMv7-R edition \cite{DocsArvm7}.
 
-\begin{listing}
+\begin{listing}[!ht]
     \begin{minted}{C}
 #define PMU_SOFTWARE_INC_EVT_ID         0x00
 
@@ -153,7 +153,7 @@ To begin, we will define a series of \#defines to provide greater clarity regard
 
 When the processor is first powered on, we have to assume that the PMU registers are in an undefined state and therefore reinitialise them. This involves enabling counters, resetting them to 0, as well as the clock counter. To write to one of the PMU registers on ARMv7, we use the Move to Coprocessor (MCR) instruction \cite{DocsArmMCR} (Listing \ref{lst:pmu_pmcr}). Often, we want to use performance counters within a C program, and therefore we are using inline assembly, in particular Extended Asm \cite{DocsGCCExtendedAsm}.
 
-\begin{listing}
+\begin{listing}[!ht]
     \begin{minted}{C}
 uint32_t pmcr_config = PMCR_EN_CTRS
                      | PMCR_EN_RESET_CTRS
@@ -166,7 +166,7 @@ asm volatile ("MCR p15, 0, %0, c9, c12, 0\t\n" :: "r"(pmrc_config));
 
 Now that counters are initialised, we need to enable the specific counters that we want to use. In this case, we will enable counter 0, as well as the clock counter (Listing \ref{lst:pmu_pmcntenset}).
 
-\begin{listing}
+\begin{listing}[!ht]
     \begin{minted}{C}
 uint32_t pmcntenset_config = PMCNTENSET_EN_CTRS | PMCNTENSET_EN_PMCCNTR;
 asm volatile ("MCR p15, 0, %0, c9, c12, 1\t\n" :: "r"(pmcntenset_config));
@@ -177,7 +177,7 @@ asm volatile ("MCR p15, 0, %0, c9, c12, 1\t\n" :: "r"(pmcntenset_config));
 
 Finally, we need to clear the overflow bit for both of the counters (Listing \ref{lst:pmu_pmovsr}).
 
-\begin{listing}
+\begin{listing}[!ht]
     \begin{minted}{C}
 uint32_t pmovsr_config = PMOVSR_EN_CTRS | PMOVSR_EN_PMCCNTR;
 asm volatile ("MCR p15, 0, %0, c9, c12, 3\t\n" :: "r"(pmovsr_config));
@@ -190,7 +190,7 @@ asm volatile ("MCR p15, 0, %0, c9, c12, 3\t\n" :: "r"(pmovsr_config));
 
 Once we have initialised the PMU, we can assign the software increment event to counter 0. This is a two step process. First we specify which counter via \texttt{PMSELR}, and then we specify which event via \texttt{PMXEVTYPER} (Listing \ref{lst:pmu_assign_ctr}).
 
-\begin{listing}
+\begin{listing}[!ht]
     \begin{minted}{C}
 asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(0x00));
 asm volatile ("MCR p15, 0, %0, C9, C13, 1" :: "r"(PMU_SOFTWARE_INC_EVT_ID));
@@ -203,7 +203,7 @@ asm volatile ("MCR p15, 0, %0, C9, C13, 1" :: "r"(PMU_SOFTWARE_INC_EVT_ID));
 
 The PMU will begin to count the number of software increment events as the program continues to execute on the CPU. At any stage, the current count can be obtained from the PMU register \texttt{PMXEVCNTR}. In this case, we use the Move to ARM Register \cite{DocsArmMRC} instruction to move the value from a Coprocessor register to a core (CPU) register, which will be written into the variable \texttt{counter\_value} (Listing \ref{lst:pmu_read_ctr}).
 
-\begin{listing}
+\begin{listing}[!ht]
     \begin{minted}{C}
 uint32_t counter_value;
 asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(config.counter));

@@ -8,90 +8,19 @@ A level-1 auxiliary file: relatedwork.aux
 A level-1 auxiliary file: approach.aux
 A level-1 auxiliary file: plan.aux
 The style file: plain.bst
-A level-1 auxiliary file: appendix1.aux
 Database file #1: pubs.bib
-Warning--entry type for "ManGprof" isn't style-file defined
---line 1 of file pubs.bib
-Warning--entry type for "ManGCC" isn't style-file defined
---line 7 of file pubs.bib
-Warning--entry type for "DocsGCCExtendedAsm" isn't style-file defined
---line 13 of file pubs.bib
-Warning--entry type for "ManPerfCLI" isn't style-file defined
---line 25 of file pubs.bib
-Warning--entry type for "DocsOProfileInter" isn't style-file defined
---line 43 of file pubs.bib
-Warning--entry type for "DocsGProfImpl" isn't style-file defined
---line 49 of file pubs.bib
-Warning--entry type for "DocsArmv8PMU" isn't style-file defined
---line 55 of file pubs.bib
-Warning--entry type for "DocsArvm7" isn't style-file defined
---line 61 of file pubs.bib
-Warning--entry type for "DocsArmCortexA15PMU" isn't style-file defined
---line 67 of file pubs.bib
-Warning--entry type for "DocsArmCortexM55PMUCtrs" isn't style-file defined
---line 73 of file pubs.bib
-Warning--entry type for "DocsArmCortexR52PMUCtrs" isn't style-file defined
---line 79 of file pubs.bib
-Warning--entry type for "DocsArmv7PMURegs" isn't style-file defined
---line 85 of file pubs.bib
-Warning--entry type for "DocsArmMCR" isn't style-file defined
---line 91 of file pubs.bib
-Warning--entry type for "DocsArmMRC" isn't style-file defined
---line 97 of file pubs.bib
-Warning--entry type for "DocsArmArchProfiles" isn't style-file defined
---line 103 of file pubs.bib
-Warning--entry type for "DocsRISVISAPerfCounters" isn't style-file defined
---line 115 of file pubs.bib
-Warning--entry type for "DocsIntel64IA32Vol3B" isn't style-file defined
---line 121 of file pubs.bib
-Warning--entry type for "DocsSeL4Hardware" isn't style-file defined
---line 127 of file pubs.bib
-Warning--entry type for "DocsRedHatPCL" isn't style-file defined
---line 133 of file pubs.bib
-Warning--entry type for "DocsUnofficialLinxPerfEvents" isn't style-file defined
---line 139 of file pubs.bib
-Warning--entry type for "BlogBrendandGreggPerf" isn't style-file defined
---line 145 of file pubs.bib
-Warning--entry type for "SPECCPU2017" isn't style-file defined
---line 151 of file pubs.bib
-Warning--entry type for "GithubSel4bench" isn't style-file defined
---line 157 of file pubs.bib
-Warning--entry type for "GithubPerfFileFormat" isn't style-file defined
---line 163 of file pubs.bib
-Warning--entry type for "CERN_openlab_perf_file_format" isn't style-file defined
---line 169 of file pubs.bib
-Warning--entry type for "github_libsel4bench_sel4bench_header" isn't style-file defined
---line 175 of file pubs.bib
-Warning--entry type for "TutHowToUsePMU" isn't style-file defined
---line 181 of file pubs.bib
-Warning--entry type for "BlogRedHatCpu" isn't style-file defined
---line 187 of file pubs.bib
-Warning--entry type for "BlogVentureBeat" isn't style-file defined
---line 193 of file pubs.bib
-Warning--entry type for "GlossArmISA" isn't style-file defined
---line 199 of file pubs.bib
-Warning--entry type for "ArticleEmbeddedTwoPercSol" isn't style-file defined
---line 205 of file pubs.bib
-Warning--entry type for "SiteAboutSeL4" isn't style-file defined
---line 211 of file pubs.bib
-Warning--entry type for "YouTubeDotnetosCPUProfling" isn't style-file defined
---line 217 of file pubs.bib
-Warning--entry type for "AOSMicrokernelSlide" isn't style-file defined
---line 223 of file pubs.bib
-Warning--entry type for "SiteTop500Project" isn't style-file defined
---line 229 of file pubs.bib
 You've used 35 entries,
             2118 wiz_defined-function locations,
-            628 strings with 6508 characters,
-and the built_in function-call counts, 6819 in all, are:
-= -- 563
+            684 strings with 9784 characters,
+and the built_in function-call counts, 7599 in all, are:
+= -- 758
 > -- 251
 < -- 0
 + -- 110
 - -- 72
-* -- 181
-:= -- 1102
-add.period$ -- 70
+* -- 201
+:= -- 1297
+add.period$ -- 140
 call.type$ -- 35
 change.case$ -- 141
 chr.to.int$ -- 0
@@ -99,17 +28,17 @@ cite$ -- 35
 duplicate$ -- 245
 empty$ -- 771
 format.name$ -- 72
-if$ -- 1478
+if$ -- 1673
 int.to.chr$ -- 0
 int.to.str$ -- 35
 missing$ -- 0
-newline$ -- 143
+newline$ -- 213
 num.names$ -- 70
-pop$ -- 281
+pop$ -- 311
 preamble$ -- 1
 purify$ -- 106
 quote$ -- 0
-skip$ -- 350
+skip$ -- 195
 stack$ -- 0
 substring$ -- 178
 swap$ -- 35
@@ -120,5 +49,4 @@ type$ -- 140
 warning$ -- 0
 while$ -- 70
 width$ -- 37
-write$ -- 247
-(There were 35 warnings)
+write$ -- 407

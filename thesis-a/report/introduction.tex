@@ -4,7 +4,7 @@
 
 When designing any system or application, there is how we theorise it will behave, and how it actually behaves. It is not uncommon to deploy a new application to production, only to find that it does not perform how we expected. However, diagnosing the performance issue typically cannot be resolved by simply inspecting the source code, looking for clues that may explain the unsatisfactory performance, but rather through measurement.
 
-For example, if a web server takes significantly longer, comparatively, to resolve a particular request, we need to understand which code-paths are being executed, and where in the system are unexpected amounts of time are being spent. Maybe the issue turns out to be that the CPU is stalled on memory I/O, or is spending too much time waiting for disk I/O. It could even be that the TCP connection between the client and the web server is sending too many TCP retransmits. The point is, without the ability to profile our systems or applications, we quickly become blind to the root cause of the performance issues we experience.
+For example, if a web server takes significantly longer, comparatively, to resolve a particular request, we need to understand which code-paths are being executed, and where in the system unexpected amounts of time are being spent. Maybe the issue turns out to be that the CPU is stalled on memory I/O, or is spending too much time waiting for disk I/O. It could even be that the TCP connection between the client and the web server is sending too many TCP retransmits. The point is, without the ability to profile our systems or applications, we quickly become blind to the root cause of the performance issues we experience.
 
 \subsection{Application to seL4}
 
