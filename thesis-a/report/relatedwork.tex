@@ -14,7 +14,7 @@ The repo sel4bench provides multiple applications for benchmarking different pat
 
 \subsection{libsel4bench Overview}\label{sect:libsel4bench}
 
-Interfacing with the PMU directly via platform dependent assembly instructions sand MSRs (see Section \ref{sect:programming_pmu}), while illuminating, requires further layers of abstraction before it can be useful to developers on seL4. 
+Interfacing with the PMU directly via platform dependent assembly instructions and MSRs (see Section \ref{sect:programming_pmu}), while illuminating, requires further layers of abstraction before it can be useful to developers on seL4. 
 
 The seL4 benchmarks require access to the PMU counters, specifically to count the number of CPU cycles required to perform a particular operation. How CPU cycles, or any other PMU event is counted, depends on the underlying platform (e.g x86, ARM, RISC-V), as well as the specific architecture (e.g for ARM, this could be ARMv6, ARMv7, ARMv8 etc.) The libsel4bench library is designed to abstract over the performance monitoring counters (PMCs) \cite{github_libsel4bench_sel4bench_header}.
 
@@ -29,7 +29,7 @@ Sampling is not necessarily required for benchmarking in seL4, since often it is
 
 \section{Performance Counters for Linux (PCL)}\label{sect:pcl}
 
-The PCL is a kernel-based subsystem that provides a framework for collecting and analysing performance data \cite{DocsRedHatPCL}. It is also commonly known in the open source community as Linux perf events (LPE), or perf\_events \cite{BlogBrendandGreggPerf}. The subsystem was merged into the Linux kernel in version 2.6.31 \cite{DocsUnofficialLinxPerfEvents} (most recent version is 5.17.4, released 20 April 2022). 
+The PCL is a kernel-based subsystem that provides a framework for collecting and analysing performance data \cite{DocsRedHatPCL}. It is also commonly known in the open source community as Linux perf events (LPE), or \texttt{perf\_events} \cite{BlogBrendandGreggPerf}. The subsystem was merged into the Linux kernel in version 2.6.31 \cite{DocsUnofficialLinxPerfEvents} (most recent version is 5.17.4, released 20 April 2022). 
 
 \subsection{The perf utility}
 
@@ -40,7 +40,7 @@ The PCL is a kernel-based subsystem that provides a framework for collecting and
     \label{fig:perf_util_arch}
 \end{figure}
 
-The perf utility is the Command Line Interface (CLI) to the PCL subsystem (perf\_events) \cite{ManPerfCLI}. It is a high level interface (see Figure \ref{fig:perf_util_arch}) that acts as an entry point for a number of commands, such as:
+The perf utility is the Command Line Interface (CLI) to the PCL subsystem (\texttt{perf\_events}) \cite{ManPerfCLI}. It is a high level interface (see Figure \ref{fig:perf_util_arch}) that acts as an entry point for a number of commands, such as:
 
 \ssp
 \begin{itemize}
@@ -95,7 +95,7 @@ By default, the table in the report is separated into five columns:
     \item \textit{Children} is the percentage of overall samples that were collected exclusively within a descendant function.
     \item \textit{Self} is the percentage of overall samples that were collected within the function itself (i.e ignoring descendant functions).
     \item \textit{Command} is the process the samples were collected from.
-    \item \textit{Shared Object} displays the name of the Executable and Linkable Format (ELF) image where the samples same from.
+    \item \textit{Shared Object} displays the name of the Executable and Linkable Format (ELF) image where the samples came from.
     \item \textit{Symbol} displays the name of the function that was executing when the sample was taken.
 \end{itemize}
 \dsp
@@ -104,8 +104,8 @@ In the example report, there are a number of notable points:
 \ssp
 \begin{enumerate}
     \item The ``Children" and ``Self" columns are percentage values, and do not represent time, but rather percentage of overall samples. If the total execution time for the profile is known, the cumulative execution time for a given function can be approximated using the number of samples where the function appears. 
-    \item The ``Shared Object" column refers to ELF images other than simple\_prog. This is because there are calls to libc functions, namely \texttt{time}, \texttt{srand}, \texttt{getpid} and \texttt{printf} which are still executing within the simple\_prog process.
-    \item Instances where the value for ``Shared Object'' show [unknown] refer to dynamic shared objects (DSO), where the object name could not be resolved.
+    \item The ``Shared Object" column refers to ELF images other than simple\_prog. This is because there are calls to libc functions, namely \texttt{time}, \texttt{srand}, \texttt{getpid} and \texttt{printf} which are still executing within the simple\_prog process address space.
+    \item Instances where the value for ``Shared Object'' show \texttt{[unknown]} refer to dynamic shared objects (DSO), where the object name could not be resolved.
     \item The cases where the value for ``Shared Object'' is simple\_prog, but the corresponding symbol is a raw address, is due to the profiler not being able to find an entry in the ELF image for that particular address.
     \item Lastly, if we were to count all (CPU) cycles, instead of only user cycles, we would expect to see kernel symbols also appearing in the report.
 \end{enumerate}
@@ -159,7 +159,7 @@ struct read_format {
 
 \subsubsection{Sampling Events}
 
-Sampling an event differs from counting an event, in that the kernel will notify userspace every N events, where N is determined by the sampling frequency. The mechanism for notifying is via either a signal sent to the user process or by polling the file descriptor (e.g using \texttt{epoll}). Instead of reading directly from the file descriptor, the kernel will write records to a shared ring-buffer, which can then be accessed in userspace via calls to \texttt{mmap}. A record, which is perhaps confusingly referred to as an asynchronous event in the man pages, can be one of 21 types. Four common record types are defined below:
+Sampling an event differs from counting an event, in that the kernel will notify userspace every N events, where N is determined by the sampling frequency. The mechanism for notifying is via either a signal sent to the user process or by polling the file descriptor (e.g using \texttt{epoll}). Instead of reading directly from the file descriptor, the kernel will write records to a shared ring-buffer, which can then be accessed in user-space via \texttt{mmap}. A record, which is perhaps confusingly referred to as an asynchronous event in the man pages, can be one of 21 types. Four common record types are defined below:
 
 \ssp
 \begin{itemize}
@@ -174,7 +174,7 @@ Sampling an event differs from counting an event, in that the kernel will notify
 
 The \shellcmd{perf record} command, by default, will write the profile data out to file called \texttt{perf.data}, which is then consumed by other perf tools (e.g \shellcmd{perf report}). In order to ensure interoperability, there is a perf file format which specifies the layout of data within the \texttt{perf.data} file, and is designed in such a way that it provides forwards and backwards compatibility \cite{GithubPerfFileFormat}.
 
-The CERN openlab technical report from 2011 \cite{CERN_openlab_perf_file_format} covers the perf file format in depth. The format, as of April 2022, still largely resembles the format described in the report and therefore provides an excellent reference explanation, complimenting the documentation within the Linux repo \cite{GithubPerfFileFormat}.
+The CERN openlab technical report from 2011 \cite{CERN_openlab_perf_file_format} covers the perf file format in depth. The format, as of April 2022, still largely resembles the format described in the report and therefore provides an excellent reference explanation, complimenting the documentation within the Linux repo itself \cite{GithubPerfFileFormat}.
 
 The file format begins with a header, and defines an offset into the file for sections that store the event types that make up the profile, the attributes for each sampled event, and the recorded samples for each event. The file format essentially defines a way to serialise the event configuration from each \texttt{perf\_event\_open} syscall, as well as each sample that is placed into the shared buffer (see Figure \ref{fig:perf_design}). 
 

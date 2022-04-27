@@ -11,112 +11,114 @@ The style file: plain.bst
 A level-1 auxiliary file: appendix1.aux
 Database file #1: pubs.bib
 Warning--entry type for "ManGprof" isn't style-file defined
---line 72 of file pubs.bib
+--line 1 of file pubs.bib
 Warning--entry type for "ManGCC" isn't style-file defined
---line 78 of file pubs.bib
+--line 7 of file pubs.bib
 Warning--entry type for "DocsGCCExtendedAsm" isn't style-file defined
---line 84 of file pubs.bib
+--line 13 of file pubs.bib
 Warning--entry type for "ManPerfCLI" isn't style-file defined
---line 96 of file pubs.bib
+--line 25 of file pubs.bib
 Warning--entry type for "DocsOProfileInter" isn't style-file defined
---line 114 of file pubs.bib
+--line 43 of file pubs.bib
 Warning--entry type for "DocsGProfImpl" isn't style-file defined
---line 120 of file pubs.bib
+--line 49 of file pubs.bib
 Warning--entry type for "DocsArmv8PMU" isn't style-file defined
---line 126 of file pubs.bib
+--line 55 of file pubs.bib
 Warning--entry type for "DocsArvm7" isn't style-file defined
---line 132 of file pubs.bib
+--line 61 of file pubs.bib
 Warning--entry type for "DocsArmCortexA15PMU" isn't style-file defined
---line 138 of file pubs.bib
+--line 67 of file pubs.bib
 Warning--entry type for "DocsArmCortexM55PMUCtrs" isn't style-file defined
---line 144 of file pubs.bib
+--line 73 of file pubs.bib
 Warning--entry type for "DocsArmCortexR52PMUCtrs" isn't style-file defined
---line 150 of file pubs.bib
+--line 79 of file pubs.bib
 Warning--entry type for "DocsArmv7PMURegs" isn't style-file defined
---line 156 of file pubs.bib
+--line 85 of file pubs.bib
 Warning--entry type for "DocsArmMCR" isn't style-file defined
---line 162 of file pubs.bib
+--line 91 of file pubs.bib
 Warning--entry type for "DocsArmMRC" isn't style-file defined
---line 168 of file pubs.bib
+--line 97 of file pubs.bib
 Warning--entry type for "DocsArmArchProfiles" isn't style-file defined
---line 174 of file pubs.bib
+--line 103 of file pubs.bib
 Warning--entry type for "DocsRISVISAPerfCounters" isn't style-file defined
---line 186 of file pubs.bib
+--line 115 of file pubs.bib
 Warning--entry type for "DocsIntel64IA32Vol3B" isn't style-file defined
---line 192 of file pubs.bib
+--line 121 of file pubs.bib
 Warning--entry type for "DocsSeL4Hardware" isn't style-file defined
---line 198 of file pubs.bib
+--line 127 of file pubs.bib
 Warning--entry type for "DocsRedHatPCL" isn't style-file defined
---line 204 of file pubs.bib
+--line 133 of file pubs.bib
 Warning--entry type for "DocsUnofficialLinxPerfEvents" isn't style-file defined
---line 210 of file pubs.bib
+--line 139 of file pubs.bib
 Warning--entry type for "BlogBrendandGreggPerf" isn't style-file defined
---line 216 of file pubs.bib
+--line 145 of file pubs.bib
 Warning--entry type for "SPECCPU2017" isn't style-file defined
---line 222 of file pubs.bib
+--line 151 of file pubs.bib
 Warning--entry type for "GithubSel4bench" isn't style-file defined
---line 228 of file pubs.bib
+--line 157 of file pubs.bib
 Warning--entry type for "GithubPerfFileFormat" isn't style-file defined
---line 234 of file pubs.bib
+--line 163 of file pubs.bib
 Warning--entry type for "CERN_openlab_perf_file_format" isn't style-file defined
---line 240 of file pubs.bib
+--line 169 of file pubs.bib
 Warning--entry type for "github_libsel4bench_sel4bench_header" isn't style-file defined
---line 246 of file pubs.bib
+--line 175 of file pubs.bib
 Warning--entry type for "TutHowToUsePMU" isn't style-file defined
---line 252 of file pubs.bib
+--line 181 of file pubs.bib
 Warning--entry type for "BlogRedHatCpu" isn't style-file defined
---line 258 of file pubs.bib
+--line 187 of file pubs.bib
 Warning--entry type for "BlogVentureBeat" isn't style-file defined
---line 264 of file pubs.bib
+--line 193 of file pubs.bib
 Warning--entry type for "GlossArmISA" isn't style-file defined
---line 270 of file pubs.bib
+--line 199 of file pubs.bib
 Warning--entry type for "ArticleEmbeddedTwoPercSol" isn't style-file defined
---line 276 of file pubs.bib
+--line 205 of file pubs.bib
 Warning--entry type for "SiteAboutSeL4" isn't style-file defined
---line 282 of file pubs.bib
+--line 211 of file pubs.bib
 Warning--entry type for "YouTubeDotnetosCPUProfling" isn't style-file defined
---line 288 of file pubs.bib
+--line 217 of file pubs.bib
 Warning--entry type for "AOSMicrokernelSlide" isn't style-file defined
---line 294 of file pubs.bib
-You've used 34 entries,
+--line 223 of file pubs.bib
+Warning--entry type for "SiteTop500Project" isn't style-file defined
+--line 229 of file pubs.bib
+You've used 35 entries,
             2118 wiz_defined-function locations,
-            624 strings with 6454 characters,
-and the built_in function-call counts, 6626 in all, are:
-= -- 547
-> -- 244
+            628 strings with 6508 characters,
+and the built_in function-call counts, 6819 in all, are:
+= -- 563
+> -- 251
 < -- 0
-+ -- 107
-- -- 70
-* -- 176
-:= -- 1071
-add.period$ -- 68
-call.type$ -- 34
-change.case$ -- 137
++ -- 110
+- -- 72
+* -- 181
+:= -- 1102
+add.period$ -- 70
+call.type$ -- 35
+change.case$ -- 141
 chr.to.int$ -- 0
-cite$ -- 34
-duplicate$ -- 238
-empty$ -- 749
-format.name$ -- 70
-if$ -- 1436
+cite$ -- 35
+duplicate$ -- 245
+empty$ -- 771
+format.name$ -- 72
+if$ -- 1478
 int.to.chr$ -- 0
-int.to.str$ -- 34
+int.to.str$ -- 35
 missing$ -- 0
-newline$ -- 139
-num.names$ -- 68
-pop$ -- 273
+newline$ -- 143
+num.names$ -- 70
+pop$ -- 281
 preamble$ -- 1
-purify$ -- 103
+purify$ -- 106
 quote$ -- 0
-skip$ -- 340
+skip$ -- 350
 stack$ -- 0
-substring$ -- 173
-swap$ -- 34
+substring$ -- 178
+swap$ -- 35
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 136
+type$ -- 140
 warning$ -- 0
-while$ -- 68
-width$ -- 36
-write$ -- 240
-(There were 34 warnings)
+while$ -- 70
+width$ -- 37
+write$ -- 247
+(There were 35 warnings)

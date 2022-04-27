@@ -4,7 +4,7 @@ First, we will need to explore the various types of CPU profiling commonly in us
 
 \section{Profiling}
 
-In the most general sense, we profile a program or system to gain a deeper insight into its runtime behaviour. The systems that we may want to profile can range from hardware, operating systems, networks and cloud infrastructure. Profiling differs from debugging, in that often we debug a program or system whenever it does not meet its functional requirements, compared to non-functional requirements.
+We profile a program or system to gain a deeper insight into its runtime behaviour, often in response to a performance issue. The systems that we may want to profile can range from hardware, operating systems, networks, cloud infrastructure, etc. Profiling differs from debugging, in that often we debug a program or system whenever it does not meet its functional requirements, compared to non-functional requirements.
 
 \subsection{CPU Profiling}
 
@@ -28,13 +28,13 @@ Statistical profiling involves sampling the program counter and call stack runni
 
 \subsubsection{Event-based}
 
-Both instrumentation and statistical profiling are mainly concerned with capturing timing information, such that execution time on the CPU can be attributed to functions within the program. Undoubtedly, this is a valuable tool when trying to quickly understand where in the program an unexpected amount of time is being spent. However, not all performance issues can be resolved in software alone, but rather require a greater insight into the microarchitectural events that are occurring within the CPU to understand the complete picture. These architectural events may be branch misses, cache misses, context switches, cache misses, page faults etc. 
+Both instrumentation and statistical profiling are mainly concerned with capturing timing information, such that execution time on the CPU can be attributed to functions within the program. Undoubtedly, this is a valuable tool when trying to quickly understand where in the program an unexpected amount of time is being spent. However, not all performance issues can be resolved in software alone, but rather require greater insight into the microarchitectural events occurring within the CPU to understand the complete picture. These architectural events may be branch misses, cache misses, context switches, TLB misses, page faults etc.
 
 \subsection{Statistical Profiling Overview}\label{sect:statistical_profiling}
 
 \subsubsection{Code Execution}
 
-In this discussion on code execution, we refer to a thread as the basic unit of CPU utilisation, which consists of a program counter (PC), call stack, and register set. The PC is a register on the CPU that stores the address of the instruction currently being executed\footnote{For processors that implement instruction pipelining, when an instruction is in the execution stage (EX), the PC typically will no longer refer to that particular instruction, but rather the instruction in the instruction-fetch (IF) stage of the pipeline.}. The call stack is a data structure, typically resident in Random Access Memory (RAM), that keeps track of the nested function calls, and store the required state for each function (such as local variables). The register set refers to the current value within each register on the CPU. 
+In this discussion on code execution, we refer to a thread as the basic unit of CPU utilisation, which consists of a program counter (PC), a call stack, and a register set. The PC is a register on the CPU that stores the address of the instruction currently being executed\footnote{For processors that implement instruction pipelining, when an instruction is in the execution stage (EX), the PC typically will no longer refer to that particular instruction, but rather the instruction in the instruction-fetch (IF) stage of the pipeline.}. The call stack is a data structure, typically resident in Random Access Memory (RAM), that keeps track of the nested function calls, and stores the required state for each function (such as local variables). The register set refers to the current value within each register on the CPU (known as a \textit{core} register). 
 
 \subsubsection{Sampling}
 
@@ -42,34 +42,34 @@ Following from the brief overview of statistical profiling in \ref{sect:statisti
 
 \begin{figure}[h!]
     \includegraphics[width=\linewidth]{report-a_sampling_timeline}
-    \caption{Sampling the CPU every 1ms. In this example, profiling begins at 0ms, where the first sample is recorded with thread A on the CPU executing method 1. The second sample occurs at 1ms, where there is no activity on the CPU. At 3ms, thread B is active and the call stack contains methods 2 and 3. The fourth sample at 3ms, records method 4 executing within the kernel. This example was adapted from the Dotnetos conference talk ``CPU profiling inside out" \cite{YouTubeDotnetosCPUProfling}.}
+    \caption{Sampling the CPU every 1ms. In this example, profiling begins at 0ms, where the first sample is recorded with thread A on the CPU executing method 1. The second sample occurs at 1ms, where there is no activity on the CPU. At 2ms, thread B is active and the call stack contains methods 2 and 3. The fourth sample at 3ms, records only method 4 executing within the kernel. This example was adapted from the one presented at the Dotnetos conference talk ``CPU profiling inside out" \cite{YouTubeDotnetosCPUProfling}.}
     \label{fig:sel4_microkernel}
 \end{figure}
 
-A statistical profiler needs to employ some mechanism in order to probe the CPU state at regular intervals. This is referred to as the profiling interrupt. In the case of \texttt{gprof}, initially on Linux (v2.0 and earlier) it used the syscall {\texttt{setitimer} \cite{DocsGProfImpl}, which permitted it access to the underlying hardware timers. Then later it migrated to the more efficient \texttt{profil} syscall where the kernel could perform the probe on behalf of the user program, and therefore did not require two mode switches when the timer interrupt occurred. While hardware timers are still extensively used in modern processors, there is now dedicated hardware for performance profiling, which is covered in Section \ref{sect:pmu}.
+A statistical profiler needs to employ some mechanism in order to probe the CPU state at regular intervals. This is referred to as the \textit{profiling interrupt}. In the case of \texttt{gprof}, initially on Linux (v2.0 and earlier) it used the syscall {\texttt{setitimer} \cite{DocsGProfImpl}, which permitted it access to the underlying hardware timers. Then later it migrated to the more efficient \texttt{profil} syscall where the kernel could perform the probe on behalf of the user program, and therefore did not require two mode switches when the timer interrupt occurred. While hardware timers are still extensively used in modern processors, there is now dedicated hardware for performance profiling, which is covered at depth in Section \ref{sect:pmu}.
 
 \section{Performance Monitoring}
 
 \subsection{Microarchitecture}
 
-The Instruction Set Architecture (ISA) is the interface between software and hardware. It is part of the abstract model of a computer, and defines how the CPU is controlled by software \cite{GlossArmISA}. The term microarchitecture refers to how a given Instruction Set Architecture (ISA) is implemented in a particular processor. A processor (CPU) consists of a number of components with different responsibilities, that harmoniously coordinate to execute each instruction. To help illustrate how these components fit together, Figure \ref{fig:cpu_vis} shows a hypothetical processor, where the RAM and system clock are not part of the CPU, but rather shared with the rest of the system.
+The Instruction Set Architecture (ISA) is the interface between software and hardware. It is part of the abstract model of a computer, and defines how the CPU is controlled by software \cite{GlossArmISA}. The term microarchitecture refers to how a given ISA is implemented in a particular processor. A processor (CPU) consists of a number of components with different responsibilities, that harmoniously coordinate to execute each instruction. To help illustrate how these components fit together, Figure \ref{fig:cpu_vis} shows a hypothetical processor, where the RAM and system clock are not part of the CPU, but rather shared with the rest of the system.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.7\linewidth]{redhat_cpu_vis}
+    \includegraphics[width=0.5\linewidth]{redhat_cpu_vis}
     \caption{A simplified conceptual diagram of a typical CPU. The reality is much more complex than this, however a typical CPU will have: multiple layers of caching (L1, L2, etc), distinct L1 cache for instructions (L1i) and memory (L1d), a Memory Management Unit (MMU) to support virtual addressing, a control unit to coordinate the data-path and pipelining, and an Arithmetic Logic Unit (ALU) to execute arithmetic and logical instructions. Taken from a Red Hat blog post titled ``The central processing unit (CPU): Its components and functionality" \cite{BlogRedHatCPU} } 
     \label{fig:cpu_vis}
 \end{figure}
 
 \subsection{Performance Monitoring Unit (PMU)}\label{sect:pmu}
 
-A statistical profiler can help determine where in the program is an unexpected amount of time being spent, but unless the root cause is solely in software, it is not able to provide any insight into where time is being spent within the microarchitecture itself.
+A statistical profiler can help determine where in the program an unexpected amount of time is being spent, but unless the root cause is solely in software, it is not able to provide any insight into where time is being spent within the microarchitecture itself.
 
 The Performance Monitoring Unit (PMU) is a non-invasive debug component, which can addresses this limitation, by providing a fixed number of counters that can count various useful events that regularly occur with the CPU itself. Note, while the PMU provides greater capabilities for software based profilers, it is also used by hardware engineers to debug potential hardware issues and perform microarchitecture benchmarks.
 
 \subsubsection{Hardware Events}
 
-The events available to be counted on the PMU vary from processor architecture (e.g x86 vs ARM), but they also can vary between processor to processor within the same architecture (e.g Cortex-M55 vs Cortex-M33). However PMU events can be typically grouped into the following event type categories \cite{DocsArmv8PMU}:
+The events available to be counted on the PMU vary from processor architecture (e.g x86 vs ARM), but they also can vary between processors within the same architecture (e.g Cortex-M55 vs Cortex-M33). However PMU events can be typically grouped into the following event type categories \cite{DocsArmv8PMU}:
 
 \begin{multicols}{2}
 \ssp
@@ -93,7 +93,7 @@ The events available to be counted on the PMU vary from processor architecture (
 
 \subsection{Performance Counters}
 
-At a high level, the PMU allows a single, supported event to be assigned to one of the available performance counters. Commonly, the PMU can be interfaced via Model Specific Registers (MSRs), which are a set of registers on the processor\footnote{Typically the registers are not located on the CPU itself, but rather on a coprocessor. This decouples the PMU from main processor since on most architectures the PMU is an optional extension.} that dictate how the PMU should operate.
+At a high level, the PMU allows a single, supported event to be assigned to one of the available performance counters. Commonly, the PMU can be interfaced via Model Specific Registers (MSRs), which are a set of registers on the processor\footnote{Typically the registers are not located on the CPU itself, but rather on a coprocessor. This decouples the PMU from the main processor since on most architectures the PMU is an optional extension.} that dictate how the PMU should operate.
 
 \subsubsection{Fixed and Programmable Counters}
 
@@ -101,17 +101,17 @@ In practice, most PMUs offer a mix of both fixed and programmable counters. Fixe
 
 \subsection{Counting vs Sampling}\label{sect:sampling_counting}
 
-Generally, there are two distinct use cases when wanting to utilise the PMU. The first, known as \textit{counting}, is when we want to record the number of times a particular event has occurred during a specific operation. To do so, we reset the value of the counter to 0, perform the operation, and then read the value of the counter again. 
+Generally, there are two distinct use cases when wanting to utilise the PMU. The first, known as \textit{counting}, is when we want to record the number of times a particular event has occurred whilst a specific operation was executing. To do so, we reset the value of the counter to 0, perform the operation, and then read the value of the counter again. 
 
-The second use case, known as \textit{sampling}, is where we want the PMU to notify us once the count for a certain event reaches a particular value. When this occurs, known as a counter \textit{overflow}, the PMU signals an interrupt informing us that the overflow has occurred. 
+The second use case, known as \textit{sampling}, is when we want the PMU to notify us once the count for a certain event reaches a particular value. When this occurs, known as a counter \textit{overflow}, the PMU signals an interrupt informing us that the overflow has occurred. 
 
 \subsection{Programming the PMU}\label{sect:programming_pmu}
 
-To help illustrate how to interface with the PMU, we will demonstrate how to program the PMU to count the number of instruction software increments on an ARMv7-A processor that uses the Performance Monitors Extension version 2 (PMUv2). The instruction software increments refers to when the instruction has been architecturally executed. This will differ from the number of CPU clock cycles, since a given instruction may take multiple CPU cycles to execute. This event is also known as instruction retired on other platforms.
+To help illustrate how to interface with the PMU, we will demonstrate how to program the PMU to count the number of instruction software increments on an ARMv7-A processor that uses the Performance Monitors Extension version 2 (PMUv2). Instruction software increments refers to when the instruction has been architecturally executed. This will differ from the number of CPU clock cycles, since a given instruction may take multiple CPU cycles to execute. This event is also known as \textit{instruction retired} on other platforms.
 
 \subsubsection{Cortex-A15}
 
-The Cortex-A15 is a 32-bit multi-core processor, which implements the ARMv7-A architecture, and is well supported by seL4 \cite{DocsSeL4Hardware}. The PMU on the Cortex-A15 provides implements the PMUv2 architecture and provides six programmable counters \cite{DocsArmCortexA15PMU} and one clock cycle counter (PMCCNTR). The ARMv7-A architecture defines 12 performance monitor registers (MSRs) which are used to configure the behaviour of the PMU \cite{DocsArmv7PMURegs}. The PMU registers reside on Coprocessor 15 (CP15). For this example, adapted from the Resource Allocation and Scheduling Group \cite{TutHowToUsePMU}, only the following six registers are required:
+The Cortex-A15 is a 32-bit multi-core processor, which implements the ARMv7-A architecture, and is well supported by seL4 \cite{DocsSeL4Hardware}. The PMU on the Cortex-A15 implements the PMUv2 architecture and provides six programmable counters \cite{DocsArmCortexA15PMU} and one clock cycle counter (PMCCNTR). The ARMv7-A architecture defines 12 performance monitor registers (PMRs) which are used to configure the behaviour of the PMU \cite{DocsArmv7PMURegs}. The PMU registers reside on Coprocessor 15 (CP15). For this example, adapted from the Resource Allocation and Scheduling Group \cite{TutHowToUsePMU}, only the following six registers are required:
 
 \ssp
 
@@ -164,7 +164,7 @@ asm volatile ("MCR p15, 0, %0, c9, c12, 0\t\n" :: "r"(pmrc_config));
     \label{lst:pmu_pmcr}
 \end{listing}
 
-Now that counters are initialised, we need to enable the specific counters that we want to use. In this case, we will enable counter 0, as well as the clock counter (Listing \ref{lst:pmu_pmcntenset}.
+Now that counters are initialised, we need to enable the specific counters that we want to use. In this case, we will enable counter 0, as well as the clock counter (Listing \ref{lst:pmu_pmcntenset}).
 
 \begin{listing}
     \begin{minted}{C}
@@ -217,7 +217,7 @@ asm volatile ("MRC p15, 0, %0, C9, C13, 2" : "=r"(counter_value));
 
 \subsection{x86 Systems}
 
-x86 systems are ubiquitous in desktop computing, workstations, servers. A majority of CPUs in the TOP500 project based on the x86-64 instruction set architecture [TODO: Need to cite]. The x86-64 architecture is the 64-bit version of the x86 ISA. The x86 ISA is a Complex Instruction Set Architecture (CISC), which tend to have higher power requirements, but in return offer higher performance over RISC architectures for certain kinds of workloads, such as vector operations since x86 supports Single Instruction, Multiple-Data (SIMD) instructions. Both Intel and AMD produce processors that implement the x86 ISA.
+x86 systems are ubiquitous in desktop computing, workstations, and servers. A majority of CPUs in the TOP500 project are based on x86-64 \cite{SiteTop500Project}. The x86-64 architecture is the 64-bit version of the x86 ISA. The x86 ISA is a Complex Instruction Set Architecture (CISC), which tend to have higher power requirements, but in return offer higher performance over RISC architectures for certain kinds of workloads, such as vector operations since x86 supports Single Instruction, Multiple-Data (SIMD) instructions. Both Intel and AMD produce processors that implement the x86 ISA.
 
 Performance monitoring was first introduced in the Intel Pentium processor with a set of model specific performance monitoring counter MSRs. Intel refers to its x86 (32-bit) and x86-64 architecture implementations as Intel 64 and IA-32 respectively. There are two classes of performance monitoring capabilities offered by the Intel architectures \cite{DocsIntel64IA32Vol3B}:
 \begin{itemize}
