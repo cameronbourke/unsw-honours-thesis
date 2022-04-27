@@ -1,48 +1,58 @@
 \relax 
 \citation{SPECCPU2017}
 \citation{GithubSel4bench}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Related Work}{13}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Related Work}{15}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:relatedwork}{{3}{13}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}seL4 Benchmarking}{13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Benchmarking}{13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}sel4bench}{13}\protected@file@percent }
+\newlabel{ch:relatedwork}{{3}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}seL4 Benchmarking}{15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Benchmarking}{15}\protected@file@percent }
 \citation{github_libsel4bench_sel4bench_header}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}libsel4bench Overview}{14}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}libsel4bench Limitations [TODO: Change title]}{14}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{PMU Sampling Support}{14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}sel4bench}{16}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}libsel4bench Overview}{16}\protected@file@percent }
+\newlabel{sect:libsel4bench}{{3.1.3}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}libsel4bench Extensions}{16}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{PMU Sampling Support}{16}\protected@file@percent }
 \citation{DocsRedHatPCL}
 \citation{BlogBrendandGreggPerf}
 \citation{DocsUnofficialLinxPerfEvents}
+\citation{CERN_openlab_perf_file_format}
+\citation{CERN_openlab_perf_file_format}
 \citation{ManPerfCLI}
-\@writefile{toc}{\contentsline {subsubsection}{[TODO: Find another requirement for libsel4bench]}{15}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Performance Counters for Linux (PCL)}{15}\protected@file@percent }
-\newlabel{sect:pcl}{{3.2}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}The perf utility}{15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}perf record}{15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Example Usage}{16}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}perf report}{16}\protected@file@percent }
-\newlabel{sect:perf_report}{{3.2.3}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{Example Report}{16}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Interpreting the Report}{16}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Event Groupings}{17}\protected@file@percent }
-\newlabel{sect:event_groupings}{{3.2.4}{17}}
-\newlabel{lst:perf_events_open_syscall}{{3.2.5}{18}}
-\@writefile{lol}{\contentsline {listing}{\numberline {3}{\ignorespaces User-level syscall to interface with PCL subsystem \cite  {}}}{18}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}PCL User-level Interface}{18}\protected@file@percent }
-\newlabel{sect:perf_event_open}{{3.2.5}{18}}
-\@writefile{toc}{\contentsline {subsubsection}{Counting Events}{18}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Performance Counters for Linux (PCL)}{17}\protected@file@percent }
+\newlabel{sect:pcl}{{3.2}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}The perf utility}{17}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces How how the perf utility relates to the PCL subsystem. Taken directly from Figure 1 in the CERN openlab, titled ``perf file format" \cite  {CERN_openlab_perf_file_format}.\relax }}{17}\protected@file@percent }
+\newlabel{fig:perf_util_arch}{{3.1}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}perf record}{18}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Example Usage}{18}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}perf report}{19}\protected@file@percent }
+\newlabel{sect:perf_report}{{3.2.3}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{Example Report}{19}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Interpreting the Report}{19}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Example output from \fbox  {\texttt  {perf report}}.\relax }}{19}\protected@file@percent }
+\newlabel{fig:perf_report_output}{{3.2}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Event Groupings}{20}\protected@file@percent }
+\newlabel{sect:event_groupings}{{3.2.4}{20}}
+\@writefile{lol}{\contentsline {listing}{\numberline {7}{\ignorespaces User-level syscall to interface with PCL subsystem\relax }}{21}\protected@file@percent }
+\newlabel{lst:perf_events_open_syscall}{{7}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}PCL User-level Interface}{21}\protected@file@percent }
+\newlabel{sect:perf_event_open}{{3.2.5}{21}}
+\@writefile{toc}{\contentsline {subsubsection}{Counting Events}{21}\protected@file@percent }
 \citation{GithubPerfFileFormat}
-\newlabel{lst:struct_read_format}{{3.2.5}{19}}
-\@writefile{lol}{\contentsline {listing}{\numberline {4}{\ignorespaces Data returned from reading the \texttt  {fd} for an event}}{19}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Sampling Events}{19}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.6}The perf File Format}{19}\protected@file@percent }
-\newlabel{sect:perf_file_format}{{3.2.6}{19}}
 \citation{CERN_openlab_perf_file_format}
 \citation{GithubPerfFileFormat}
+\@writefile{lol}{\contentsline {listing}{\numberline {8}{\ignorespaces Data returned from reading the \texttt  {fd} for an event.\relax }}{22}\protected@file@percent }
+\newlabel{lst:struct_read_format}{{8}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{Sampling Events}{22}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.6}The perf File Format}{22}\protected@file@percent }
+\newlabel{sect:perf_file_format}{{3.2.6}{22}}
+\citation{CERN_openlab_perf_file_format}
+\citation{CERN_openlab_perf_file_format}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Overview of how the PCL subsystem (labelled as Linux) and the perf utility interact. Taken directly from Figure 2 in the CERN openlab, titled ``perf file format" \cite  {CERN_openlab_perf_file_format}.\relax }}{23}\protected@file@percent }
+\newlabel{fig:perf_design}{{3.3}{23}}
 \@setckpt{relatedwork}{
-\setcounter{page}{21}
+\setcounter{page}{24}
 \setcounter{equation}{0}
 \setcounter{enumi}{5}
 \setcounter{enumii}{0}
@@ -57,11 +67,11 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{0}
+\setcounter{figure}{3}
 \setcounter{table}{0}
 \setcounter{FancyVerbLine}{6}
 \setcounter{linenumber}{1}
-\setcounter{LN@truepage}{26}
+\setcounter{LN@truepage}{29}
 \setcounter{FV@TrueTabGroupLevel}{0}
 \setcounter{FV@TrueTabCounter}{0}
 \setcounter{FV@HighlightLinesStart}{0}
@@ -70,7 +80,9 @@
 \setcounter{float@type}{16}
 \setcounter{minted@FancyVerbLineTemp}{2}
 \setcounter{minted@pygmentizecounter}{8}
-\setcounter{listing}{4}
+\setcounter{listing}{8}
 \setcounter{lstnumber}{1}
+\setcounter{caption@flags}{0}
+\setcounter{continuedfloat}{0}
 \setcounter{lstlisting}{0}
 }

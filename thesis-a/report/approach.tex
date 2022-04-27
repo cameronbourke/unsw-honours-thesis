@@ -1,6 +1,6 @@
 \chapter{Approach}\label{ch:approach}
 
-[TODO: Tie in the background chapter and related how it relates to this chapter]
+The thesis problem statement of developing a profiling framework for seL4 is well defined since we have a comparative tool on Linux in the form of the \texttt{perf\_event\_open} syscall that sets expectations around the desired functionality. However, there is still considerable room for how exactly the profiler should be implemented on seL4. To begin, we will look at some of the limitations of statistical profiling, followed a set of design goals to guide the implementation, and then we will discuss a potential solution.
 
 \section{Statistical Profiling Limitations}
 
@@ -15,13 +15,11 @@ Statistical profiling offers a low overhead approach to profiling, however there
 
 \section{Design Goals}
 
-%% Add Lockstep Sampling as a requirement
-
 \ssp\begin{enumerate}
     \item \textbf{Performance}. The profiler should not impose a significant overhead on the system. Further, the overhead should be directly proportional to the sampling frequency selected by the user.
     \item \textbf{Extensible}. The design should be open for extension, such that new PMU events or configuration options can be added without refactoring the existing codebase. 
     \item \textbf{Portable}. The implementation should not be dependent on any platform and architecture specific details.
-    \item \textbf{Configurable}. The design should provide an expressive API to userspace, such that the profiler can be configured to sample select events. 
+    \item \textbf{Configurable}. The design should provide an expressive API to user-space, such that the profiler can be configured to sample select events. 
     \item \textbf{Verification}. seL4 is a formally verified microkernel and so any extension to the kernel, requires that it be verifiable. While full verification is outside the scope of this thesis, the implementation footprint should be as minimal as possible, and amenable to verification.
 \end{enumerate}\dsp
 
@@ -36,7 +34,7 @@ The additional expressivity that arises when supporting both statistical and eve
 The term \textit{non-destructive} refers to a type of profiling which does not require the program to be recompiled in order to be profiled. 
 
 \textbf{Requirement 3}. Symbol resolution.\\
-The profiler should resolve raw addresses, obtained as part of the sample, to their corresponding symbol, as it is critical to the usability of the tool. This includes resolving symbols for the kernel, shared libraries, and userspace programs.
+The profiler should resolve raw addresses, obtained as part of the sample, to their corresponding symbol, as it is critical to the usability of the tool. This includes resolving symbols for the kernel, shared libraries, and user-space programs.
 
 \textbf{Requirement 4}. Supports system-wide profiling.\\
 The ability to monitor the whole system allows mode switches between kernel-mode and user-mode to be observed. To profile IPC for example, requires system-wide profiling be supported. 
@@ -52,7 +50,7 @@ We should not reinvent the wheel, but instead look to leverage the existing ecos
 
 \section{Targeted Platform}
 
-[TODO: Fill this section out]
+All major platforms support performance monitoring (see Section \ref{sect:platform_support}). The interface for accessing the PMU counters differs on each platform. While libsel4bench (see Section \ref{sect:libsel4bench}) defines an interface for accessing and configuring the PMU counters \cite{github_libsel4bench_sel4bench_header} which abstracts over platform specifics, to begin we want to focus on a single platform and architecture. Considering that ARM is the most supported platform on seL4 \cite{DocsSeL4Hardware}, we should start with ARM, and in particular ARMv8-A (A refers to the A-profile, which is targeted towards operating systems).
 
 \section{Design}
 
@@ -73,15 +71,13 @@ Thus our proposed design looks to borrow concepts from PLC where possible, but i
     \item \textit{Debug seL4 kernel} is required since on ARM, user-mode access to PMU counters must be enabled in kernel-mode. Note, there already exists the ability to compile a debug version of seL4.
 \end{itemize}\dsp
 
-When the ring-buffer within the profiling server reaches capacity, the buffer needs to be flushed. The server does not make any assumptions as to where the data in the buffer should be written, and instead invokes a capability supplied from the requesting thread to flush the buffer. To help illustrate how this would work in practice, we will walk through an scenario where the profiler is running on an embedded device, and the profile data is being sent to a Linux machine via the network. 
+When the ring-buffer within the profiling server reaches capacity, the buffer needs to be flushed. The server does not make any assumptions as to where the data in the buffer should be written, and instead invokes a capability supplied from the requesting thread to flush the buffer. To help illustrate how this would work in practice, we will walk through an scenario where the profiler is running on an embedded device, and the profile data is being sent to a Linux machine via the network (Figure \ref{fig:profiler_design}). 
 
-\includegraphics[width=\linewidth]{thesis_a_design_overview.drawio}
-
-%%\begin{figure}[htp]
-%%    \centering
-%%    \caption{An image of a galaxy}
-%%    \label{fig:galaxy}
-%%\end{figure}
+\begin{figure}[h!]
+    \includegraphics[width=\linewidth]{thesis_a_design_overview.drawio}
+    \caption{Design overview for a profiler in seL4, where the transport layer been configured such that write measurement data is sent via the network and stored on the receiving Linux machine.}
+    \label{fig:profiler_design}
+\end{figure}
 
 \ssp\begin{enumerate}
     \item The debug seL4 kernel enables user-mode access to the PMU counters.
@@ -94,5 +90,3 @@ When the ring-buffer within the profiling server reaches capacity, the buffer ne
     \item A network application on the Linux machine receives the profile data, which conforms to the perf file format (see Section \ref{sect:perf_file_format}), and is written out to a file on disk.
     \item Lastly, the \shellcmd{perf record} command on Linux is used at a later stage to display the profile data.
 \end{enumerate}\dsp
-
-[TODO: Summarise design features and discuss briefly Thesis B]

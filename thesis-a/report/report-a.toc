@@ -8,63 +8,62 @@
 \contentsline {subsection}{\numberline {2.1.2}Types of CPU Profilers}{4}%
 \contentsline {subsubsection}{Instrumentation}{4}%
 \contentsline {subsubsection}{Statistical}{4}%
-\contentsline {subsubsection}{Event-based}{4}%
+\contentsline {subsubsection}{Event-based}{5}%
 \contentsline {subsection}{\numberline {2.1.3}Statistical Profiling Overview}{5}%
-\contentsline {subsubsection}{Suitability for seL4}{5}%
 \contentsline {subsubsection}{Code Execution}{5}%
 \contentsline {subsubsection}{Sampling}{5}%
 \contentsline {section}{\numberline {2.2}Performance Monitoring}{6}%
-\contentsline {subsection}{\numberline {2.2.1}Microarchitecture Fundamentals}{6}%
-\contentsline {subsection}{\numberline {2.2.2}Performance Monitoring Unit (PMU)}{6}%
-\contentsline {subsubsection}{Hardware Events}{7}%
-\contentsline {subsection}{\numberline {2.2.3}Performance Counters}{7}%
-\contentsline {subsubsection}{Fixed and Programmable Counters}{7}%
-\contentsline {subsection}{\numberline {2.2.4}Sampling vs Counting}{8}%
-\contentsline {subsection}{\numberline {2.2.5}Programming the PMU}{8}%
-\contentsline {subsubsection}{Cortex-A15}{8}%
-\contentsline {subsubsection}{Initialising the PMU}{9}%
-\contentsline {subsubsection}{Counting an event on the PMU}{10}%
-\contentsline {subsubsection}{Reading an event count on the PMU}{10}%
-\contentsline {section}{\numberline {2.3}Platform Support}{10}%
-\contentsline {subsection}{\numberline {2.3.1}x86 Systems}{10}%
-\contentsline {subsection}{\numberline {2.3.2}ARM Systems}{11}%
-\contentsline {subsection}{\numberline {2.3.3}RISC-V Systems}{12}%
-\contentsline {chapter}{\numberline {3}Related Work}{13}%
-\contentsline {section}{\numberline {3.1}seL4 Benchmarking}{13}%
-\contentsline {subsection}{\numberline {3.1.1}Benchmarking}{13}%
-\contentsline {subsection}{\numberline {3.1.2}sel4bench}{13}%
-\contentsline {subsection}{\numberline {3.1.3}libsel4bench Overview}{14}%
-\contentsline {subsection}{\numberline {3.1.4}libsel4bench Limitations [TODO: Change title]}{14}%
-\contentsline {subsubsection}{PMU Sampling Support}{14}%
-\contentsline {subsubsection}{[TODO: Find another requirement for libsel4bench]}{15}%
-\contentsline {section}{\numberline {3.2}Performance Counters for Linux (PCL)}{15}%
-\contentsline {subsection}{\numberline {3.2.1}The perf utility}{15}%
-\contentsline {subsection}{\numberline {3.2.2}perf record}{15}%
-\contentsline {subsubsection}{Example Usage}{16}%
-\contentsline {subsection}{\numberline {3.2.3}perf report}{16}%
-\contentsline {subsubsection}{Example Report}{16}%
-\contentsline {subsubsection}{Interpreting the Report}{16}%
-\contentsline {subsection}{\numberline {3.2.4}Event Groupings}{17}%
-\contentsline {subsection}{\numberline {3.2.5}PCL User-level Interface}{18}%
-\contentsline {subsubsection}{Counting Events}{18}%
-\contentsline {subsubsection}{Sampling Events}{19}%
-\contentsline {subsection}{\numberline {3.2.6}The perf File Format}{19}%
-\contentsline {chapter}{\numberline {4}Approach}{21}%
-\contentsline {section}{\numberline {4.1}Statistical Profiling Limitations}{21}%
-\contentsline {section}{\numberline {4.2}Design Goals}{22}%
-\contentsline {section}{\numberline {4.3}Requirements}{22}%
-\contentsline {section}{\numberline {4.4}Targeted Platform}{23}%
-\contentsline {section}{\numberline {4.5}Design}{23}%
-\contentsline {chapter}{\numberline {5}Plan}{27}%
-\contentsline {chapter}{Bibliography}{28}%
-\contentsline {chapter}{Appendix 1}{30}%
-\contentsline {section}{\numberline {A.1}Options}{30}%
-\contentsline {section}{\numberline {A.2}Margins}{30}%
-\contentsline {section}{\numberline {A.3}Page Headers}{31}%
-\contentsline {subsection}{\numberline {A.3.1}Undergraduate Theses}{31}%
-\contentsline {subsection}{\numberline {A.3.2}Higher Degree Research Theses}{31}%
-\contentsline {section}{\numberline {A.4}Page Footers}{31}%
-\contentsline {section}{\numberline {A.5}Double Spacing}{32}%
-\contentsline {section}{\numberline {A.6}Files}{32}%
-\contentsline {chapter}{Appendix 2}{34}%
-\contentsline {section}{\numberline {B.1}Data}{34}%
+\contentsline {subsection}{\numberline {2.2.1}Microarchitecture}{6}%
+\contentsline {subsection}{\numberline {2.2.2}Performance Monitoring Unit (PMU)}{7}%
+\contentsline {subsubsection}{Hardware Events}{8}%
+\contentsline {subsection}{\numberline {2.2.3}Performance Counters}{8}%
+\contentsline {subsubsection}{Fixed and Programmable Counters}{9}%
+\contentsline {subsection}{\numberline {2.2.4}Counting vs Sampling}{9}%
+\contentsline {subsection}{\numberline {2.2.5}Programming the PMU}{9}%
+\contentsline {subsubsection}{Cortex-A15}{10}%
+\contentsline {subsubsection}{Initialising the PMU}{10}%
+\contentsline {subsubsection}{Counting an event on the PMU}{12}%
+\contentsline {subsubsection}{Reading an event count on the PMU}{12}%
+\contentsline {section}{\numberline {2.3}Platform Support}{13}%
+\contentsline {subsection}{\numberline {2.3.1}x86 Systems}{13}%
+\contentsline {subsection}{\numberline {2.3.2}ARM Systems}{13}%
+\contentsline {subsection}{\numberline {2.3.3}RISC-V Systems}{14}%
+\contentsline {chapter}{\numberline {3}Related Work}{15}%
+\contentsline {section}{\numberline {3.1}seL4 Benchmarking}{15}%
+\contentsline {subsection}{\numberline {3.1.1}Benchmarking}{15}%
+\contentsline {subsection}{\numberline {3.1.2}sel4bench}{16}%
+\contentsline {subsection}{\numberline {3.1.3}libsel4bench Overview}{16}%
+\contentsline {subsection}{\numberline {3.1.4}libsel4bench Extensions}{16}%
+\contentsline {subsubsection}{PMU Sampling Support}{16}%
+\contentsline {section}{\numberline {3.2}Performance Counters for Linux (PCL)}{17}%
+\contentsline {subsection}{\numberline {3.2.1}The perf utility}{17}%
+\contentsline {subsection}{\numberline {3.2.2}perf record}{18}%
+\contentsline {subsubsection}{Example Usage}{18}%
+\contentsline {subsection}{\numberline {3.2.3}perf report}{19}%
+\contentsline {subsubsection}{Example Report}{19}%
+\contentsline {subsubsection}{Interpreting the Report}{19}%
+\contentsline {subsection}{\numberline {3.2.4}Event Groupings}{20}%
+\contentsline {subsection}{\numberline {3.2.5}PCL User-level Interface}{21}%
+\contentsline {subsubsection}{Counting Events}{21}%
+\contentsline {subsubsection}{Sampling Events}{22}%
+\contentsline {subsection}{\numberline {3.2.6}The perf File Format}{22}%
+\contentsline {chapter}{\numberline {4}Approach}{24}%
+\contentsline {section}{\numberline {4.1}Statistical Profiling Limitations}{24}%
+\contentsline {section}{\numberline {4.2}Design Goals}{25}%
+\contentsline {section}{\numberline {4.3}Requirements}{25}%
+\contentsline {section}{\numberline {4.4}Targeted Platform}{26}%
+\contentsline {section}{\numberline {4.5}Design}{27}%
+\contentsline {chapter}{\numberline {5}Plan}{30}%
+\contentsline {section}{\numberline {5.1}Stages}{30}%
+\contentsline {chapter}{Bibliography}{31}%
+\contentsline {chapter}{Appendix 1}{33}%
+\contentsline {section}{\numberline {A.1}Options}{33}%
+\contentsline {section}{\numberline {A.2}Margins}{33}%
+\contentsline {section}{\numberline {A.3}Page Headers}{34}%
+\contentsline {subsection}{\numberline {A.3.1}Undergraduate Theses}{34}%
+\contentsline {subsection}{\numberline {A.3.2}Higher Degree Research Theses}{34}%
+\contentsline {section}{\numberline {A.4}Page Footers}{34}%
+\contentsline {section}{\numberline {A.5}Double Spacing}{35}%
+\contentsline {section}{\numberline {A.6}Files}{35}%
+\contentsline {chapter}{Appendix 2}{37}%
+\contentsline {section}{\numberline {B.1}Data}{37}%

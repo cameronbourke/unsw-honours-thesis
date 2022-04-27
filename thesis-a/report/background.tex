@@ -1,6 +1,6 @@
 \chapter{Background}\label{ch:background}
 
-[TODO: Tie the thesis problem statement subsection with the background chapter]
+First, we will need to explore the various types of CPU profiling commonly in use today, in particular statistical profiling, and familiarise ourselves with the available hardware support for performance monitoring. Then, we will begin to look at how the modern profiler on Linux, \texttt{perf} is implemented.
 
 \section{Profiling}
 
@@ -24,7 +24,7 @@ With GCC for example, the \texttt{-pg} flag will generate trace functions that a
 
 \subsubsection{Statistical}\label{sect:statistical}
 
-Statistical profiling involves sampling the program counter and call stack running on the CPU at regular intervals. It differs from instrumentation, in that it does not provide a complete picture of the program's execution, but rather an estimation. The trade-off is that statistical profiling allows the program to run closer to full speed, since the cost to profile is not incurred during each function call. We will discuss the mechanics of statistical profiling at greater length in a later section [TODO: Add reference].
+Statistical profiling involves sampling the program counter and call stack running on the CPU at regular intervals. It differs from instrumentation, in that it does not provide a complete picture of the program's execution, but rather an estimation. The trade-off is that statistical profiling allows the program to run closer to full speed, since the cost to profile is not incurred during each function call. We will discuss the mechanics of statistical profiling at greater length in Section \ref{sect:statistical_profiling}.
 
 \subsubsection{Event-based}
 
@@ -32,34 +32,36 @@ Both instrumentation and statistical profiling are mainly concerned with capturi
 
 \subsection{Statistical Profiling Overview}\label{sect:statistical_profiling}
 
-\subsubsection{Suitability for seL4}
-
 \subsubsection{Code Execution}
 
 In this discussion on code execution, we refer to a thread as the basic unit of CPU utilisation, which consists of a program counter (PC), call stack, and register set. The PC is a register on the CPU that stores the address of the instruction currently being executed\footnote{For processors that implement instruction pipelining, when an instruction is in the execution stage (EX), the PC typically will no longer refer to that particular instruction, but rather the instruction in the instruction-fetch (IF) stage of the pipeline.}. The call stack is a data structure, typically resident in Random Access Memory (RAM), that keeps track of the nested function calls, and store the required state for each function (such as local variables). The register set refers to the current value within each register on the CPU. 
-
-
-[TODO: Add diagram of these concepts]
 
 \subsubsection{Sampling}
 
 Following from the brief overview of statistical profiling in \ref{sect:statistical}, a statistical profiler will sample the PC at each interval. Over time, a number of samples will be collected, which can then be processed to generate an execution profile. 
 
-[TODO: Add diagram of sampling a thread]
+\begin{figure}[h!]
+    \includegraphics[width=\linewidth]{report-a_sampling_timeline}
+    \caption{Sampling the CPU every 1ms. In this example, profiling begins at 0ms, where the first sample is recorded with thread A on the CPU executing method 1. The second sample occurs at 1ms, where there is no activity on the CPU. At 3ms, thread B is active and the call stack contains methods 2 and 3. The fourth sample at 3ms, records method 4 executing within the kernel. }
+    \label{fig:sel4_microkernel}
+\end{figure}
 
-A statistical profiler needs to employ some mechanism in order to probe the CPU state at regular intervals. This is referred to as the profiling interrupt. In the case of \texttt{gprof}, initially on Linux (v2.0 and earlier) it used the syscall {\texttt{setitimer} \cite{DocsGProfImpl}, which permitted it access to the underlying hardware timers. Then later it migrated to the more efficient \texttt{profil} syscall where the kernel could perform the probe on behalf of the user program, and therefore did not require two mode switches when the timer interrupt occurred. While hardware timers are still extensively used in modern processors, there is now dedicated hardware for performance profiling, which we will cover shortly. [TODO: Add link]
+A statistical profiler needs to employ some mechanism in order to probe the CPU state at regular intervals. This is referred to as the profiling interrupt. In the case of \texttt{gprof}, initially on Linux (v2.0 and earlier) it used the syscall {\texttt{setitimer} \cite{DocsGProfImpl}, which permitted it access to the underlying hardware timers. Then later it migrated to the more efficient \texttt{profil} syscall where the kernel could perform the probe on behalf of the user program, and therefore did not require two mode switches when the timer interrupt occurred. While hardware timers are still extensively used in modern processors, there is now dedicated hardware for performance profiling, which is covered in Section \ref{sect:pmu}.
 
 \section{Performance Monitoring}
 
-[TODO: Introduce this section]
+\subsection{Microarchitecture}
 
-\subsection{Microarchitecture Fundamentals}
+The Instruction Set Architecture (ISA) is the interface between software and hardware. It is part of the abstract model of a computer, and defines how the CPU is controlled by software \cite{GlossArmISA}. The term microarchitecture refers to how a given Instruction Set Architecture (ISA) is implemented in a particular processor. A processor (CPU) consists of a number of components with different responsibilities, that harmoniously coordinate to execute each instruction. To help illustrate how these components fit together, Figure \ref{fig:cpu_vis} shows a hypothetical processor, where the RAM and system clock are not part of the CPU, but rather shared with the rest of the system.
 
-The Instruction Set Architecture (ISA) is the interface between software and hardware. It is part of the abstract model of a computer, and defines how the CPU is controlled by software \cite{GlossArmISA}. The term microarchitecture refers to how a given Instruction Set Architecture (ISA) is implemented in a particular processor. A processor (CPU) consists of a number of components with different responsibilities, that harmoniously coordinate to execute each instruction. To help illustrate how these components fit together, Figure x shows a hypothetical processor, where the RAM and system clock are not part of the CPU, but rather shared with the rest of the system.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{redhat_cpu_vis}
+    \caption{A simplified conceptual diagram of a typical CPU. The reality is much more complex than this, however a typical CPU will have: multiple layers of caching (L1, L2, etc), distinct L1 cache for instructions (L1i) and memory (L1d), a Memory Management Unit (MMU) to support virtual addressing, a control unit to coordinate the data-path and pipelining, and an Arithmetic Logic Unit (ALU) to execute arithmetic and logical instructions. Taken from a Red Hat blog post titled ``The central processing unit (CPU): Its components and functionality" \cite{BlogRedHatCPU} } 
+    \label{fig:cpu_vis}
+\end{figure}
 
-[TODO: Include diagram of hypothetical CPU]
-
-\subsection{Performance Monitoring Unit (PMU)}
+\subsection{Performance Monitoring Unit (PMU)}\label{sect:pmu}
 
 A statistical profiler can help determine where in the program is an unexpected amount of time being spent, but unless the root cause is solely in software, it is not able to provide any insight into where time is being spent within the microarchitecture itself.
 
@@ -67,7 +69,7 @@ The Performance Monitoring Unit (PMU) is a non-invasive debug component, which c
 
 \subsubsection{Hardware Events}
 
-The events available to be counted on the PMU vary from processor architecture (e.g x86 vs ARM), but they also can vary between processor to processor within the same architecture (e.g Cortex-M55 vs [TODO: Find Armv8.1-M that supports branch prediction]). However PMU events can be typically grouped into the following event type categories \cite{DocsArmv8PMU}:
+The events available to be counted on the PMU vary from processor architecture (e.g x86 vs ARM), but they also can vary between processor to processor within the same architecture (e.g Cortex-M55 vs Cortex-M33). However PMU events can be typically grouped into the following event type categories \cite{DocsArmv8PMU}:
 
 \begin{multicols}{2}
 \ssp
@@ -95,11 +97,13 @@ At a high level, the PMU allows a single, supported event to be assigned to one 
 
 \subsubsection{Fixed and Programmable Counters}
 
-[TODO: Fill this out]
+In practice, most PMUs offer a mix of both fixed and programmable counters. Fixed performance counters always count the same event within the CPU. They are used for common used events, such as CPU cycles and instructions retired. Programmable counters, as the name suggests, can be programmed to count any supported\footnote{On x86, some events can only assigned to a subset of the available performance counters, and therefore are considered semi-programmable. In order to determine which events can be assigned to which counters, x86 provides a mask for each event which specifies the supported counters.} event.
 
-\subsection{Sampling vs Counting}\label{sect:sampling_counting}
+\subsection{Counting vs Sampling}\label{sect:sampling_counting}
 
-[TODO: Fill this out]
+Generally, there are two distinct use cases when wanting to utilise the PMU. The first, known as \textit{counting}, is when we want to record the number of times a particular event has occurred during a specific operation. To do so, we reset the value of the counter to 0, perform the operation, and then read the value of the counter again. 
+
+The second use case, known as \textit{sampling}, is where we want the PMU to notify us once the count for a certain event reaches a particular value. When this occurs, known as a counter \textit{overflow}, the PMU signals an interrupt informing us that the overflow has occurred. 
 
 \subsection{Programming the PMU}\label{sect:programming_pmu}
 
@@ -122,7 +126,7 @@ The Cortex-A15 is a 32-bit multi-core processor, which implements the ARMv7-A ar
 
 \dsp
 
-To begin, we will define a series of \#defines to provide greater clarity regarding to the value being written to a particular PMU register. Note, the constants are directly from each respective PMU register section in the ARM Architecture Reference Manual ARMv7-A and ARMv7-R edition \cite{DocsArvm7}.
+To begin, we will define a series of \#defines to provide greater clarity regarding to the value being written to a particular PMU register (defined in Listing \ref{lst:pmu_flags}). Note, the constants are directly from each respective PMU register section in the ARM Architecture Reference Manual ARMv7-A and ARMv7-R edition \cite{DocsArvm7}.
 
 \begin{listing}
     \begin{minted}{C}
@@ -142,54 +146,62 @@ To begin, we will define a series of \#defines to provide greater clarity regard
 #define PMOVSR_EN_CTRS                  0x3F
     \end{minted}
     \caption{Flags for PMU MSRs on ARMv7.}
+    \label{lst:pmu_flags}
 \end{listing}
 
 \subsubsection{Initialising the PMU}
 
-When the processor is first powered on, we have to assume that the PMU registers are in an undefined state and therefore reinitialise them. This involves enabling counters, resetting them to 0, as well as the clock counter. To write to one of the PMU registers on ARMv7, we use the Move to Coprocessor (MCR) instruction \cite{DocsArmMCR}. Often, we want to use performance counters within a C program, and therefore we are using inline assembly, in particular Extended Asm \cite{DocsGCCExtendedAsm}.
+When the processor is first powered on, we have to assume that the PMU registers are in an undefined state and therefore reinitialise them. This involves enabling counters, resetting them to 0, as well as the clock counter. To write to one of the PMU registers on ARMv7, we use the Move to Coprocessor (MCR) instruction \cite{DocsArmMCR} (Listing \ref{lst:pmu_pmcr}). Often, we want to use performance counters within a C program, and therefore we are using inline assembly, in particular Extended Asm \cite{DocsGCCExtendedAsm}.
 
 \begin{listing}
     \begin{minted}{C}
 uint32_t pmcr_config = PMCR_EN_CTRS
-                        | PMCR_EN_RESET_CTRS
-                        | PMCR_EN_RESET_CLK_CTR;
+                     | PMCR_EN_RESET_CTRS
+                     | PMCR_EN_RESET_CLK_CTR;
 asm volatile ("MCR p15, 0, %0, c9, c12, 0\t\n" :: "r"(pmrc_config));
     \end{minted}
-    \caption{Writing to the PMCR.}
+    \caption{Initialising the counters via the \texttt{PMCR}.}
+    \label{lst:pmu_pmcr}
 \end{listing}
 
-Now that counters are enabled, we need to enable the specific counters that we want to use. In this case, we will enable counter 0, as well as the clock counter.
+Now that counters are initialised, we need to enable the specific counters that we want to use. In this case, we will enable counter 0, as well as the clock counter (Listing \ref{lst:pmu_pmcntenset}.
 
 \begin{listing}
     \begin{minted}{C}
 uint32_t pmcntenset_config = PMCNTENSET_EN_CTRS | PMCNTENSET_EN_PMCCNTR;
 asm volatile ("MCR p15, 0, %0, c9, c12, 1\t\n" :: "r"(pmcntenset_config));
     \end{minted}
+    \caption{Enabling counter 0 and the CPU clock counter via the \texttt{PMCNTENSET} register.}
+    \label{lst:pmu_pmcntenset}
 \end{listing}
 
-Finally, we need to clear the overflow bit for both of the counters.
+Finally, we need to clear the overflow bit for both of the counters (Listing \ref{lst:pmu_pmovsr}).
 
 \begin{listing}
     \begin{minted}{C}
 uint32_t pmovsr_config = PMOVSR_EN_CTRS | PMOVSR_EN_PMCCNTR;
 asm volatile ("MCR p15, 0, %0, c9, c12, 3\t\n" :: "r"(pmovsr_config));
     \end{minted}
+    \caption{Clearing the overflow bit (in case it was previously enabled) via the \texttt{PMOVSR}.}
+    \label{lst:pmu_pmovsr}
 \end{listing}
 
 \subsubsection{Counting an event on the PMU}
 
-Once we have initialised the PMU, we can assign the software increment event to counter 0. This is a two step process. First we specify which counter (via PMSELR), and then we specify which event (via PMXEVTYPER).
+Once we have initialised the PMU, we can assign the software increment event to counter 0. This is a two step process. First we specify which counter via \texttt{PMSELR}, and then we specify which event via \texttt{PMXEVTYPER} (Listing \ref{lst:pmu_assign_ctr}).
 
 \begin{listing}
     \begin{minted}{C}
 asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(0x00));
 asm volatile ("MCR p15, 0, %0, C9, C13, 1" :: "r"(PMU_SOFTWARE_INC_EVT_ID));
     \end{minted}
+    \caption{Assigning the software increment event to counter 0 via \texttt{PMSELR} and \texttt{PMXEVTYPER}.} 
+    \label{lst:pmu_assign_ctr}
 \end{listing}
 
 \subsubsection{Reading an event count on the PMU}
 
-The PMU will begin to count the number of software increment events as the program continues to execute on the CPU. At any stage, the current count can be obtained from the PMU register PMXEVCNTR. In this case, we use the Move to ARM Register \cite{DocsArmMRC} instruction to move the value from a Coprocessor register to a core (CPU) register.
+The PMU will begin to count the number of software increment events as the program continues to execute on the CPU. At any stage, the current count can be obtained from the PMU register \texttt{PMXEVCNTR}. In this case, we use the Move to ARM Register \cite{DocsArmMRC} instruction to move the value from a Coprocessor register to a core (CPU) register, which will be written into the variable \texttt{counter\_value} (Listing \ref{lst:pmu_read_ctr}).
 
 \begin{listing}
     \begin{minted}{C}
@@ -197,15 +209,15 @@ uint32_t counter_value;
 asm volatile ("MCR p15, 0, %0, C9, C12, 5" :: "r"(config.counter));
 asm volatile ("MRC p15, 0, %0, C9, C13, 2" : "=r"(counter_value));
     \end{minted}
+    \caption{Reading the number of software increments in counter 0 via the PMXEVCNTR.} 
+    \label{lst:pmu_read_ctr}
 \end{listing}
 
-The current number of software increment events will now be in the variable counter\_value.
-
-\section{Platform Support}
+\section{Platform Support}\label{sect:platform_support}
 
 \subsection{x86 Systems}
 
-x86 systems are ubiquitous in desktop computing, workstations, servers. A majority of CPUs in the TOP500 project based on the x86-64 instruction set architecture [TODO: Need to cite]. The x86-64 architecture is the 64-bit version of the x86 ISA. The x86 ISA is a Complex Instruction Set Architecture (CISC), which tend to have higher power requirements, but in return offer higher performance over some RISC architectures for certain kinds of workloads, such as: [TODO: Find example]. Both Intel and AMD produce processors that implement the x86 ISA.
+x86 systems are ubiquitous in desktop computing, workstations, servers. A majority of CPUs in the TOP500 project based on the x86-64 instruction set architecture [TODO: Need to cite]. The x86-64 architecture is the 64-bit version of the x86 ISA. The x86 ISA is a Complex Instruction Set Architecture (CISC), which tend to have higher power requirements, but in return offer higher performance over RISC architectures for certain kinds of workloads, such as vector operations since x86 supports Single Instruction, Multiple-Data (SIMD) instructions. Both Intel and AMD produce processors that implement the x86 ISA.
 
 Performance monitoring was first introduced in the Intel Pentium processor with a set of model specific performance monitoring counter MSRs. Intel refers to its x86 (32-bit) and x86-64 architecture implementations as Intel 64 and IA-32 respectively. There are two classes of performance monitoring capabilities offered by the Intel architectures \cite{DocsIntel64IA32Vol3B}:
 \begin{itemize}
@@ -213,7 +225,7 @@ Performance monitoring was first introduced in the Intel Pentium processor with 
     \item \textit{non-architectural} - events are specific to the microarchitecture and vary from processor to processor.
 \end{itemize}
 
-The number of general-purpose performance monitoring counters can vary across processor generations within a processor family, across processor families, or could be different depending on the configuration chosen at boot time in the BIOS regarding Intel Hyper Threading Technology. Typically there are between 2-8 programmable performance counters, and three fixed counters \cite{} \cite{}.
+The number of general-purpose performance monitoring counters can vary across processor generations within a processor family, across processor families, or could be different depending on the configuration chosen at boot time in the BIOS regarding Intel Hyper Threading Technology. Typically there are between 2-8 programmable performance counters, and three fixed counters.
 
 \subsection{ARM Systems}
 
@@ -230,8 +242,6 @@ The ARMv8 architecture (most recent is ARMv9, announced March 2021) supports up 
 
 \subsection{RISC-V Systems}
 
-RISC-V is royalty free, open-source ISA and processor specification for a Reduced Instruction Set Computer (RISC) architecture. Historically, RISC-V was prominently used in academia, since researches are able to change and experiment with the architecture. However, in recent years, there has been a sharp rise in the commerical viability of RISC-V processors, replacing systems that were traditionally dominated by ARM [TODO: Find a citation].
+RISC-V is royalty free, open-source ISA and processor specification for a Reduced Instruction Set Computer (RISC) architecture. Historically, RISC-V was prominently used in academia, since researches are able to change and experiment with the architecture. However, in recent years, there has been a sharp rise in the commerical viability of RISC-V processors, replacing systems that were traditionally dominated by ARM \cite{BlogVentureBeat}.
 
 The RISC-V ISA specification defines three fixed performance counters (\texttt{hpmcounter0} to \texttt{hpmcounter2}) which are dedicated for cycle count, real-time clock and instructions-retired respectively. It also supports up to 29 programmable performance counters (\texttt{hpmcounter3}-\texttt{hpmcounter31}) \cite{DocsRISVISAPerfCounters}.
-
-

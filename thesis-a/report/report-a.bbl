@@ -44,6 +44,10 @@ ARM.
 ARM.
 \newblock Performance monitor registers.
 
+\bibitem{BlogRedHatCPU}
+David Both.
+\newblock The central processing unit (cpu): Its components and functionality.
+
 \bibitem{ManGprof}
 BSD.
 \newblock gprof man pages.
@@ -116,6 +120,10 @@ seL4.
 \bibitem{SPECCPU2017}
 spec.
 \newblock Spec cpu® 2017.
+
+\bibitem{BlogVentureBeat}
+Dean Takahashi.
+\newblock Risc-v grows globally as an alternative to arm and its license fees.
 
 \bibitem{ArticleEmbeddedTwoPercSol}
 Jim Turley.

@@ -2,7 +2,6 @@ This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: report-a.aux
 A level-1 auxiliary file: acknowledgements.aux
-A level-1 auxiliary file: abbreviations.aux
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: background.aux
 A level-1 auxiliary file: relatedwork.aux
@@ -66,53 +65,57 @@ Warning--entry type for "github_libsel4bench_sel4bench_header" isn't style-file 
 --line 246 of file pubs.bib
 Warning--entry type for "TutHowToUsePMU" isn't style-file defined
 --line 252 of file pubs.bib
-Warning--entry type for "GlossArmISA" isn't style-file defined
+Warning--entry type for "BlogRedHatCpu" isn't style-file defined
 --line 258 of file pubs.bib
-Warning--entry type for "ArticleEmbeddedTwoPercSol" isn't style-file defined
+Warning--entry type for "BlogVentureBeat" isn't style-file defined
 --line 264 of file pubs.bib
-Warning--entry type for "SiteAboutSeL4" isn't style-file defined
+Warning--entry type for "GlossArmISA" isn't style-file defined
 --line 270 of file pubs.bib
-Warning--entry type for "AOSMicrokernelSlide" isn't style-file defined
+Warning--entry type for "ArticleEmbeddedTwoPercSol" isn't style-file defined
 --line 276 of file pubs.bib
-You've used 31 entries,
+Warning--entry type for "SiteAboutSeL4" isn't style-file defined
+--line 282 of file pubs.bib
+Warning--entry type for "AOSMicrokernelSlide" isn't style-file defined
+--line 288 of file pubs.bib
+You've used 33 entries,
             2118 wiz_defined-function locations,
-            614 strings with 6177 characters,
-and the built_in function-call counts, 6045 in all, are:
-= -- 499
-> -- 223
+            621 strings with 6374 characters,
+and the built_in function-call counts, 6433 in all, are:
+= -- 531
+> -- 237
 < -- 0
-+ -- 97
-- -- 64
-* -- 161
-:= -- 978
-add.period$ -- 62
-call.type$ -- 31
-change.case$ -- 125
++ -- 104
+- -- 68
+* -- 171
+:= -- 1040
+add.period$ -- 66
+call.type$ -- 33
+change.case$ -- 133
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 217
-empty$ -- 683
-format.name$ -- 64
-if$ -- 1310
+cite$ -- 33
+duplicate$ -- 231
+empty$ -- 727
+format.name$ -- 68
+if$ -- 1394
 int.to.chr$ -- 0
-int.to.str$ -- 31
+int.to.str$ -- 33
 missing$ -- 0
-newline$ -- 127
-num.names$ -- 62
-pop$ -- 249
+newline$ -- 135
+num.names$ -- 66
+pop$ -- 265
 preamble$ -- 1
-purify$ -- 94
+purify$ -- 100
 quote$ -- 0
-skip$ -- 310
+skip$ -- 330
 stack$ -- 0
-substring$ -- 157
-swap$ -- 31
+substring$ -- 168
+swap$ -- 33
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 124
+type$ -- 132
 warning$ -- 0
-while$ -- 62
-width$ -- 33
-write$ -- 219
-(There were 31 warnings)
+while$ -- 66
+width$ -- 35
+write$ -- 233
+(There were 33 warnings)

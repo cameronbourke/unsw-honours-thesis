@@ -1,6 +1,6 @@
 \chapter{Related Work}\label{ch:relatedwork}
 
-[TODO: Tie in the background chapter and describe how it relates to this chapter]
+We can now turn our attention to the current support for interfacing with the PMU in seL4, which prominently facilitates benchmarking in the kernel. Then, we will explore the performance subsystem on Linux, looking at both the user-space API, and how it is implemented.
 
 \section{seL4 Benchmarking}
 
@@ -12,30 +12,35 @@ The aim of benchmarking is twofold: (1) to detect performance regressions and (2
 
 The repo sel4bench provides multiple applications for benchmarking different paths in the kernel \cite{GithubSel4bench}. Most notably it contains an application that benchmarks the Inter-process Communication (IPC) mechanism in seL4. The benchmarks are ad-hoc, since seL4 is an experimental system and therefore none of the standardised benchmarks are compatible\footnote{Most benchmarking suites designed for operating systems target UNIX/POSIX like systems.}.
 
-\subsection{libsel4bench Overview}
+\subsection{libsel4bench Overview}\label{sect:libsel4bench}
 
 Interfacing with the PMU directly via platform dependent assembly instructions sand MSRs (see Section \ref{sect:programming_pmu}), while illuminating, requires further layers of abstraction before it can be useful to developers on seL4. 
 
 The seL4 benchmarks require access to the PMU counters, specifically to count the number of CPU cycles required to perform a particular operation. How CPU cycles, or any other PMU event is counted, depends on the underlying platform (e.g x86, ARM, RISC-V), as well as the specific architecture (e.g for ARM, this could be ARMv6, ARMv7, ARMv8 etc.) The libsel4bench library is designed to abstract over the performance monitoring counters (PMCs) \cite{github_libsel4bench_sel4bench_header}.
 
-\subsection{libsel4bench Limitations [TODO: Change title]}
+\subsection{libsel4bench Extensions}
 
 In order for libsel4bench to also support benchmarking and profiling on seL4, support for additional PMU functionality will be required. 
 
 \subsubsection{PMU Sampling Support}
-Earlier, in section \ref{sect:sampling_counting}, we defined the difference between sampling and counting to be [TODO: Fill this out]. While libsel4bench provides extensive support for counting, it does not provide any support for sampling the performance counters. Sampling is not necessarily required for benchmarking in seL4, since often it is suffice to sample the counter value directly before and after the operation to be benchmarked. However, for a statistical profiler, sampling support is fundamental since it is the mechanism that switches control back to the profiler such that it can snapshot the running threads state (i.e PC, call stack, register set).
+Earlier, in Section \ref{sect:sampling_counting}, we saw that counting is when we are only interested in reading the PMU counters, compared to sampling where we configure the PMU to notify us when a counter has overflowed. While libsel4bench provides extensive support for counting, it does not provide any support for sampling the performance counters.
 
-\subsubsection{[TODO: Find another requirement for libsel4bench]}
+Sampling is not necessarily required for benchmarking in seL4, since often it is suffice to sample the counter value directly before and after the operation to be benchmarked. However, for a statistical profiler, sampling support is fundamental since it is the mechanism that switches control back to the profiler such that it can snapshot the running threads state (i.e PC, call stack, register set).
 
 \section{Performance Counters for Linux (PCL)}\label{sect:pcl}
-
-[TODO: Motivate why need to review how Linux solves this]
 
 The PCL is a kernel-based subsystem that provides a framework for collecting and analysing performance data \cite{DocsRedHatPCL}. It is also commonly known in the open source community as Linux perf events (LPE), or perf\_events \cite{BlogBrendandGreggPerf}. The subsystem was merged into the Linux kernel in version 2.6.31 \cite{DocsUnofficialLinxPerfEvents} (most recent version is 5.17.4, released 20 April 2022). 
 
 \subsection{The perf utility}
 
-The perf utility is the Command Line Interface (CLI) to the PCL subsystem \cite{ManPerfCLI}. It is a high level interface that acts as an entry point for a number of commands, such as:
+\begin{figure}[h!]
+\centering
+    \includegraphics[width=0.8\linewidth]{report-a_perf_util_arch}
+    \caption{How how the perf utility relates to the PCL subsystem. Taken directly from Figure 1 in the CERN openlab, titled ``perf file format" \cite{CERN_openlab_perf_file_format}.}
+    \label{fig:perf_util_arch}
+\end{figure}
+
+The perf utility is the Command Line Interface (CLI) to the PCL subsystem (perf\_events) \cite{ManPerfCLI}. It is a high level interface (see Figure \ref{fig:perf_util_arch}) that acts as an entry point for a number of commands, such as:
 
 \ssp
 \begin{itemize}
@@ -71,17 +76,19 @@ The perf report command is responsible displaying the profile data generated by 
 
 \subsubsection{Example Report}
 
-[Todo: Create simpl\_prog.c in the appendix and link back here]
-
-To help illustrate how perf report presents the profile data, we will profile a small C program [TODO: link here] that has a sufficiently complex call stack to demonstrate the nature of sampling. We can run perf record, with the same arguments as before, but we also pass the program to profile with \shellcmd{perf record -g -e cycles:u -c 10000 simple\_prog}.
+To help illustrate how perf report presents the profile data, we will profile a small C program (see Appendix TODO) that has a sufficiently complex call stack to demonstrate the nature of sampling. We can run perf record, with the same arguments as before, but we also pass the program to profile with \shellcmd{perf record -g -e cycles:u -c 10000 simple\_prog}.
 
 \subsubsection{Interpreting the Report}
 
-Once the program has finished executing, we can run \shellcmd{perf report}. This displays the following output:
+Once the program has finished executing, we can run \shellcmd{perf report}. This displays the output depicted in Figure \ref{fig:perf_report_output}:
 
-[TODO: Insert output from perf report]
+\begin{figure}[h!]
+    \includegraphics[width=\linewidth]{thesis-a_perf_report}
+    \caption{Example output from \shellcmd{perf report}.}
+    \label{fig:perf_report_output}
+\end{figure}
 
-By default, the table is separated into five columns:
+By default, the table in the report is separated into five columns:
 
 \ssp
 \begin{itemize}
@@ -110,14 +117,15 @@ The PCL subsystem allows events to be grouped. A group of events are atomically 
 
 \subsection{PCL User-level Interface}\label{sect:perf_event_open}
 
-On Linux, the \texttt{perf} utility somehow needs to interact with the PCL subsystem, which it does so via the \texttt{perf\_events\_open} syscall in \ref{lst:perf_events_open_syscall}[TODO: Fix referencing]
+On Linux, the \texttt{perf} utility somehow needs to interact with the PCL subsystem, which it does so via the \texttt{perf\_events\_open} syscall in Listing \ref{lst:perf_events_open_syscall}.
 
-\begin{listing}\label{lst:perf_events_open_syscall}
+\begin{listing}
     \begin{minted}{C}
 int syscall(SYS_perf_event_open, struct perf_event_attr *attr,
             pid_t pid, int cpu, int group_fd, unsigned long flags);
     \end{minted}
-    \caption{User-level syscall to interface with PCL subsystem \cite{}}
+    \caption{User-level syscall to interface with PCL subsystem}
+    \label{lst:perf_events_open_syscall}
 \end{listing}
 
 The arguments for the syscall are:
@@ -130,13 +138,13 @@ The arguments for the syscall are:
     \item \texttt{flags} is formed by ORing a number of flags that prominently alter how the returned file descriptor should behave.
 \end{itemize}\dsp
 
-On success, the syscall returns a file descriptor (fd), which directly corresponds to a single event being measured \cite{}. Events can then be enabled or disabled via the \texttt{ioctrl} or \texttt{prctrl} system calls. The PCL subsystem supports both counting and sampling events from userspace (see Section \ref{sect:sampling_counting} for an overview on the difference). 
+On success, the syscall returns a file descriptor (fd), which directly corresponds to a single event being measured. Events can then be enabled or disabled via the \texttt{ioctrl} or \texttt{prctrl} system calls. The PCL subsystem supports both counting and sampling events from user-space (see Section \ref{sect:sampling_counting} for an overview on the difference). 
 
 \subsubsection{Counting Events}
 
-Once the file descriptor (\texttt{fd}) for an event has been opened, the current value can obtained by reading from the \texttt{fd}. This typically is achieved via the \texttt{read} syscall, where the data read into the provided buffer (if the event is not grouped) will be an instance of \texttt{struct read\_format}, as seen in Listing [TODO].
+Once the file descriptor (\texttt{fd}) for an event has been opened, the current value can obtained by reading from the \texttt{fd}. This typically is achieved via the \texttt{read} syscall, where the data read into the provided buffer (if the event is not grouped) will be an instance of \texttt{struct read\_format} (defined in Listing \ref{lst:struct_read_format}).
 
-\begin{listing}\label{lst:struct_read_format}
+\begin{listing}
     \begin{minted}{C}
 struct read_format {
     u64 value;         /* The value of the event */
@@ -145,7 +153,8 @@ struct read_format {
     u64 id;            /* if PERF_FORMAT_ID */
 };
     \end{minted}
-    \caption{Data returned from reading the \texttt{fd} for an event}
+    \caption{Data returned from reading the \texttt{fd} for an event.}
+    \label{lst:struct_read_format}
 \end{listing}
 
 \subsubsection{Sampling Events}
@@ -167,6 +176,12 @@ The \shellcmd{perf record} command, by default, will write the profile data out 
 
 The CERN openlab technical report from 2011 \cite{CERN_openlab_perf_file_format} covers the perf file format in depth. The format, as of April 2022, still largely resembles the format described in the report and therefore provides an excellent reference explanation, complimenting the documentation within the Linux repo \cite{GithubPerfFileFormat}.
 
-The file format begins with a header, and defines an offset into the file for sections that store the event types that make up the profile, the attributes for each sampled event, and the recorded samples for each event. The file format essentially defines a way to serialise the event configuration from each \texttt{perf\_event\_open} syscall, as well as each sample that is placed into the shared buffer. 
+The file format begins with a header, and defines an offset into the file for sections that store the event types that make up the profile, the attributes for each sampled event, and the recorded samples for each event. The file format essentially defines a way to serialise the event configuration from each \texttt{perf\_event\_open} syscall, as well as each sample that is placed into the shared buffer (see Figure \ref{fig:perf_design}). 
 
-[TODO: Insert figure from CERN openlab]
+\begin{figure}[h!]
+\centering
+    \includegraphics[width=0.8\linewidth]{report-a_perf_design}
+    \caption{Overview of how the PCL subsystem (labelled as Linux) and the perf utility interact. Taken directly from Figure 2 in the CERN openlab, titled ``perf file format" \cite{CERN_openlab_perf_file_format}.}
+    \label{fig:perf_design}
+\end{figure}
+
