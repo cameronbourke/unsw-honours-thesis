@@ -17,3 +17,7 @@ seL4 is a microkernel, designed for building safety- and security-critical syste
 \end{figure}
 
 Since most system services do not reside in the kernel, but instead are implemented in user-space, it is critical that seL4 developers have sufficient tooling such that they can diagnose performance issues.
+
+\section{Thesis Problem Statement}
+
+In this thesis, we will evaluate the types of CPU profilers for their suitability in seL4, and seek to understand how the \texttt{perf} profiler on Linux is implemented. The result will be a statistical and event-based profiling framework for seL4 systems, capable of profiling both kernel and user-level code.

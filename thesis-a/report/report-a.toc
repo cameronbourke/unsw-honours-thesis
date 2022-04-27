@@ -1,6 +1,7 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}%
 \contentsline {subsection}{\numberline {1.1.1}Application to seL4}{2}%
+\contentsline {section}{\numberline {1.2}Thesis Problem Statement}{2}%
 \contentsline {chapter}{\numberline {2}Background}{3}%
 \contentsline {section}{\numberline {2.1}Profiling}{3}%
 \contentsline {subsection}{\numberline {2.1.1}CPU Profiling}{3}%

@@ -189,10 +189,10 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a_micro_v_mono.png
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a_micro_v_mono.png
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a_micro_v_mono.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 OUTPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/background.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/background.tex
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/background.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm
 OUTPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.pyg
