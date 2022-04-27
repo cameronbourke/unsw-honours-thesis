@@ -9,7 +9,6 @@ A level-1 auxiliary file: approach.aux
 A level-1 auxiliary file: plan.aux
 The style file: plain.bst
 A level-1 auxiliary file: appendix1.aux
-A level-1 auxiliary file: appendix2.aux
 Database file #1: pubs.bib
 Warning--entry type for "ManGprof" isn't style-file defined
 --line 72 of file pubs.bib
@@ -81,7 +80,7 @@ Warning--entry type for "AOSMicrokernelSlide" isn't style-file defined
 --line 294 of file pubs.bib
 You've used 34 entries,
             2118 wiz_defined-function locations,
-            625 strings with 6467 characters,
+            624 strings with 6454 characters,
 and the built_in function-call counts, 6626 in all, are:
 = -- 547
 > -- 244

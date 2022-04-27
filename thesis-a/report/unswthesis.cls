@@ -199,10 +199,10 @@
 \newcommand{\thesistitle}[1]{\gdef\ThesisTitle{#1}}
 \newcommand{\thesisauthor}[1]{\gdef\ThesisAuthor{#1}}
 \newcommand{\thesisZid}[1]{\gdef\ThesisAuthorZid{#1}}
-\newcommand{\thesistopic}[1]{\gdef\ThesisTopicID{#1}}
 \newcommand{\thesisdegree}[1]{\gdef\ThesisDegreeName{#1}}
 \newcommand{\thesisdate}[1]{\gdef\ThesisDate{#1}}
 \newcommand{\thesissupervisor}[1]{\gdef\ThesisSupervisorName{#1}}
+\newcommand{\thesisaccessorname}[1]{\gdef\ThesisAccessorName{#1}}
 
 \newcommand{\ThesisTitle}{\@latex@error{No \noexpand\thesistitle given}\@ehc}
 \newcommand{\ThesisAuthor}{\@latex@error{No \noexpand\thesisauthor given}\@ehc}
@@ -210,6 +210,7 @@
 \newcommand{\ThesisDegreeName}{\@latex@error{No \noexpand\thesisdegree given}\@ehc}
 \newcommand{\ThesisDate}{\@latex@error{No \noexpand\thesisdate given}\@ehc}
 \newcommand{\ThesisSupervisorName}{\@latex@error{No \noexpand\thesissupervisor given}\@ehc}
+\newcommand{\ThesisAccessorName}{\@latex@error{No \noexpand\thesisaccesorname given}\@ehc}
 
 \newcommand{\ThesisInsideMark}{}
 \newcommand{\ThesisOutsideMark}{}
@@ -446,12 +447,13 @@ Graduate Research.
 	    \vskip 0pt plus 12fill
             \begin{tabular}{@{}rl}
               Submitted: & \ThesisDate \vrule width 0pt depth 10pt\\
-              Supervisor: & \ThesisSupervisorName
+              Supervisor: & \ThesisSupervisorName\\
+              Accessor: & \ThesisAccessorName
             \end{tabular}
             \hfill
             \begin{tabular}{rl@{}}
               Student ID: & \ThesisAuthorZid \vrule width 0pt depth 10pt\\
-              Topic ID: & \ThesisTopicID
+              Report: & Thesis A - Term 1
             \end{tabular}\par
 	\end{center}\par
     \end{titlepage}}%

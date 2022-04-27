@@ -125,8 +125,6 @@ INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux
-INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux
-INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux
 OUTPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.aux
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -163,6 +161,10 @@ INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgeme
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.toc
+INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.toc
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
@@ -171,10 +173,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
-INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.toc
-INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.toc
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 OUTPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.toc
 OUTPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/introduction.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/introduction.tex
@@ -282,9 +280,6 @@ INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.bbl
 OUTPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.tex
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.tex
-OUTPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux
-INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.tex
-INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.tex
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.aux
@@ -300,8 +295,6 @@ INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux
-INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux
-INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux
 INPUT /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.pyg
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
