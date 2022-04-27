@@ -14,7 +14,7 @@
 \contentsline {subsubsection}{Sampling}{5}%
 \contentsline {section}{\numberline {2.2}Performance Monitoring}{6}%
 \contentsline {subsection}{\numberline {2.2.1}Microarchitecture}{6}%
-\contentsline {subsection}{\numberline {2.2.2}Performance Monitoring Unit (PMU)}{7}%
+\contentsline {subsection}{\numberline {2.2.2}Performance Monitoring Unit (PMU)}{8}%
 \contentsline {subsubsection}{Hardware Events}{8}%
 \contentsline {subsection}{\numberline {2.2.3}Performance Counters}{8}%
 \contentsline {subsubsection}{Fixed and Programmable Counters}{9}%
@@ -55,15 +55,18 @@
 \contentsline {section}{\numberline {4.5}Design}{27}%
 \contentsline {chapter}{\numberline {5}Plan}{30}%
 \contentsline {section}{\numberline {5.1}Stages}{30}%
-\contentsline {chapter}{Bibliography}{31}%
-\contentsline {chapter}{Appendix 1}{33}%
-\contentsline {section}{\numberline {A.1}Options}{33}%
-\contentsline {section}{\numberline {A.2}Margins}{33}%
-\contentsline {section}{\numberline {A.3}Page Headers}{34}%
-\contentsline {subsection}{\numberline {A.3.1}Undergraduate Theses}{34}%
-\contentsline {subsection}{\numberline {A.3.2}Higher Degree Research Theses}{34}%
-\contentsline {section}{\numberline {A.4}Page Footers}{34}%
-\contentsline {section}{\numberline {A.5}Double Spacing}{35}%
-\contentsline {section}{\numberline {A.6}Files}{35}%
-\contentsline {chapter}{Appendix 2}{37}%
-\contentsline {section}{\numberline {B.1}Data}{37}%
+\contentsline {section}{\numberline {5.2}Timeline}{31}%
+\contentsline {subsection}{\numberline {5.2.1}Thesis B}{31}%
+\contentsline {subsection}{\numberline {5.2.2}Thesis C}{31}%
+\contentsline {chapter}{Bibliography}{32}%
+\contentsline {chapter}{Appendix 1}{34}%
+\contentsline {section}{\numberline {A.1}Options}{34}%
+\contentsline {section}{\numberline {A.2}Margins}{34}%
+\contentsline {section}{\numberline {A.3}Page Headers}{35}%
+\contentsline {subsection}{\numberline {A.3.1}Undergraduate Theses}{35}%
+\contentsline {subsection}{\numberline {A.3.2}Higher Degree Research Theses}{35}%
+\contentsline {section}{\numberline {A.4}Page Footers}{35}%
+\contentsline {section}{\numberline {A.5}Double Spacing}{36}%
+\contentsline {section}{\numberline {A.6}Files}{36}%
+\contentsline {chapter}{Appendix 2}{38}%
+\contentsline {section}{\numberline {B.1}Data}{38}%

@@ -12,6 +12,8 @@
 \@writefile{toc}{\contentsline {subsubsection}{Instrumentation}{4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{Statistical}{4}\protected@file@percent }
 \newlabel{sect:statistical}{{2.1.2}{4}}
+\citation{YouTubeDotnetosCPUProfling}
+\citation{YouTubeDotnetosCPUProfling}
 \citation{DocsGProfImpl}
 \@writefile{toc}{\contentsline {subsubsection}{Event-based}{5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}Statistical Profiling Overview}{5}\protected@file@percent }
@@ -19,7 +21,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{Code Execution}{5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{Sampling}{5}\protected@file@percent }
 \citation{GlossArmISA}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Sampling the CPU every 1ms. In this example, profiling begins at 0ms, where the first sample is recorded with thread A on the CPU executing method 1. The second sample occurs at 1ms, where there is no activity on the CPU. At 3ms, thread B is active and the call stack contains methods 2 and 3. The fourth sample at 3ms, records method 4 executing within the kernel. \relax }}{6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Sampling the CPU every 1ms. In this example, profiling begins at 0ms, where the first sample is recorded with thread A on the CPU executing method 1. The second sample occurs at 1ms, where there is no activity on the CPU. At 3ms, thread B is active and the call stack contains methods 2 and 3. The fourth sample at 3ms, records method 4 executing within the kernel. This example was adapted from the Dotnetos conference talk ``CPU profiling inside out" \cite  {YouTubeDotnetosCPUProfling}.\relax }}{6}\protected@file@percent }
 \newlabel{fig:sel4_microkernel}{{2.1}{6}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Performance Monitoring}{6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Microarchitecture}{6}\protected@file@percent }
@@ -27,9 +29,9 @@
 \citation{BlogRedHatCPU}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces A simplified conceptual diagram of a typical CPU. The reality is much more complex than this, however a typical CPU will have: multiple layers of caching (L1, L2, etc), distinct L1 cache for instructions (L1i) and memory (L1d), a Memory Management Unit (MMU) to support virtual addressing, a control unit to coordinate the data-path and pipelining, and an Arithmetic Logic Unit (ALU) to execute arithmetic and logical instructions. Taken from a Red Hat blog post titled ``The central processing unit (CPU): Its components and functionality" \cite  {BlogRedHatCPU} \relax }}{7}\protected@file@percent }
 \newlabel{fig:cpu_vis}{{2.2}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Performance Monitoring Unit (PMU)}{7}\protected@file@percent }
-\newlabel{sect:pmu}{{2.2.2}{7}}
 \citation{DocsArmv8PMU}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Performance Monitoring Unit (PMU)}{8}\protected@file@percent }
+\newlabel{sect:pmu}{{2.2.2}{8}}
 \@writefile{toc}{\contentsline {subsubsection}{Hardware Events}{8}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Performance Counters}{8}\protected@file@percent }
 \citation{DocsSeL4Hardware}

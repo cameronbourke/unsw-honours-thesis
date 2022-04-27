@@ -75,47 +75,49 @@ Warning--entry type for "ArticleEmbeddedTwoPercSol" isn't style-file defined
 --line 276 of file pubs.bib
 Warning--entry type for "SiteAboutSeL4" isn't style-file defined
 --line 282 of file pubs.bib
-Warning--entry type for "AOSMicrokernelSlide" isn't style-file defined
+Warning--entry type for "YouTubeDotnetosCPUProfling" isn't style-file defined
 --line 288 of file pubs.bib
-You've used 33 entries,
+Warning--entry type for "AOSMicrokernelSlide" isn't style-file defined
+--line 294 of file pubs.bib
+You've used 34 entries,
             2118 wiz_defined-function locations,
-            621 strings with 6374 characters,
-and the built_in function-call counts, 6433 in all, are:
-= -- 531
-> -- 237
+            625 strings with 6467 characters,
+and the built_in function-call counts, 6626 in all, are:
+= -- 547
+> -- 244
 < -- 0
-+ -- 104
-- -- 68
-* -- 171
-:= -- 1040
-add.period$ -- 66
-call.type$ -- 33
-change.case$ -- 133
++ -- 107
+- -- 70
+* -- 176
+:= -- 1071
+add.period$ -- 68
+call.type$ -- 34
+change.case$ -- 137
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 231
-empty$ -- 727
-format.name$ -- 68
-if$ -- 1394
+cite$ -- 34
+duplicate$ -- 238
+empty$ -- 749
+format.name$ -- 70
+if$ -- 1436
 int.to.chr$ -- 0
-int.to.str$ -- 33
+int.to.str$ -- 34
 missing$ -- 0
-newline$ -- 135
-num.names$ -- 66
-pop$ -- 265
+newline$ -- 139
+num.names$ -- 68
+pop$ -- 273
 preamble$ -- 1
-purify$ -- 100
+purify$ -- 103
 quote$ -- 0
-skip$ -- 330
+skip$ -- 340
 stack$ -- 0
-substring$ -- 168
-swap$ -- 33
+substring$ -- 173
+swap$ -- 34
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 132
+type$ -- 136
 warning$ -- 0
-while$ -- 66
-width$ -- 35
-write$ -- 233
-(There were 33 warnings)
+while$ -- 68
+width$ -- 36
+write$ -- 240
+(There were 34 warnings)

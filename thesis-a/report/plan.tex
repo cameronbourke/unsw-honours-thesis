@@ -1,3 +1,40 @@
 \chapter{Plan}\label{ch:plan}
 
+Finally, we will cover the development methodology for the thesis project, along with the proposed timeline for Thesis B and C.
+
 \section{Stages}
+
+In order to allow seL4 developers to start beta testing the profiler as soon as possible, we will partition the development into a number of stages.
+
+\ssp\begin{itemize}
+    \item \textbf{Stage 1}. A basic, system-wide, statistical profiler, capable of sampling the program counter (PC) every N CPU cycles, where N is defined at compile-time. It will transfer the profile data from the seL4 device to a Linux machine via the serial port.
+    \item \textbf{Stage 2}. Supports the perf file format.
+    \item \textbf{Stage 3}. Implements symbol resolution for both kernel and user-space programs. 
+    \item \textbf{Stage 4}. Supports recording the call stack as part of the sample.
+    \item \textbf{Stage 5}. Implements a mechanic to reduce the likelihood of lockstep sampling.
+    \item \textbf{Stage 6}. Supports counting events, as well as the ability to specify the event to sample on. For example, sampling periodically based on the number of L1 cache misses.
+    \item \textbf{Stage 7}. User is able to configure the profiler to write the profile data to a given endpoint. For seL4 systems that have an ethernet driver, this will allow sending the profile data over the network.
+\end{itemize}\dsp
+
+\section{Timeline}
+
+This is the proposed plan for Thesis B and C, with respect to the stages outlined above, as well as the required technical reports.
+
+\subsection{Thesis B}
+
+\ssp\begin{itemize}
+    \item Stage 1: Weeks 1-4
+    \item Stage 2: Weeks 5-6
+    \item Stage 3: Weeks 7-8
+    \item Report B: Weeks 9-11
+\end{itemize}\dsp
+
+\subsection{Thesis C}
+
+\ssp\begin{itemize}
+    \item Stage 4: Weeks 1-2
+    \item Stage 5: Week  3
+    \item Stage 6: Weeks 4-5
+    \item Stage 7: Weeks 6-8
+    \item Thesis Report: Weeks 9-11
+\end{itemize}\dsp

@@ -117,6 +117,10 @@ seL4.
 seL4.
 \newblock Supported platforms.
 
+\bibitem{YouTubeDotnetosCPUProfling}
+Sebastian Solnica.
+\newblock Cpu profiling inside out.
+
 \bibitem{SPECCPU2017}
 spec.
 \newblock Spec cpu® 2017.

@@ -42,7 +42,7 @@ Following from the brief overview of statistical profiling in \ref{sect:statisti
 
 \begin{figure}[h!]
     \includegraphics[width=\linewidth]{report-a_sampling_timeline}
-    \caption{Sampling the CPU every 1ms. In this example, profiling begins at 0ms, where the first sample is recorded with thread A on the CPU executing method 1. The second sample occurs at 1ms, where there is no activity on the CPU. At 3ms, thread B is active and the call stack contains methods 2 and 3. The fourth sample at 3ms, records method 4 executing within the kernel. }
+    \caption{Sampling the CPU every 1ms. In this example, profiling begins at 0ms, where the first sample is recorded with thread A on the CPU executing method 1. The second sample occurs at 1ms, where there is no activity on the CPU. At 3ms, thread B is active and the call stack contains methods 2 and 3. The fourth sample at 3ms, records method 4 executing within the kernel. This example was adapted from the Dotnetos conference talk ``CPU profiling inside out" \cite{YouTubeDotnetosCPUProfling}.}
     \label{fig:sel4_microkernel}
 \end{figure}
 
@@ -111,7 +111,7 @@ To help illustrate how to interface with the PMU, we will demonstrate how to pro
 
 \subsubsection{Cortex-A15}
 
-The Cortex-A15 is a 32-bit multi-core processor, which implements the ARMv7-A architecture, and is well supported by seL4 \cite{DocsSeL4Hardware}. The PMU on the Cortex-A15 provides implements the PMUv2 architecture and provides six programmable counters \cite{DocsArmCortexA15PMU} and one clock cycle counter (PMCCNTR). The ARMv7-A architecture defines 12 performance monitor registers (MSRs) which are used to configure the behaviour of the PMU \cite{DocsArmv7PMURegs}. The PMU registers reside on Coprocessor 15 (CP15). For this example, inspired by a similar example from the Resource Allocation and Scheduling Group \cite{TutHowToUsePMU}, only the following six registers are required:
+The Cortex-A15 is a 32-bit multi-core processor, which implements the ARMv7-A architecture, and is well supported by seL4 \cite{DocsSeL4Hardware}. The PMU on the Cortex-A15 provides implements the PMUv2 architecture and provides six programmable counters \cite{DocsArmCortexA15PMU} and one clock cycle counter (PMCCNTR). The ARMv7-A architecture defines 12 performance monitor registers (MSRs) which are used to configure the behaviour of the PMU \cite{DocsArmv7PMURegs}. The PMU registers reside on Coprocessor 15 (CP15). For this example, adapted from the Resource Allocation and Scheduling Group \cite{TutHowToUsePMU}, only the following six registers are required:
 
 \ssp
 
@@ -233,9 +233,9 @@ The ARM processors are frequently utilised in embedded systems, due to their low
 
 The ARM processor family is divided into three architecture profiles \cite{DocsArmArchProfiles}:
 \begin{itemize}
-    \item Application (A-profile): Highest performance, targeted towards operating systems. The distinguishing feature from the other two profiles is that supports virtual memory via a Memory Management Unit (MMU).
-    \item Real-time (R-profile): Fast response, targeted towards high-performance, hard real-time applications.
-    \item Microcontroller (M-profile): Lowest power consumption, targeted towards microcontrollers and discrete processing. It is designed to be integrated into an FPGA.
+    \item Application (\textit{A-profile}): Highest performance, targeted towards operating systems. The distinguishing feature from the other two profiles is that supports virtual memory via a Memory Management Unit (MMU).
+    \item Real-time (\textit{R-profile}): Fast response, targeted towards high-performance, hard real-time applications.
+    \item Microcontroller (\textit{M-profile}): Lowest power consumption, targeted towards microcontrollers and discrete processing. It is designed to be integrated into an FPGA.
 \end{itemize}
 
 The ARMv8 architecture (most recent is ARMv9, announced March 2021) supports up to 31 programmable performance counters, however in practice, processors that implement the ARMv8 architecture only provide between 4-8 counters \cite{DocsArmCortexR52PMUCtrs} \cite{DocsArmCortexM55PMUCtrs}.
