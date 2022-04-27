@@ -72,6 +72,10 @@ Brendan Gregg.
 Red Hat.
 \newblock Performance counters for linux (pcl) tools and perf.
 
+\bibitem{AOSMicrokernelSlide}
+Germot Heiser.
+\newblock Microkernels: Reducing the trusted computing base.
+
 \bibitem{DocsIntel64IA32Vol3B}
 Intel.
 \newblock Intel® 64 and ia-32 architectures developer's manual: Vol. 3b.
@@ -92,6 +96,10 @@ GCC project.
 \bibitem{ManGCC}
 GCC project.
 \newblock gcc man pages.
+
+\bibitem{SiteAboutSeL4}
+seL4.
+\newblock About sel4.
 
 \bibitem{GithubSel4bench}
 seL4.

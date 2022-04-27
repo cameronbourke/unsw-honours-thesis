@@ -1,7 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: report-a.aux
-A level-1 auxiliary file: abstract.aux
 A level-1 auxiliary file: acknowledgements.aux
 A level-1 auxiliary file: abbreviations.aux
 A level-1 auxiliary file: introduction.aux
@@ -71,45 +70,49 @@ Warning--entry type for "GlossArmISA" isn't style-file defined
 --line 258 of file pubs.bib
 Warning--entry type for "ArticleEmbeddedTwoPercSol" isn't style-file defined
 --line 264 of file pubs.bib
-You've used 29 entries,
+Warning--entry type for "SiteAboutSeL4" isn't style-file defined
+--line 270 of file pubs.bib
+Warning--entry type for "AOSMicrokernelSlide" isn't style-file defined
+--line 276 of file pubs.bib
+You've used 31 entries,
             2118 wiz_defined-function locations,
-            608 strings with 6053 characters,
-and the built_in function-call counts, 5659 in all, are:
-= -- 467
-> -- 209
+            614 strings with 6177 characters,
+and the built_in function-call counts, 6045 in all, are:
+= -- 499
+> -- 223
 < -- 0
-+ -- 91
-- -- 60
-* -- 151
-:= -- 916
-add.period$ -- 58
-call.type$ -- 29
-change.case$ -- 117
++ -- 97
+- -- 64
+* -- 161
+:= -- 978
+add.period$ -- 62
+call.type$ -- 31
+change.case$ -- 125
 chr.to.int$ -- 0
-cite$ -- 29
-duplicate$ -- 203
-empty$ -- 639
-format.name$ -- 60
-if$ -- 1226
+cite$ -- 31
+duplicate$ -- 217
+empty$ -- 683
+format.name$ -- 64
+if$ -- 1310
 int.to.chr$ -- 0
-int.to.str$ -- 29
+int.to.str$ -- 31
 missing$ -- 0
-newline$ -- 119
-num.names$ -- 58
-pop$ -- 233
+newline$ -- 127
+num.names$ -- 62
+pop$ -- 249
 preamble$ -- 1
-purify$ -- 88
+purify$ -- 94
 quote$ -- 0
-skip$ -- 290
+skip$ -- 310
 stack$ -- 0
-substring$ -- 147
-swap$ -- 29
+substring$ -- 157
+swap$ -- 31
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 116
+type$ -- 124
 warning$ -- 0
-while$ -- 58
-width$ -- 31
-write$ -- 205
-(There were 29 warnings)
+while$ -- 62
+width$ -- 33
+write$ -- 219
+(There were 31 warnings)

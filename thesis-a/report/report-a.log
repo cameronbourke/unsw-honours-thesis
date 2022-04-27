@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.4.18)  26 APR 2022 13:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.4.18)  27 APR 2022 12:27
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -338,7 +338,7 @@ runsystem(rm report-a.aex)...executed.
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count294
 \l__pdf_internal_box=\box102
-) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.aux (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abstract.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abbreviations.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/introduction.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/background.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/relatedwork.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/approach.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux))
+) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.aux (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abbreviations.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/introduction.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/background.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/relatedwork.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/approach.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux))
 \openout1 = `report-a.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
@@ -437,60 +437,61 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/crest.pdf>]
-\openout2 = `abstract.aux'.
-
- (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abstract.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 5.
-) [2
-
-
-]
 \openout2 = `acknowledgements.aux'.
 
- (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.tex) [3
-
+ (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 10.
+) [2
 
 
 ]
 \openout2 = `abbreviations.aux'.
 
- (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abbreviations.tex) [4
+ (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abbreviations.tex) [3
 
 
 
-] (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.toc [5
+] (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.toc [4
 
 
-] [6])
+] [5])
 \tf@toc=\write7
 \openout7 = `report-a.toc'.
 
- [7] [8
-
-]
+ [6]
 \openout2 = `introduction.aux'.
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/introduction.tex
 Chapter 1.
-) [1
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
+
 
 
 
 ]
+<report-a_micro_v_mono.png, id=73, 1445.4pt x 813.0375pt>
+File: report-a_micro_v_mono.png Graphic file (type png)
+<use report-a_micro_v_mono.png>
+Package pdftex.def Info: report-a_micro_v_mono.png  used on input line 14.
+(pdftex.def)             Requested size: 412.56497pt x 232.06546pt.
+) [2 </home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a_micro_v_mono.png>]
 \openout2 = `background.aux'.
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/background.tex
 Chapter 2.
-[2
+[3
 
 
 
-] [3] [4] [5] [6] [7]
+] [4] [5] [6] [7] [8]
 \openout5 = `report-a.pyg'.
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/default-pyg-prefix.pygstyle) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/default.pygstyle) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/0862080082ABDF9D27B16E4B0F8A8DB32E5BC93511A4659AF3768949DEF24F54.pygtex)
@@ -505,7 +506,7 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/C03A8CBA80E43F783804A50EC4C5EF792E5BC93511A4659AF3768949DEF24F54.pygtex)
 \openout5 = `report-a.pyg'.
 
- (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/77E6753F1FC69B2F900EE3E678565F5D2E5BC93511A4659AF3768949DEF24F54.pygtex) [8]
+ (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/77E6753F1FC69B2F900EE3E678565F5D2E5BC93511A4659AF3768949DEF24F54.pygtex) [9]
 \openout5 = `report-a.pyg'.
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/7B7DEAA61CD9A775F87E7A95D8F6E5182E5BC93511A4659AF3768949DEF24F54.pygtex)
@@ -516,55 +517,55 @@ Overfull \hbox (9.9412pt too wide) in paragraph at lines 202--203
 []\OT1/cmr/m/n/10.95 The cur-rent num-ber of soft-ware in-cre-ment events will now be in the vari-able counter[]value. 
  []
 
-[9] [10]) [11]
+[10] [11]) [12]
 \openout2 = `relatedwork.aux'.
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/relatedwork.tex
 Chapter 3.
-[12
+[13
 
 
 
-] [13] [14]
+] [14] [15]
 Overfull \hbox (37.67935pt too wide) in paragraph at lines 76--77
 \OT1/cmr/m/n/10.95 also pass the pro-gram to pro-file with []. 
  []
 
-[15] [16]
+[16] [17]
 \openout5 = `report-a.pyg'.
 
- (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/E6E7245DB6FBE7C218A775D7401601852E5BC93511A4659AF3768949DEF24F54.pygtex) [17]
+ (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/E6E7245DB6FBE7C218A775D7401601852E5BC93511A4659AF3768949DEF24F54.pygtex) [18]
 \openout5 = `report-a.pyg'.
 
- (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/54430A2E1E30ECFB42B64F4D8F6BD8B92E5BC93511A4659AF3768949DEF24F54.pygtex) [18]) [19]
+ (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/_minted-report-a/54430A2E1E30ECFB42B64F4D8F6BD8B92E5BC93511A4659AF3768949DEF24F54.pygtex) [19]) [20]
 \openout2 = `approach.aux'.
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/approach.tex
 Chapter 4.
-[20
+[21
 
 
 
-] [21] [22] [23]
-<thesis_a_design_overview.drawio.png, id=152, 905.3825pt x 494.84875pt>
+] [22] [23] [24]
+<thesis_a_design_overview.drawio.png, id=151, 905.3825pt x 494.84875pt>
 File: thesis_a_design_overview.drawio.png Graphic file (type png)
 <use thesis_a_design_overview.drawio.png>
 Package pdftex.def Info: thesis_a_design_overview.drawio.png  used on input line 78.
 (pdftex.def)             Requested size: 412.56497pt x 225.48877pt.
- [24 </home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/thesis_a_design_overview.drawio.png>]) [25]
+ [25 </home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/thesis_a_design_overview.drawio.png>]) [26]
 \openout2 = `plan.aux'.
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.tex
 Chapter 5.
-) [26
+) [27
 
 
 
-] (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.bbl [27
+] (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.bbl [28
 
 
 
-]) [28]
+]) [29]
 \openout2 = `appendix1.aux'.
 
  (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.tex
@@ -575,17 +576,17 @@ Overfull \hbox (2.16803pt too wide) in paragraph at lines 10--23
 
 Underfull \vbox (badness 5637) has occurred while \output is active []
 
- [29
+ [30
 
 
-] [30] [31]) [32]
+] [31] [32]) [33]
 \openout2 = `appendix2.aux'.
 
- (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.tex [33
+ (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.tex [34
 
 
 
-]) [34] (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.aux (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abstract.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abbreviations.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/introduction.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/background.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/relatedwork.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/approach.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux))
+]) [35] (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.aux (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/acknowledgements.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/abbreviations.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/introduction.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/background.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/relatedwork.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/approach.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/plan.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix1.aux) (/home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/appendix2.aux))
 runsystem(rm report-a.pyg)...executed.
 
  )
@@ -594,18 +595,18 @@ runsystem(rm report-a.pyg)...executed.
 ### simple group (level 1) entered at line 50 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 7820 strings out of 481239
- 138862 string characters out of 5920377
- 436186 words of memory out of 5000000
- 22851 multiletter control sequences out of 15000+600000
+ 7819 strings out of 481239
+ 138629 string characters out of 5920377
+ 435628 words of memory out of 5000000
+ 22857 multiletter control sequences out of 15000+600000
  546839 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,14n,49p,935b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.pdf (42 pages, 375915 bytes).
+Output written on /home/cambou/unsw/thesis/unsw-honours-thesis/thesis-a/report/report-a.pdf (41 pages, 447787 bytes).
 PDF statistics:
- 230 PDF objects out of 1000 (max. 8388607)
- 162 compressed objects within 2 object streams
+ 229 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
